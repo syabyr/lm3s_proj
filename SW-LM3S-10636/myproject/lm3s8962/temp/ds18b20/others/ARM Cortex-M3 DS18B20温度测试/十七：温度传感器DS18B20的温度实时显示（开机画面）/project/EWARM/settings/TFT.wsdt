@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>TFT/Debug</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>138</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>31</ColumnWidth0><ColumnWidth1>998</ColumnWidth1><ColumnWidth2>266</ColumnWidth2><ColumnWidth3>66</ColumnWidth3></Build>
+    <TerminalIO/><CodeCoveragePlugin/></Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-26267-21005</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>TFT</ExpandedNode><ExpandedNode>TFT/Doc</ExpandedNode><ExpandedNode>TFT/EWARM</ExpandedNode><ExpandedNode>TFT/FWLib</ExpandedNode><ExpandedNode>TFT/User</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-13260-21658</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>F:\STM32\STM32&#x5F00;&#x53D1;&#x677F;&#x523B;&#x5F55;&#x8D44;&#x6e90;\&#x5B9e;&#x9A8C;&#x5De5;&#x7A0B;&#x6e90;&#x6587;&#x4eF6;\&#x5341;&#x4e03;&#xFF1A;&#x6e29;&#x5eA6;&#x4F20;&#x611F;&#x5668;DS18B20&#x7684;&#x6e29;&#x5eA6;&#x5B9e;&#x65F6;&#x663e;&#x793A;&#xFF08;&#x5F00;&#x673A;&#x753B;&#x9762;&#xFF09;\project\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>624</SelStart><SelEnd>624</SelEnd></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-003be948><key>iaridepm.enu1</key></Toolbar-003be948></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>676</Bottom><Right>212</Right><x>-2</x><y>-2</y><xscreen>0</xscreen><yscreen>0</yscreen><sizeHorzCX>0</sizeHorzCX><sizeHorzCY>0</sizeHorzCY><sizeVertCX>167188</sizeVertCX><sizeVertCY>709205</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>236</Bottom><Right>1282</Right><x>-2</x><y>-2</y><xscreen>1284</xscreen><yscreen>238</yscreen><sizeHorzCX>1003125</sizeHorzCX><sizeHorzCY>248954</sizeHorzCY><sizeVertCX>0</sizeVertCX><sizeVertCY>0</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+

@@ -1,0 +1,147 @@
+#优化级别:0,1,2,3,s
+OPT = s
+
+
+#生成ROM执行文件,如果是在调试的话,而且代码比较小,那么就可以把内存当flash使用,将程序下载到内存中运行,节约运行速度并减小flash读写次数:ROM_RUN RAM_RUN
+RUN_MODE = RAM_RUN
+
+#作为开发者,一般情况下都是在调试,所以默认RAM_RUN
+ifndef RUN_MODE
+RUN_MODE = RAM_RUN
+endif
+
+#输出目录
+OUTDIR = gcc
+
+
+#所有工程的都以main.c为主要源文件
+TARGET = main
+
+#启动源文件
+STARTUP = startup_${PART}.c
+
+#交叉编译链前缀
+TCHAIN_PREFIX = arm-stellaris-eabi
+
+#定义编译命令相关
+SHELL = sh
+CC = $(TCHAIN_PREFIX)-gcc
+CPP = $(TCHAIN_PREFIX)-g++
+AR = $(TCHAIN_PREFIX)-ar
+LD = $(TCHAIN_PREFIX)-ld
+OBJCOPY = $(TCHAIN_PREFIX)-objcopy
+OBJDUMP = $(TCHAIN_PREFIX)-objdump
+SIZE = $(TCHAIN_PREFIX)-size
+NM = $(TCHAIN_PREFIX)-nm
+COPY = cp
+REMOVE_CMD = rm
+REMOVE = $(REMOVE_CMD) -f
+FLASH_TOOL = openocd
+
+
+
+
+#链接脚本的目录
+#
+LINKERSCRIPTPATH = ${ROOT}/myproject/templates
+
+
+
+
+#定义AFLAGS
+AFLAGS=-mthumb         \
+       -mcpu=cortex-m3 \
+       -MD
+
+
+
+
+
+
+#定义CFLAGS
+CFLAGS=-mthumb             \
+       -mcpu=cortex-m3     \
+       -Os                 \
+       -ffunction-sections \
+       -fdata-sections     \
+       -MD                 \
+       -std=c99            \
+       -Wall               \
+       -pedantic           \
+       -DPART_${PART}      \
+       -c
+
+ifdef DEBUG
+CFLAGS+=-g -D DEBUG
+endif
+
+#other cflags
+CFLAGS += ${CFLAGSgcc}
+
+ifdef DEBUG
+CFLAGS += -g -D DEBUG
+endif
+
+CFLAGS+=${patsubst %,-I%,${subst :, ,${IPATH}}}
+
+
+
+
+#定义CPPFLAGS
+CPPFLAGS = -fno-rtti -fno-exceptions
+CPPFLAGS += 
+
+#定义ASFLAGS
+ASFLAGS = -mthumb
+ASFLAGS += -mcpu=cortex-m3
+ASFLAGS += -MD
+ASFLAGS += ${patsubst %,-I%,${subst :, ,${IPATH}}}
+#ASFLAGS += $(patsubst %,-I%,$(IPATH))
+ASFLAGS += -I. -x assembler-with-cpp
+ASFLAGS += _D__ASSEMBLY__
+ASFLAGS += -Wa,-adhlns=$(addprefix $(OUTDIR)/, $(notdir $(addsuffix .lst, $(basename $<))))
+ASFLAGS += -Wa,-g$(DEBUG)
+
+ASFLAGS += $(ADEFS)
+
+LIBGCC=${shell ${CC} ${CFLAGS} -print-libgcc-file-name}
+LIBC=${shell ${CC} ${CFLAGS} -print-file-name=libc.a}
+LIBM=${shell ${CC} ${CFLAGS} -print-file-name=libm.a}
+
+MATH_LIB = -lm
+
+
+
+#如果是内存调试
+ifeq ($(RUN_MODE),RAM_RUN)
+LDFLAGS += -T $(LINKERSCRIPTPATH)/${PART}-ram.ld --entry ResetHandler --gc-sections
+else 
+LDFLAGS += -T $(LINKERSCRIPTPATH)/${PART}-rom.ld --entry ResetHandler --gc-sections
+endif
+
+
+#OPENOCD设置
+OOCD_LOADFILE+=$(OUTDIR)/$(TARGET).axf
+OOCD_EXE=openocd
+OOCD_CL=-d0
+OOCD_CL+=-f interface/openocd-usb.cfg -f board/stm32f10x_128k_eval.cfg
+OOCD_CL+=-c init -c targets
+OOCD_CL+=-c "halt"
+OOCD_CL+=-c "flash write_image erase $(OOCD_LOADFILE)" -c "verify_image $(OOCD_LOADFILE)"
+OOCD_CL+=-c "reset run"
+OOCD_CL+=-c shutdown
+
+
+
+
+# List of all source files.
+ALLSRC = $(ASRC) $(SRC) $(CPPSRC)
+ALLSRCBASE = $(notdir $(basename $(ALLSRC)))
+ALLOBJ  = $(addprefix $(OUTDIR)/, $(addsuffix .o, $(ALLSRCBASE)))
+
+LSTFILES = $(addprefix $(OUTDIR)/, $(addsuffix .lst, $(ALLSRCBASE)))
+DEPFILES = $(addprefix $(OUTDIR)/dep/, $(addsuffix .o.d, $(ALLSRCBASE)))
+
+
+
+

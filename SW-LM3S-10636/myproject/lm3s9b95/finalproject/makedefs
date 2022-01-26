@@ -1,0 +1,55 @@
+#定义单片机的型号
+PART = LM3S9b95
+#定义目标名称
+TARGET = main
+#定义启动源文件
+STARTUP = startup.c
+#定义交叉编译链前缀
+TCHAIN_PREFIX = arm-stellaris-eabi-
+
+ifndef RUN_MODE
+
+#***生成ROM执行文件***
+#RUN_MODE = ROM_RUN
+RUN_MODE = RAM_RUN
+endif
+
+#c源文件
+SRC = $(TARGET).c
+SRC += $(STARTUP)
+SRC += client.c
+SRC += 320x480_9B95.c
+SRC += mydelay.c
+SRC += ds18b20.c
+SRC += ../../utils/ustdlib.c
+SRC += ../../utils/uartstdio.c
+SRC += ../../third_party/uip-1.0/uip/uip.c
+SRC += ../../third_party/uip-1.0/uip/uip_arp.c
+SRC += ../../third_party/uip-1.0/uip/psock.c
+SRC += ../../third_party/uip-1.0/uip/uip_timer.c
+SRC += ../../third_party/uip-1.0/apps/httpd/httpd.c
+SRC += ../../third_party/uip-1.0/apps/dhcpc/dhcpc.c
+#cpp源文件
+CPPSRC =
+
+#asm源文件
+ASRC =
+
+#额外的include文件
+IPATH = ../..
+IPATH+=../../driverlib
+IPATH+=../../drivers
+IPATH+=../../grlib
+IPATH+=../../inc
+IPATH+=../../usblib
+IPATH+=../../utils
+IPATH+=../../third_party/uip-1.0/
+IPATH+=../../third_party/uip-1.0/apps/
+IPATH+=../../third_party/uip-1.0/uip/
+#额外的库文件目录
+EXTRA_LIBDIRS = ../../lib
+#额外的库文件
+EXTRA_LIBS =
+#静态库文件
+LIBA = ../../lib/libdriver.a
+LIBA += ../../lib/libgr.a

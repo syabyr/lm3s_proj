@@ -97,7 +97,7 @@ void Init_Timer_A(void)
   
   // 配置定时器周期
   // TimerLoadSet (unsigned long ulBase, unsigned long ulTimer, unsigned long ulValue)
-  TimerLoadSet(TIMER0_BASE, TIMER_A, 50000);
+  TimerLoadSet(TIMER0_BASE, TIMER_A, 50000000000);
   
   // 使能时钟溢出中断
   // TimerIntEnable (unsigned long ulBase, unsigned long ulIntFlags) 

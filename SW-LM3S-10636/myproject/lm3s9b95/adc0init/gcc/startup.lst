@@ -1,0 +1,192 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"startup.c"
+  14              		.section	.init,"ax",%progbits
+  15              		.align	1
+  16              		.global	ResetHandler
+  17              		.thumb
+  18              		.thumb_func
+  20              	ResetHandler:
+  21              		@ Naked Function: prologue and epilogue provided by programmer.
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              	@ 105 "startup.c" 1
+  25 0000 1248     		ldr r0,=#_estack
+  26 0002 8546     	mov sp,r0
+  27              	
+  28              	@ 0 "" 2
+  29              	@ 112 "startup.c" 1
+  30 0004 1248     		ldr r0,=#_text
+  31 0006 1349     	ldr r1,=0xe000ed08
+  32 0008 0860     	str r0,[r1]
+  33              	
+  34              	@ 0 "" 2
+  35              		.thumb
+  36 000a 0D4A     		ldr	r2, .L5
+  37 000c 0D4B     		ldr	r3, .L5+4
+  38 000e 03E0     		b	.L2
+  39              	.L3:
+  40 0010 52F8041B 		ldr	r1, [r2], #4
+  41 0014 43F8041B 		str	r1, [r3], #4
+  42              	.L2:
+  43 0018 0B49     		ldr	r1, .L5+8
+  44 001a 8B42     		cmp	r3, r1
+  45 001c F8D3     		bcc	.L3
+  46              	@ 127 "startup.c" 1
+  47 001e 0E48     		ldr r0,=_bss
+  48 0020 0E49     	ldr r1,=_ebss
+  49 0022 4FF00002 	mov r2,#0
+  50              	.thumb_func
+  51              	zero_loop:
+  52 0026 8842     	cmp r0,r1
+  53 0028 B8BF     	it lt
+  54 002a 40F8042B 	strlt r2,[r0],#4
+  55 002e FADB     	blt zero_loop
+  56              	@ 0 "" 2
+  57              	@ 139 "startup.c" 1
+  58 0030 4FF00000 		mov r0,#0
+  59 0034 4FF00001 	mov r1,#0
+  60 0038 094A     	ldr r2,=#main
+  61 003a 9047     	blx r2
+  62              	
+  63              	@ 0 "" 2
+  64              		.thumb
+  65              	.L4:
+  66 003c FEE7     		b	.L4
+  67              	.L6:
+  68 003e 00BF     		.align	2
+  69              	.L5:
+  70 0040 00000000 		.word	_etext
+  71 0044 00000000 		.word	_data
+  72 0048 00000000 		.word	_edata
+  74              		.section	.text.NmiHandler,"ax",%progbits
+  75              		.align	1
+  76              		.thumb
+  77              		.thumb_func
+  79              	NmiHandler:
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  83              	.L8:
+  84 0000 FEE7     		b	.L8
+  86              		.section	.text.FaultHandler,"ax",%progbits
+  87              		.align	1
+  88              		.thumb
+  89              		.thumb_func
+  91              	FaultHandler:
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  95              	.L10:
+  96 0000 FEE7     		b	.L10
+  98              		.section	.text.DefaultHandler,"ax",%progbits
+  99              		.align	1
+ 100              		.thumb
+ 101              		.thumb_func
+ 103              	DefaultHandler:
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              		@ link register save eliminated.
+ 107              	.L12:
+ 108 0000 FEE7     		b	.L12
+ 110              		.global	_vectorstable
+ 111              		.section	.vectors,"a",%progbits
+ 112              		.align	2
+ 115              	_vectorstable:
+ 116 0000 00000000 		.word	_estack
+ 117 0004 00000000 		.word	ResetHandler
+ 118 0008 00000000 		.word	NmiHandler
+ 119 000c 00000000 		.word	FaultHandler
+ 120 0010 00000000 		.word	DefaultHandler
+ 121 0014 00000000 		.word	DefaultHandler
+ 122 0018 00000000 		.word	DefaultHandler
+ 123 001c 00000000 		.word	0
+ 124 0020 00000000 		.word	0
+ 125 0024 00000000 		.word	0
+ 126 0028 00000000 		.word	0
+ 127 002c 00000000 		.word	DefaultHandler
+ 128 0030 00000000 		.word	DefaultHandler
+ 129 0034 00000000 		.word	0
+ 130 0038 00000000 		.word	DefaultHandler
+ 131 003c 00000000 		.word	DefaultHandler
+ 132 0040 00000000 		.word	DefaultHandler
+ 133 0044 00000000 		.word	DefaultHandler
+ 134 0048 00000000 		.word	DefaultHandler
+ 135 004c 00000000 		.word	DefaultHandler
+ 136 0050 00000000 		.word	DefaultHandler
+ 137 0054 00000000 		.word	DefaultHandler
+ 138 0058 00000000 		.word	DefaultHandler
+ 139 005c 00000000 		.word	DefaultHandler
+ 140 0060 00000000 		.word	DefaultHandler
+ 141 0064 00000000 		.word	DefaultHandler
+ 142 0068 00000000 		.word	DefaultHandler
+ 143 006c 00000000 		.word	DefaultHandler
+ 144 0070 00000000 		.word	DefaultHandler
+ 145 0074 00000000 		.word	DefaultHandler
+ 146 0078 00000000 		.word	DefaultHandler
+ 147 007c 00000000 		.word	DefaultHandler
+ 148 0080 00000000 		.word	DefaultHandler
+ 149 0084 00000000 		.word	ADC0IntHandler
+ 150 0088 00000000 		.word	DefaultHandler
+ 151 008c 00000000 		.word	Timer0IntHandler
+ 152 0090 00000000 		.word	DefaultHandler
+ 153 0094 00000000 		.word	DefaultHandler
+ 154 0098 00000000 		.word	DefaultHandler
+ 155 009c 00000000 		.word	DefaultHandler
+ 156 00a0 00000000 		.word	DefaultHandler
+ 157 00a4 00000000 		.word	DefaultHandler
+ 158 00a8 00000000 		.word	DefaultHandler
+ 159 00ac 00000000 		.word	DefaultHandler
+ 160 00b0 00000000 		.word	DefaultHandler
+ 161 00b4 00000000 		.word	DefaultHandler
+ 162 00b8 00000000 		.word	DefaultHandler
+ 163 00bc 00000000 		.word	DefaultHandler
+ 164 00c0 00000000 		.word	DefaultHandler
+ 165 00c4 00000000 		.word	DefaultHandler
+ 166 00c8 00000000 		.word	DefaultHandler
+ 167 00cc 00000000 		.word	DefaultHandler
+ 168 00d0 00000000 		.word	DefaultHandler
+ 169 00d4 00000000 		.word	DefaultHandler
+ 170 00d8 00000000 		.word	DefaultHandler
+ 171 00dc 00000000 		.word	DefaultHandler
+ 172 00e0 00000000 		.word	DefaultHandler
+ 173 00e4 00000000 		.word	DefaultHandler
+ 174 00e8 00000000 		.word	DefaultHandler
+ 175 00ec 00000000 		.word	DefaultHandler
+ 176              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 startup.c
+     /tmp/ccJGR1Y5.s:15     .init:00000000 $t
+     /tmp/ccJGR1Y5.s:20     .init:00000000 ResetHandler
+     /tmp/ccJGR1Y5.s:51     .init:00000026 zero_loop
+     /tmp/ccJGR1Y5.s:70     .init:00000040 $d
+     /tmp/ccJGR1Y5.s:75     .text.NmiHandler:00000000 $t
+     /tmp/ccJGR1Y5.s:79     .text.NmiHandler:00000000 NmiHandler
+     /tmp/ccJGR1Y5.s:87     .text.FaultHandler:00000000 $t
+     /tmp/ccJGR1Y5.s:91     .text.FaultHandler:00000000 FaultHandler
+     /tmp/ccJGR1Y5.s:99     .text.DefaultHandler:00000000 $t
+     /tmp/ccJGR1Y5.s:103    .text.DefaultHandler:00000000 DefaultHandler
+     /tmp/ccJGR1Y5.s:115    .vectors:00000000 _vectorstable
+     /tmp/ccJGR1Y5.s:112    .vectors:00000000 $d
+
+UNDEFINED SYMBOLS
+_estack
+_text
+_bss
+_ebss
+main
+_etext
+_data
+_edata
+ADC0IntHandler
+Timer0IntHandler

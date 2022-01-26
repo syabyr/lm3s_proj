@@ -1,0 +1,10 @@
+.\rvmdk\usb_mouse_structs.o: usb_mouse_structs.c
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\inc/hw_types.h
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\driverlib/usb.h
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\usblib/usblib.h
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\usblib/usbhid.h
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\usblib/usb-ids.h
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\usblib/device/usbdevice.h
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\usblib/device/usbdhid.h
+.\rvmdk\usb_mouse_structs.o: D:\StellarisWare(eklm3s3748)\usblib/device/usbdhidmouse.h
+.\rvmdk\usb_mouse_structs.o: usb_mouse_structs.h

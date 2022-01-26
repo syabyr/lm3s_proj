@@ -1,0 +1,382 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"main.c"
+  14              		.section	.text.Timer0IntHandler,"ax",%progbits
+  15              		.align	1
+  16              		.global	Timer0IntHandler
+  17              		.thumb
+  18              		.thumb_func
+  20              	Timer0IntHandler:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 10B5     		push	{r4, lr}
+  24 0002 064C     		ldr	r4, .L3
+  25 0004 0121     		movs	r1, #1
+  26 0006 0648     		ldr	r0, .L3+4
+  27 0008 FFF7FEFF 		bl	TimerIntClear
+  28 000c 2178     		ldrb	r1, [r4, #0]	@ zero_extendqisi2
+  29 000e 21B9     		cbnz	r1, .L1
+  30 0010 0448     		ldr	r0, .L3+8
+  31 0012 FFF7FEFF 		bl	ADCProcessorTrigger
+  32 0016 0123     		movs	r3, #1
+  33 0018 2370     		strb	r3, [r4, #0]
+  34              	.L1:
+  35 001a 10BD     		pop	{r4, pc}
+  36              	.L4:
+  37              		.align	2
+  38              	.L3:
+  39 001c 00000000 		.word	.LANCHOR0
+  40 0020 00000340 		.word	1073938432
+  41 0024 00800340 		.word	1073971200
+  43              		.section	.text.ADC0IntHandler,"ax",%progbits
+  44              		.align	1
+  45              		.global	ADC0IntHandler
+  46              		.thumb
+  47              		.thumb_func
+  49              	ADC0IntHandler:
+  50              		@ args = 0, pretend = 0, frame = 8
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52 0000 07B5     		push	{r0, r1, r2, lr}
+  53 0002 0A48     		ldr	r0, .L6
+  54 0004 0021     		movs	r1, #0
+  55 0006 FFF7FEFF 		bl	ADCIntClear
+  56 000a 01AA     		add	r2, sp, #4
+  57 000c 0021     		movs	r1, #0
+  58 000e 0748     		ldr	r0, .L6
+  59 0010 FFF7FEFF 		bl	ADCSequenceDataGet
+  60 0014 FFF7FEFF 		bl	IntMasterDisable
+  61 0018 0199     		ldr	r1, [sp, #4]
+  62 001a 0548     		ldr	r0, .L6+4
+  63 001c FFF7FEFF 		bl	UARTprintf
+  64 0020 FFF7FEFF 		bl	IntMasterEnable
+  65 0024 034B     		ldr	r3, .L6+8
+  66 0026 0022     		movs	r2, #0
+  67 0028 1A70     		strb	r2, [r3, #0]
+  68 002a 0EBD     		pop	{r1, r2, r3, pc}
+  69              	.L7:
+  70              		.align	2
+  71              	.L6:
+  72 002c 00800340 		.word	1073971200
+  73 0030 00000000 		.word	.LC0
+  74 0034 00000000 		.word	.LANCHOR0
+  76              		.section	.text.UARTIntHandler,"ax",%progbits
+  77              		.align	1
+  78              		.global	UARTIntHandler
+  79              		.thumb
+  80              		.thumb_func
+  82              	UARTIntHandler:
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85 0000 0121     		movs	r1, #1
+  86 0002 08B5     		push	{r3, lr}
+  87 0004 0A48     		ldr	r0, .L11
+  88 0006 FFF7FEFF 		bl	UARTIntStatus
+  89 000a 0146     		mov	r1, r0
+  90 000c 0848     		ldr	r0, .L11
+  91 000e FFF7FEFF 		bl	UARTIntClear
+  92 0012 06E0     		b	.L9
+  93              	.L10:
+  94 0014 0648     		ldr	r0, .L11
+  95 0016 FFF7FEFF 		bl	UARTCharGetNonBlocking
+  96 001a C1B2     		uxtb	r1, r0
+  97 001c 0448     		ldr	r0, .L11
+  98 001e FFF7FEFF 		bl	UARTCharPutNonBlocking
+  99              	.L9:
+ 100 0022 0348     		ldr	r0, .L11
+ 101 0024 FFF7FEFF 		bl	UARTCharsAvail
+ 102 0028 0028     		cmp	r0, #0
+ 103 002a F3D1     		bne	.L10
+ 104 002c 08BD     		pop	{r3, pc}
+ 105              	.L12:
+ 106 002e 00BF     		.align	2
+ 107              	.L11:
+ 108 0030 00C00040 		.word	1073790976
+ 110              		.section	.text.UARTSend,"ax",%progbits
+ 111              		.align	1
+ 112              		.global	UARTSend
+ 113              		.thumb
+ 114              		.thumb_func
+ 116              	UARTSend:
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119 0000 38B5     		push	{r3, r4, r5, lr}
+ 120 0002 0546     		mov	r5, r0
+ 121 0004 0C46     		mov	r4, r1
+ 122 0006 05E0     		b	.L14
+ 123              	.L15:
+ 124 0008 0448     		ldr	r0, .L16
+ 125 000a 15F8011B 		ldrb	r1, [r5], #1	@ zero_extendqisi2
+ 126 000e FFF7FEFF 		bl	UARTCharPutNonBlocking
+ 127 0012 013C     		subs	r4, r4, #1
+ 128              	.L14:
+ 129 0014 002C     		cmp	r4, #0
+ 130 0016 F7D1     		bne	.L15
+ 131 0018 38BD     		pop	{r3, r4, r5, pc}
+ 132              	.L17:
+ 133 001a 00BF     		.align	2
+ 134              	.L16:
+ 135 001c 00C00040 		.word	1073790976
+ 137              		.section	.text.Init_Timer_A,"ax",%progbits
+ 138              		.align	1
+ 139              		.global	Init_Timer_A
+ 140              		.thumb
+ 141              		.thumb_func
+ 143              	Init_Timer_A:
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146 0000 10B5     		push	{r4, lr}
+ 147 0002 1148     		ldr	r0, .L19
+ 148 0004 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 149 0008 FF21     		movs	r1, #255
+ 150 000a 1048     		ldr	r0, .L19+4
+ 151 000c FFF7FEFF 		bl	TimerDisable
+ 152 0010 0E48     		ldr	r0, .L19+4
+ 153 0012 0F49     		ldr	r1, .L19+8
+ 154 0014 FFF7FEFF 		bl	TimerConfigure
+ 155 0018 FF21     		movs	r1, #255
+ 156 001a 6422     		movs	r2, #100
+ 157 001c 0B48     		ldr	r0, .L19+4
+ 158 001e FFF7FEFF 		bl	TimerPrescaleSet
+ 159 0022 40F6C412 		movw	r2, #2500
+ 160 0026 FF21     		movs	r1, #255
+ 161 0028 0848     		ldr	r0, .L19+4
+ 162 002a FFF7FEFF 		bl	TimerLoadSet
+ 163 002e 0121     		movs	r1, #1
+ 164 0030 0648     		ldr	r0, .L19+4
+ 165 0032 FFF7FEFF 		bl	TimerIntEnable
+ 166 0036 2320     		movs	r0, #35
+ 167 0038 FFF7FEFF 		bl	IntEnable
+ 168 003c 0348     		ldr	r0, .L19+4
+ 169 003e FF21     		movs	r1, #255
+ 170 0040 BDE81040 		pop	{r4, lr}
+ 171 0044 FFF7FEBF 		b	TimerEnable
+ 172              	.L20:
+ 173              		.align	2
+ 174              	.L19:
+ 175 0048 01001010 		.word	269484033
+ 176 004c 00000340 		.word	1073938432
+ 177 0050 02000004 		.word	67108866
+ 179              		.section	.text.Init_ADC0,"ax",%progbits
+ 180              		.align	1
+ 181              		.global	Init_ADC0
+ 182              		.thumb
+ 183              		.thumb_func
+ 185              	Init_ADC0:
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188 0000 10B5     		push	{r4, lr}
+ 189 0002 1048     		ldr	r0, .L22
+ 190 0004 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 191 0008 0021     		movs	r1, #0
+ 192 000a 0F48     		ldr	r0, .L22+4
+ 193 000c FFF7FEFF 		bl	ADCSequenceDisable
+ 194 0010 0021     		movs	r1, #0
+ 195 0012 0A46     		mov	r2, r1
+ 196 0014 0B46     		mov	r3, r1
+ 197 0016 0C48     		ldr	r0, .L22+4
+ 198 0018 FFF7FEFF 		bl	ADCSequenceConfigure
+ 199 001c 0021     		movs	r1, #0
+ 200 001e 0A46     		mov	r2, r1
+ 201 0020 6123     		movs	r3, #97
+ 202 0022 0948     		ldr	r0, .L22+4
+ 203 0024 FFF7FEFF 		bl	ADCSequenceStepConfigure
+ 204 0028 0021     		movs	r1, #0
+ 205 002a 0748     		ldr	r0, .L22+4
+ 206 002c FFF7FEFF 		bl	ADCIntEnable
+ 207 0030 1E20     		movs	r0, #30
+ 208 0032 FFF7FEFF 		bl	IntEnable
+ 209 0036 0448     		ldr	r0, .L22+4
+ 210 0038 0021     		movs	r1, #0
+ 211 003a BDE81040 		pop	{r4, lr}
+ 212 003e FFF7FEBF 		b	ADCSequenceEnable
+ 213              	.L23:
+ 214 0042 00BF     		.align	2
+ 215              	.L22:
+ 216 0044 01001000 		.word	1048577
+ 217 0048 00800340 		.word	1073971200
+ 219              		.section	.text.main,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	main
+ 222              		.thumb
+ 223              		.thumb_func
+ 225              	main:
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228 0000 08B5     		push	{r3, lr}
+ 229 0002 1A48     		ldr	r0, .L26
+ 230 0004 FFF7FEFF 		bl	SysCtlClockSet
+ 231 0008 1948     		ldr	r0, .L26+4
+ 232 000a FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 233 000e 1948     		ldr	r0, .L26+8
+ 234 0010 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 235 0014 FFF7FEFF 		bl	IntMasterEnable
+ 236 0018 0321     		movs	r1, #3
+ 237 001a 1748     		ldr	r0, .L26+12
+ 238 001c FFF7FEFF 		bl	GPIOPinTypeUART
+ 239 0020 FFF7FEFF 		bl	SysCtlClockGet
+ 240 0024 4FF4E132 		mov	r2, #115200
+ 241 0028 6023     		movs	r3, #96
+ 242 002a 0146     		mov	r1, r0
+ 243 002c 1348     		ldr	r0, .L26+16
+ 244 002e FFF7FEFF 		bl	UARTConfigSetExpClk
+ 245 0032 1520     		movs	r0, #21
+ 246 0034 FFF7FEFF 		bl	IntEnable
+ 247 0038 1048     		ldr	r0, .L26+16
+ 248 003a 5021     		movs	r1, #80
+ 249 003c FFF7FEFF 		bl	UARTIntEnable
+ 250 0040 0C21     		movs	r1, #12
+ 251 0042 0F48     		ldr	r0, .L26+20
+ 252 0044 FFF7FEFF 		bl	UARTSend
+ 253 0048 0020     		movs	r0, #0
+ 254 004a FFF7FEFF 		bl	UARTStdioInit
+ 255 004e 0D48     		ldr	r0, .L26+24
+ 256 0050 FFF7FEFF 		bl	UARTprintf
+ 257 0054 FFF7FEFF 		bl	SysCtlClockGet
+ 258 0058 0146     		mov	r1, r0
+ 259 005a 0B48     		ldr	r0, .L26+28
+ 260 005c FFF7FEFF 		bl	UARTprintf
+ 261 0060 FFF7FEFF 		bl	Init_ADC0
+ 262 0064 FFF7FEFF 		bl	Init_Timer_A
+ 263              	.L25:
+ 264 0068 FEE7     		b	.L25
+ 265              	.L27:
+ 266 006a 00BF     		.align	2
+ 267              	.L26:
+ 268 006c 4005C001 		.word	29361472
+ 269 0070 01000010 		.word	268435457
+ 270 0074 01000020 		.word	536870913
+ 271 0078 00400040 		.word	1073758208
+ 272 007c 00C00040 		.word	1073790976
+ 273 0080 04000000 		.word	.LC1
+ 274 0084 11000000 		.word	.LC2
+ 275 0088 00000000 		.word	.LC0
+ 277              		.global	adc_busy
+ 278              		.global	a
+ 279              		.global	b
+ 280              		.global	c
+ 281              		.global	d
+ 282              		.global	i
+ 283              		.global	j
+ 284              		.global	temp
+ 285              		.section	.bss.d,"aw",%nobits
+ 288              	d:
+ 289 0000 00       		.space	1
+ 290              		.section	.bss.j,"aw",%nobits
+ 291              		.align	2
+ 294              	j:
+ 295 0000 00000000 		.space	4
+ 296              		.section	.data.a,"aw",%progbits
+ 299              	a:
+ 300 0000 FF       		.byte	-1
+ 301              		.section	.data.b,"aw",%progbits
+ 304              	b:
+ 305 0000 F0       		.byte	-16
+ 306              		.section	.data.c,"aw",%progbits
+ 309              	c:
+ 310 0000 0F       		.byte	15
+ 311              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 312              	.LC0:
+ 313 0000 25640A00 		.ascii	"%d\012\000"
+ 314              	.LC1:
+ 315 0004 456E7465 		.ascii	"Enter text: \000"
+ 315      72207465 
+ 315      78743A20 
+ 315      00
+ 316              	.LC2:
+ 317 0011 48656C6C 		.ascii	"Hello,world\012\000"
+ 317      6F2C776F 
+ 317      726C640A 
+ 317      00
+ 318              		.section	.bss.i,"aw",%nobits
+ 319              		.align	2
+ 322              	i:
+ 323 0000 00000000 		.space	4
+ 324              		.section	.bss.adc_busy,"aw",%nobits
+ 325              		.set	.LANCHOR0,. + 0
+ 328              	adc_busy:
+ 329 0000 00       		.space	1
+ 330              		.section	.bss.temp,"aw",%nobits
+ 331              		.align	2
+ 334              	temp:
+ 335 0000 00000000 		.space	8
+ 335      00000000 
+ 336              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccVsVNpF.s:15     .text.Timer0IntHandler:00000000 $t
+     /tmp/ccVsVNpF.s:20     .text.Timer0IntHandler:00000000 Timer0IntHandler
+     /tmp/ccVsVNpF.s:39     .text.Timer0IntHandler:0000001c $d
+     /tmp/ccVsVNpF.s:44     .text.ADC0IntHandler:00000000 $t
+     /tmp/ccVsVNpF.s:49     .text.ADC0IntHandler:00000000 ADC0IntHandler
+     /tmp/ccVsVNpF.s:72     .text.ADC0IntHandler:0000002c $d
+     /tmp/ccVsVNpF.s:77     .text.UARTIntHandler:00000000 $t
+     /tmp/ccVsVNpF.s:82     .text.UARTIntHandler:00000000 UARTIntHandler
+     /tmp/ccVsVNpF.s:108    .text.UARTIntHandler:00000030 $d
+     /tmp/ccVsVNpF.s:111    .text.UARTSend:00000000 $t
+     /tmp/ccVsVNpF.s:116    .text.UARTSend:00000000 UARTSend
+     /tmp/ccVsVNpF.s:135    .text.UARTSend:0000001c $d
+     /tmp/ccVsVNpF.s:138    .text.Init_Timer_A:00000000 $t
+     /tmp/ccVsVNpF.s:143    .text.Init_Timer_A:00000000 Init_Timer_A
+     /tmp/ccVsVNpF.s:175    .text.Init_Timer_A:00000048 $d
+     /tmp/ccVsVNpF.s:180    .text.Init_ADC0:00000000 $t
+     /tmp/ccVsVNpF.s:185    .text.Init_ADC0:00000000 Init_ADC0
+     /tmp/ccVsVNpF.s:216    .text.Init_ADC0:00000044 $d
+     /tmp/ccVsVNpF.s:220    .text.main:00000000 $t
+     /tmp/ccVsVNpF.s:225    .text.main:00000000 main
+     /tmp/ccVsVNpF.s:268    .text.main:0000006c $d
+     /tmp/ccVsVNpF.s:328    .bss.adc_busy:00000000 adc_busy
+     /tmp/ccVsVNpF.s:299    .data.a:00000000 a
+     /tmp/ccVsVNpF.s:304    .data.b:00000000 b
+     /tmp/ccVsVNpF.s:309    .data.c:00000000 c
+     /tmp/ccVsVNpF.s:288    .bss.d:00000000 d
+     /tmp/ccVsVNpF.s:322    .bss.i:00000000 i
+     /tmp/ccVsVNpF.s:294    .bss.j:00000000 j
+     /tmp/ccVsVNpF.s:334    .bss.temp:00000000 temp
+     /tmp/ccVsVNpF.s:289    .bss.d:00000000 $d
+     /tmp/ccVsVNpF.s:291    .bss.j:00000000 $d
+     /tmp/ccVsVNpF.s:319    .bss.i:00000000 $d
+     /tmp/ccVsVNpF.s:329    .bss.adc_busy:00000000 $d
+     /tmp/ccVsVNpF.s:331    .bss.temp:00000000 $d
+
+UNDEFINED SYMBOLS
+TimerIntClear
+ADCProcessorTrigger
+ADCIntClear
+ADCSequenceDataGet
+IntMasterDisable
+UARTprintf
+IntMasterEnable
+UARTIntStatus
+UARTIntClear
+UARTCharGetNonBlocking
+UARTCharPutNonBlocking
+UARTCharsAvail
+SysCtlPeripheralEnable
+TimerDisable
+TimerConfigure
+TimerPrescaleSet
+TimerLoadSet
+TimerIntEnable
+IntEnable
+TimerEnable
+ADCSequenceDisable
+ADCSequenceConfigure
+ADCSequenceStepConfigure
+ADCIntEnable
+ADCSequenceEnable
+SysCtlClockSet
+GPIOPinTypeUART
+SysCtlClockGet
+UARTConfigSetExpClk
+UARTIntEnable
+UARTStdioInit

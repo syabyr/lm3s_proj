@@ -1,0 +1,87 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"uip_timer.c"
+  14              		.section	.text.timer_set,"ax",%progbits
+  15              		.align	1
+  16              		.global	timer_set
+  17              		.thumb
+  18              		.thumb_func
+  20              	timer_set:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 10B5     		push	{r4, lr}
+  24 0002 4160     		str	r1, [r0, #4]
+  25 0004 0446     		mov	r4, r0
+  26 0006 FFF7FEFF 		bl	clock_time
+  27 000a 2060     		str	r0, [r4, #0]
+  28 000c 10BD     		pop	{r4, pc}
+  30              		.section	.text.timer_reset,"ax",%progbits
+  31              		.align	1
+  32              		.global	timer_reset
+  33              		.thumb
+  34              		.thumb_func
+  36              	timer_reset:
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 0, uses_anonymous_args = 0
+  39              		@ link register save eliminated.
+  40 0000 0268     		ldr	r2, [r0, #0]
+  41 0002 4368     		ldr	r3, [r0, #4]
+  42 0004 D318     		adds	r3, r2, r3
+  43 0006 0360     		str	r3, [r0, #0]
+  44 0008 7047     		bx	lr
+  46              		.section	.text.timer_restart,"ax",%progbits
+  47              		.align	1
+  48              		.global	timer_restart
+  49              		.thumb
+  50              		.thumb_func
+  52              	timer_restart:
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55 0000 10B5     		push	{r4, lr}
+  56 0002 0446     		mov	r4, r0
+  57 0004 FFF7FEFF 		bl	clock_time
+  58 0008 2060     		str	r0, [r4, #0]
+  59 000a 10BD     		pop	{r4, pc}
+  61              		.section	.text.timer_expired,"ax",%progbits
+  62              		.align	1
+  63              		.global	timer_expired
+  64              		.thumb
+  65              		.thumb_func
+  67              	timer_expired:
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 10B5     		push	{r4, lr}
+  71 0002 0446     		mov	r4, r0
+  72 0004 FFF7FEFF 		bl	clock_time
+  73 0008 2368     		ldr	r3, [r4, #0]
+  74 000a 6268     		ldr	r2, [r4, #4]
+  75 000c C01A     		subs	r0, r0, r3
+  76 000e 9042     		cmp	r0, r2
+  77 0010 34BF     		ite	cc
+  78 0012 0020     		movcc	r0, #0
+  79 0014 0120     		movcs	r0, #1
+  80 0016 10BD     		pop	{r4, pc}
+  82              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 uip_timer.c
+     /tmp/ccfqwaVm.s:15     .text.timer_set:00000000 $t
+     /tmp/ccfqwaVm.s:20     .text.timer_set:00000000 timer_set
+     /tmp/ccfqwaVm.s:31     .text.timer_reset:00000000 $t
+     /tmp/ccfqwaVm.s:36     .text.timer_reset:00000000 timer_reset
+     /tmp/ccfqwaVm.s:47     .text.timer_restart:00000000 $t
+     /tmp/ccfqwaVm.s:52     .text.timer_restart:00000000 timer_restart
+     /tmp/ccfqwaVm.s:62     .text.timer_expired:00000000 $t
+     /tmp/ccfqwaVm.s:67     .text.timer_expired:00000000 timer_expired
+
+UNDEFINED SYMBOLS
+clock_time

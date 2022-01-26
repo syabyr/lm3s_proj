@@ -1,0 +1,4 @@
+--device DARMSTM ".\output\stm32f10x.o" ".\output\stm32_init.o" ".\output\tft200.o" ".\output\main.o" ".\output\ds18b20.o" ".\STM32F10xR.LIB" --strict --scatter ".\Output\ds18b20.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\ds18b20.map" -o ".\Output\ds18b20.axf"

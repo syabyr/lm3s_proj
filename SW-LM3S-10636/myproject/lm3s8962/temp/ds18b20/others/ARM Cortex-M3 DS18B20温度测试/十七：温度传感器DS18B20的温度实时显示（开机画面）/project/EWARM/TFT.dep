@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1108307465</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\stm32f10x_conf.h</file>
+      <file>$PROJ_DIR$\..\..\Readme.txt</file>
+      <file>$PROJ_DIR$\..\..\library\src\stm32f10x_flash.c</file>
+      <file>$PROJ_DIR$\..\..\TFT\inc\asciilib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_vector.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_it.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\TFT.hex</file>
+      <file>$PROJ_DIR$\Debug\Exe\TFT.elf</file>
+      <file>$PROJ_DIR$\Debug\Obj\cortexm3_macro.r79</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_lib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\TFT.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_nvic.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_nvic.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ILI9325.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\TFT.pbd</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_type.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_rcc.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\18b20.pbi</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_map.h</file>
+      <file>$PROJ_DIR$\..\..\TFT\inc\fonts.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\TFT.sim</file>
+      <file>$PROJ_DIR$\..\..\TFT\inc\ILI9325.h</file>
+      <file>$PROJ_DIR$\..\..\TFT\inc\ChineseLib.h</file>
+      <file>$PROJ_DIR$\..\..\DS18B20\inc\Delay.h</file>
+      <file>$PROJ_DIR$\..\..\library\inc\cortexm3_macro.h</file>
+      <file>$PROJ_DIR$\..\..\TFT\inc\picture.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_flash.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\Delay.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_systick.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_systick.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_gpio.pbi</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_rcc.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_rcc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_lib.r79</file>
+      <file>$PROJ_DIR$\..\..\TFT\inc\TFT.h</file>
+      <file>$TOOLKIT_DIR$\lib\dl7mptnnl8n.r79</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_rtc.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_vector.r79</file>
+      <file>$PROJ_DIR$\..\stm32f10x_it.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\TFT.d79</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_lib.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\TFT.r79</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_flash.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_systick.pbi</file>
+      <file>$PROJ_DIR$\..\..\DS18B20\inc\18b20.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Delay.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_gpio.r79</file>
+      <file>$PROJ_DIR$\Debug\List\TFT.map</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r79</file>
+      <file>$PROJ_DIR$\lnkarm_flash.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\ILI9325.pbi</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_nvic.h</file>
+      <file>$PROJ_DIR$\..\..\library\inc\stm32f10x_gpio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\18b20.r79</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_flash.pbi</file>
+      <file>$PROJ_DIR$\..\..\TFT\src\TFT.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm32f10x_it.r79</file>
+      <file>$PROJ_DIR$\cortexm3_macro.s</file>
+      <file>$PROJ_DIR$\stm32f10x_vector.c</file>
+      <file>$PROJ_DIR$\..\..\library\src\stm32f10x_gpio.c</file>
+      <file>$PROJ_DIR$\..\..\library\src\stm32f10x_lib.c</file>
+      <file>$PROJ_DIR$\..\..\library\src\stm32f10x_nvic.c</file>
+      <file>$PROJ_DIR$\..\..\library\src\stm32f10x_rcc.c</file>
+      <file>$PROJ_DIR$\..\..\library\src\stm32f10x_systick.c</file>
+      <file>$PROJ_DIR$\..\..\DS18B20\src\18b20.c</file>
+      <file>$PROJ_DIR$\..\..\DS18B20\src\Delay.c</file>
+      <file>$PROJ_DIR$\..\..\TFT\src\ILI9325.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\stm32f10x_it.c</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\..\..\library\src\stm32f10x_flash.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 43 18 0 15 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43 18 0 15 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\TFT.elf</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 50 54 27 42 8 49 26 47 57 34 11 16 28 38 36</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\TFT.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 17 46 51 29 55 31 5 41 12 33 44 4</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 48 20 6 40</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\TFT.d79</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 48 20 6</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 50 54 27 13 8 49 26 47 57 34 11 16 28 38 36</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\TFT\src\TFT.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 35 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 35 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\cortexm3_macro.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 8</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\stm32f10x_vector.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 39</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 39</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\library\src\stm32f10x_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 53 18 0 15 24 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 53 18 0 15 24 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\library\src\stm32f10x_lib.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\library\src\stm32f10x_nvic.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 11</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 52 18 0 15 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52 18 0 15 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\library\src\stm32f10x_rcc.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 32 18 0 15 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32 18 0 15 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\library\src\stm32f10x_systick.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 30 18 0 15 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30 18 0 15 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\DS18B20\src\18b20.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 45 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 45 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\DS18B20\src\Delay.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\TFT\src\ILI9325.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 13</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 21 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 21 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 49</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 25 22 21 45 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 18 0 15 24 43 53 52 32 37 30 25 22 21 45 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\stm32f10x_it.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 57</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 5</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 39 9 18 0 15 24 43 53 52 32 37 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39 9 18 0 15 24 43 53 52 32 37 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\..\..\TFT\src\TFT.c</name>
+      <tool>ICCARM</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

@@ -1,0 +1,637 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"main.c"
+  14              		.section	.text.DisplayIPAddress.clone.0,"ax",%progbits
+  15              		.align	1
+  16              		.thumb
+  17              		.thumb_func
+  19              	DisplayIPAddress.clone.0:
+  20              		@ args = 0, pretend = 0, frame = 16
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+  23 0002 8178     		ldrb	r1, [r0, #2]	@ zero_extendqisi2
+  24 0004 0278     		ldrb	r2, [r0, #0]	@ zero_extendqisi2
+  25 0006 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+  26 0008 0091     		str	r1, [sp, #0]
+  27 000a C178     		ldrb	r1, [r0, #3]	@ zero_extendqisi2
+  28 000c 02A8     		add	r0, sp, #8
+  29 000e 0191     		str	r1, [sp, #4]
+  30 0010 0449     		ldr	r1, .L2
+  31 0012 FFF7FEFF 		bl	usprintf
+  32 0016 0448     		ldr	r0, .L2+4
+  33 0018 02A9     		add	r1, sp, #8
+  34 001a FFF7FEFF 		bl	UARTprintf
+  35 001e 07B0     		add	sp, sp, #28
+  36 0020 00BD     		pop	{pc}
+  37              	.L3:
+  38 0022 00BF     		.align	2
+  39              	.L2:
+  40 0024 00000000 		.word	.LC0
+  41 0028 0C000000 		.word	.LC1
+  43              		.section	.text.SysTickIntHandler,"ax",%progbits
+  44              		.align	1
+  45              		.global	SysTickIntHandler
+  46              		.thumb
+  47              		.thumb_func
+  49              	SysTickIntHandler:
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  53 0000 084B     		ldr	r3, .L5
+  54 0002 1A68     		ldr	r2, [r3, #0]
+  55 0004 0132     		adds	r2, r2, #1
+  56 0006 1A60     		str	r2, [r3, #0]
+  57 0008 074B     		ldr	r3, .L5+4
+  58 000a 03F07042 		and	r2, r3, #-268435456
+  59 000e 23F07F43 		bic	r3, r3, #-16777216
+  60 0012 42F00072 		orr	r2, r2, #33554432
+  61 0016 23F47003 		bic	r3, r3, #15728640
+  62 001a 42EA4313 		orr	r3, r2, r3, lsl #5
+  63 001e 0122     		movs	r2, #1
+  64 0020 1A60     		str	r2, [r3, #0]
+  65 0022 7047     		bx	lr
+  66              	.L6:
+  67              		.align	2
+  68              	.L5:
+  69 0024 00000000 		.word	.LANCHOR0
+  70 0028 00000000 		.word	.LANCHOR1
+  72              		.section	.text.clock_time,"ax",%progbits
+  73              		.align	1
+  74              		.global	clock_time
+  75              		.thumb
+  76              		.thumb_func
+  78              	clock_time:
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 0, uses_anonymous_args = 0
+  81              		@ link register save eliminated.
+  82 0000 014B     		ldr	r3, .L8
+  83 0002 1868     		ldr	r0, [r3, #0]
+  84 0004 7047     		bx	lr
+  85              	.L9:
+  86 0006 00BF     		.align	2
+  87              	.L8:
+  88 0008 00000000 		.word	.LANCHOR0
+  90              		.section	.text.EthernetIntHandler,"ax",%progbits
+  91              		.align	1
+  92              		.global	EthernetIntHandler
+  93              		.thumb
+  94              		.thumb_func
+  96              	EthernetIntHandler:
+  97              		@ args = 0, pretend = 0, frame = 0
+  98              		@ frame_needed = 0, uses_anonymous_args = 0
+  99 0000 10B5     		push	{r4, lr}
+ 100 0002 0021     		movs	r1, #0
+ 101 0004 0F48     		ldr	r0, .L12
+ 102 0006 FFF7FEFF 		bl	EthernetIntStatus
+ 103 000a 0446     		mov	r4, r0
+ 104 000c 2146     		mov	r1, r4
+ 105 000e 0D48     		ldr	r0, .L12
+ 106 0010 FFF7FEFF 		bl	EthernetIntClear
+ 107 0014 14F0010F 		tst	r4, #1
+ 108 0018 13D0     		beq	.L10
+ 109 001a 0B4A     		ldr	r2, .L12+4
+ 110 001c 0948     		ldr	r0, .L12
+ 111 001e 02F07043 		and	r3, r2, #-268435456
+ 112 0022 43F00073 		orr	r3, r3, #33554432
+ 113 0026 22F07F42 		bic	r2, r2, #-16777216
+ 114 002a 22F47002 		bic	r2, r2, #15728640
+ 115 002e 43F00403 		orr	r3, r3, #4
+ 116 0032 43EA4213 		orr	r3, r3, r2, lsl #5
+ 117 0036 0121     		movs	r1, #1
+ 118 0038 1960     		str	r1, [r3, #0]
+ 119 003a BDE81040 		pop	{r4, lr}
+ 120 003e FFF7FEBF 		b	EthernetIntDisable
+ 121              	.L10:
+ 122 0042 10BD     		pop	{r4, pc}
+ 123              	.L13:
+ 124              		.align	2
+ 125              	.L12:
+ 126 0044 00800440 		.word	1074036736
+ 127 0048 00000000 		.word	.LANCHOR1
+ 129              		.section	.text.UARTIntHandler,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	UARTIntHandler
+ 132              		.thumb
+ 133              		.thumb_func
+ 135              	UARTIntHandler:
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138 0000 0121     		movs	r1, #1
+ 139 0002 08B5     		push	{r3, lr}
+ 140 0004 0A48     		ldr	r0, .L17
+ 141 0006 FFF7FEFF 		bl	UARTIntStatus
+ 142 000a 0146     		mov	r1, r0
+ 143 000c 0848     		ldr	r0, .L17
+ 144 000e FFF7FEFF 		bl	UARTIntClear
+ 145 0012 06E0     		b	.L15
+ 146              	.L16:
+ 147 0014 0648     		ldr	r0, .L17
+ 148 0016 FFF7FEFF 		bl	UARTCharGetNonBlocking
+ 149 001a C1B2     		uxtb	r1, r0
+ 150 001c 0448     		ldr	r0, .L17
+ 151 001e FFF7FEFF 		bl	UARTCharPutNonBlocking
+ 152              	.L15:
+ 153 0022 0348     		ldr	r0, .L17
+ 154 0024 FFF7FEFF 		bl	UARTCharsAvail
+ 155 0028 0028     		cmp	r0, #0
+ 156 002a F3D1     		bne	.L16
+ 157 002c 08BD     		pop	{r3, pc}
+ 158              	.L18:
+ 159 002e 00BF     		.align	2
+ 160              	.L17:
+ 161 0030 00C00040 		.word	1073790976
+ 163              		.section	.text.dhcpc_configured,"ax",%progbits
+ 164              		.align	1
+ 165              		.global	dhcpc_configured
+ 166              		.thumb
+ 167              		.thumb_func
+ 169              	dhcpc_configured:
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		@ link register save eliminated.
+ 173 0000 828C     		ldrh	r2, [r0, #36]
+ 174 0002 084B     		ldr	r3, .L20
+ 175 0004 1A80     		strh	r2, [r3, #0]	@ movhi
+ 176 0006 C28C     		ldrh	r2, [r0, #38]
+ 177 0008 5A80     		strh	r2, [r3, #2]	@ movhi
+ 178 000a 028D     		ldrh	r2, [r0, #40]
+ 179 000c 064B     		ldr	r3, .L20+4
+ 180 000e 1A80     		strh	r2, [r3, #0]	@ movhi
+ 181 0010 428D     		ldrh	r2, [r0, #42]
+ 182 0012 5A80     		strh	r2, [r3, #2]	@ movhi
+ 183 0014 028E     		ldrh	r2, [r0, #48]
+ 184 0016 054B     		ldr	r3, .L20+8
+ 185 0018 1A80     		strh	r2, [r3, #0]	@ movhi
+ 186 001a 428E     		ldrh	r2, [r0, #50]
+ 187 001c 2430     		adds	r0, r0, #36
+ 188 001e 5A80     		strh	r2, [r3, #2]	@ movhi
+ 189 0020 FFF7FEBF 		b	DisplayIPAddress.clone.0
+ 190              	.L21:
+ 191              		.align	2
+ 192              	.L20:
+ 193 0024 00000000 		.word	uip_hostaddr
+ 194 0028 00000000 		.word	uip_netmask
+ 195 002c 00000000 		.word	uip_draddr
+ 197              		.section	.text.main,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	main
+ 200              		.thumb
+ 201              		.thumb_func
+ 203              	main:
+ 204              		@ args = 0, pretend = 0, frame = 16
+ 205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 206 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 207 0004 AE48     		ldr	r0, .L39
+ 208 0006 85B0     		sub	sp, sp, #20
+ 209 0008 FFF7FEFF 		bl	SysCtlClockSet
+ 210 000c AD48     		ldr	r0, .L39+4
+ 211 000e FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 212 0012 AD48     		ldr	r0, .L39+8
+ 213 0014 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 214 0018 0321     		movs	r1, #3
+ 215 001a AC48     		ldr	r0, .L39+12
+ 216 001c FFF7FEFF 		bl	GPIOPinTypeUART
+ 217 0020 FFF7FEFF 		bl	SysCtlClockGet
+ 218 0024 4FF4E132 		mov	r2, #115200
+ 219 0028 6023     		movs	r3, #96
+ 220 002a 0146     		mov	r1, r0
+ 221 002c A848     		ldr	r0, .L39+16
+ 222 002e FFF7FEFF 		bl	UARTConfigSetExpClk
+ 223 0032 1520     		movs	r0, #21
+ 224 0034 FFF7FEFF 		bl	IntEnable
+ 225 0038 5021     		movs	r1, #80
+ 226 003a A548     		ldr	r0, .L39+16
+ 227 003c FFF7FEFF 		bl	UARTIntEnable
+ 228 0040 0020     		movs	r0, #0
+ 229 0042 FFF7FEFF 		bl	UARTStdioInit
+ 230 0046 A348     		ldr	r0, .L39+20
+ 231 0048 FFF7FEFF 		bl	UARTprintf
+ 232 004c FFF7FEFF 		bl	SysCtlClockGet
+ 233 0050 0146     		mov	r1, r0
+ 234 0052 A148     		ldr	r0, .L39+24
+ 235 0054 FFF7FEFF 		bl	UARTprintf
+ 236 0058 A048     		ldr	r0, .L39+28
+ 237 005a FFF7FEFF 		bl	UARTprintf
+ 238 005e A048     		ldr	r0, .L39+32
+ 239 0060 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 240 0064 9E48     		ldr	r0, .L39+32
+ 241 0066 FFF7FEFF 		bl	SysCtlPeripheralReset
+ 242 006a 9E48     		ldr	r0, .L39+36
+ 243 006c FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 244 0070 0C21     		movs	r1, #12
+ 245 0072 9D48     		ldr	r0, .L39+40
+ 246 0074 FFF7FEFF 		bl	GPIOPinTypeEthernetLED
+ 247 0078 9C48     		ldr	r0, .L39+44
+ 248 007a FFF7FEFF 		bl	GPIOPinConfigure
+ 249 007e FFF7FEFF 		bl	SysCtlClockGet
+ 250 0082 6423     		movs	r3, #100
+ 251 0084 B0FBF3F0 		udiv	r0, r0, r3
+ 252 0088 FFF7FEFF 		bl	SysTickPeriodSet
+ 253 008c FFF7FEFF 		bl	SysTickEnable
+ 254 0090 FFF7FEFF 		bl	SysTickIntEnable
+ 255 0094 7F21     		movs	r1, #127
+ 256 0096 9648     		ldr	r0, .L39+48
+ 257 0098 FFF7FEFF 		bl	EthernetIntDisable
+ 258 009c 0021     		movs	r1, #0
+ 259 009e 9448     		ldr	r0, .L39+48
+ 260 00a0 FFF7FEFF 		bl	EthernetIntStatus
+ 261 00a4 0146     		mov	r1, r0
+ 262 00a6 9248     		ldr	r0, .L39+48
+ 263 00a8 FFF7FEFF 		bl	EthernetIntClear
+ 264 00ac FFF7FEFF 		bl	SysCtlClockGet
+ 265 00b0 0146     		mov	r1, r0
+ 266 00b2 8F48     		ldr	r0, .L39+48
+ 267 00b4 FFF7FEFF 		bl	EthernetInitExpClk
+ 268 00b8 8D48     		ldr	r0, .L39+48
+ 269 00ba 1621     		movs	r1, #22
+ 270 00bc FFF7FEFF 		bl	EthernetConfigSet
+ 271 00c0 8C48     		ldr	r0, .L39+52
+ 272 00c2 FFF7FEFF 		bl	UARTprintf
+ 273              	.L24:
+ 274 00c6 0121     		movs	r1, #1
+ 275 00c8 8948     		ldr	r0, .L39+48
+ 276 00ca FFF7FEFF 		bl	EthernetPHYRead
+ 277 00ce 10F0040F 		tst	r0, #4
+ 278 00d2 F8D0     		beq	.L24
+ 279 00d4 8848     		ldr	r0, .L39+56
+ 280 00d6 FFF7FEFF 		bl	UARTprintf
+ 281 00da 8548     		ldr	r0, .L39+48
+ 282 00dc FFF7FEFF 		bl	EthernetEnable
+ 283 00e0 3A20     		movs	r0, #58
+ 284 00e2 FFF7FEFF 		bl	IntEnable
+ 285 00e6 0121     		movs	r1, #1
+ 286 00e8 8148     		ldr	r0, .L39+48
+ 287 00ea FFF7FEFF 		bl	EthernetIntEnable
+ 288 00ee FFF7FEFF 		bl	IntMasterEnable
+ 289 00f2 FFF7FEFF 		bl	uip_init
+ 290 00f6 814B     		ldr	r3, .L39+60
+ 291 00f8 0022     		movs	r2, #0
+ 292 00fa 1A80     		strh	r2, [r3, #0]	@ movhi
+ 293 00fc 5A80     		strh	r2, [r3, #2]	@ movhi
+ 294 00fe 03A8     		add	r0, sp, #12
+ 295 0100 ADF80C20 		strh	r2, [sp, #12]	@ movhi
+ 296 0104 ADF80E20 		strh	r2, [sp, #14]	@ movhi
+ 297 0108 FFF7FEFF 		bl	DisplayIPAddress.clone.0
+ 298 010c 0023     		movs	r3, #0
+ 299 010e ADF80C30 		strh	r3, [sp, #12]	@ movhi
+ 300 0112 ADF80E30 		strh	r3, [sp, #14]	@ movhi
+ 301 0116 7A4B     		ldr	r3, .L39+64
+ 302 0118 0022     		movs	r2, #0
+ 303 011a 1A80     		strh	r2, [r3, #0]	@ movhi
+ 304 011c 5A80     		strh	r2, [r3, #2]	@ movhi
+ 305 011e 01A9     		add	r1, sp, #4
+ 306 0120 02A8     		add	r0, sp, #8
+ 307 0122 784C     		ldr	r4, .L39+68
+ 308 0124 FFF7FEFF 		bl	FlashUserGet
+ 309 0128 4FF01133 		mov	r3, #286331153
+ 310 012c 0293     		str	r3, [sp, #8]
+ 311 012e 0193     		str	r3, [sp, #4]
+ 312 0130 1123     		movs	r3, #17
+ 313 0132 2146     		mov	r1, r4
+ 314 0134 2370     		strb	r3, [r4, #0]
+ 315 0136 6370     		strb	r3, [r4, #1]
+ 316 0138 A370     		strb	r3, [r4, #2]
+ 317 013a E370     		strb	r3, [r4, #3]
+ 318 013c 2371     		strb	r3, [r4, #4]
+ 319 013e 6371     		strb	r3, [r4, #5]
+ 320 0140 6B48     		ldr	r0, .L39+48
+ 321 0142 FFF7FEFF 		bl	EthernetMACAddrSet
+ 322 0146 704B     		ldr	r3, .L39+72
+ 323 0148 2278     		ldrb	r2, [r4, #0]	@ zero_extendqisi2
+ 324 014a 7048     		ldr	r0, .L39+76
+ 325 014c 1A70     		strb	r2, [r3, #0]
+ 326 014e 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 327 0150 5A70     		strb	r2, [r3, #1]
+ 328 0152 A278     		ldrb	r2, [r4, #2]	@ zero_extendqisi2
+ 329 0154 9A70     		strb	r2, [r3, #2]
+ 330 0156 E278     		ldrb	r2, [r4, #3]	@ zero_extendqisi2
+ 331 0158 DA70     		strb	r2, [r3, #3]
+ 332 015a 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
+ 333 015c 1A71     		strb	r2, [r3, #4]
+ 334 015e 6279     		ldrb	r2, [r4, #5]	@ zero_extendqisi2
+ 335 0160 5A71     		strb	r2, [r3, #5]
+ 336 0162 FFF7FEFF 		bl	UARTprintf
+ 337 0166 2046     		mov	r0, r4
+ 338 0168 0621     		movs	r1, #6
+ 339 016a FFF7FEFF 		bl	dhcpc_init
+ 340 016e FFF7FEFF 		bl	dhcpc_request
+ 341 0172 6748     		ldr	r0, .L39+80
+ 342 0174 FFF7FEFF 		bl	UARTprintf
+ 343 0178 FFF7FEFF 		bl	httpd_init
+ 344 017c 654B     		ldr	r3, .L39+84
+ 345 017e 0024     		movs	r4, #0
+ 346 0180 03F07042 		and	r2, r3, #-268435456
+ 347 0184 23F07F46 		bic	r6, r3, #-16777216
+ 348 0188 42F00077 		orr	r7, r2, #33554432
+ 349 018c 26F47006 		bic	r6, r6, #15728640
+ 350 0190 42F00072 		orr	r2, r2, #33554432
+ 351 0194 7601     		lsls	r6, r6, #5
+ 352 0196 42F00402 		orr	r2, r2, #4
+ 353 019a 3743     		orrs	r7, r7, r6
+ 354 019c 2546     		mov	r5, r4
+ 355 019e 42EA0606 		orr	r6, r2, r6
+ 356 01a2 9A46     		mov	sl, r3
+ 357              	.L38:
+ 358 01a4 DAF80030 		ldr	r3, [sl, #0]
+ 359 01a8 002B     		cmp	r3, #0
+ 360 01aa FBD0     		beq	.L38
+ 361 01ac 3B68     		ldr	r3, [r7, #0]
+ 362 01ae 012B     		cmp	r3, #1
+ 363 01b0 03D1     		bne	.L27
+ 364 01b2 013B     		subs	r3, r3, #1
+ 365 01b4 3B60     		str	r3, [r7, #0]
+ 366 01b6 0A35     		adds	r5, r5, #10
+ 367 01b8 0A34     		adds	r4, r4, #10
+ 368              	.L27:
+ 369 01ba 4D48     		ldr	r0, .L39+48
+ 370 01bc 5649     		ldr	r1, .L39+88
+ 371 01be 40F24262 		movw	r2, #1602
+ 372 01c2 FFF7FEFF 		bl	EthernetPacketGetNonBlocking
+ 373 01c6 0028     		cmp	r0, #0
+ 374 01c8 34DD     		ble	.L28
+ 375 01ca 3168     		ldr	r1, [r6, #0]
+ 376 01cc DFF84C91 		ldr	r9, .L39+92
+ 377 01d0 0129     		cmp	r1, #1
+ 378 01d2 A9F80000 		strh	r0, [r9, #0]	@ movhi
+ 379 01d6 04D1     		bne	.L29
+ 380 01d8 0023     		movs	r3, #0
+ 381 01da 3360     		str	r3, [r6, #0]
+ 382 01dc 4448     		ldr	r0, .L39+48
+ 383 01de FFF7FEFF 		bl	EthernetIntEnable
+ 384              	.L29:
+ 385 01e2 DFF834B1 		ldr	fp, .L39+88
+ 386 01e6 BBF80C30 		ldrh	r3, [fp, #12]
+ 387 01ea 082B     		cmp	r3, #8
+ 388 01ec 13D1     		bne	.L30
+ 389 01ee 0120     		movs	r0, #1
+ 390 01f0 FFF7FEFF 		bl	uip_process
+ 391 01f4 B9F80030 		ldrh	r3, [r9, #0]
+ 392 01f8 DFF82081 		ldr	r8, .L39+92
+ 393 01fc D3B1     		cbz	r3, .L28
+ 394 01fe FFF7FEFF 		bl	uip_arp_out
+ 395 0202 3B48     		ldr	r0, .L39+48
+ 396 0204 5946     		mov	r1, fp
+ 397 0206 B8F80020 		ldrh	r2, [r8, #0]
+ 398 020a FFF7FEFF 		bl	EthernetPacketPut
+ 399 020e 0023     		movs	r3, #0
+ 400 0210 A8F80030 		strh	r3, [r8, #0]	@ movhi
+ 401 0214 0EE0     		b	.L28
+ 402              	.L30:
+ 403 0216 B3F5C16F 		cmp	r3, #1544
+ 404 021a 0BD1     		bne	.L28
+ 405 021c FFF7FEFF 		bl	uip_arp_arpin
+ 406 0220 B9F80020 		ldrh	r2, [r9, #0]
+ 407 0224 32B1     		cbz	r2, .L28
+ 408 0226 3248     		ldr	r0, .L39+48
+ 409 0228 5946     		mov	r1, fp
+ 410 022a FFF7FEFF 		bl	EthernetPacketPut
+ 411 022e 3B4B     		ldr	r3, .L39+92
+ 412 0230 0022     		movs	r2, #0
+ 413 0232 1A80     		strh	r2, [r3, #0]	@ movhi
+ 414              	.L28:
+ 415 0234 B5F5FA7F 		cmp	r5, #500
+ 416 0238 39DD     		ble	.L31
+ 417 023a 0025     		movs	r5, #0
+ 418              	.L33:
+ 419 023c 384B     		ldr	r3, .L39+96
+ 420 023e 6A01     		lsls	r2, r5, #5
+ 421 0240 D218     		adds	r2, r2, r3
+ 422 0242 384B     		ldr	r3, .L39+100
+ 423 0244 DFF8D490 		ldr	r9, .L39+92
+ 424 0248 1A60     		str	r2, [r3, #0]
+ 425 024a 0220     		movs	r0, #2
+ 426 024c FFF7FEFF 		bl	uip_process
+ 427 0250 B9F80030 		ldrh	r3, [r9, #0]
+ 428 0254 C846     		mov	r8, r9
+ 429 0256 53B1     		cbz	r3, .L32
+ 430 0258 FFF7FEFF 		bl	uip_arp_out
+ 431 025c 2448     		ldr	r0, .L39+48
+ 432 025e 2E49     		ldr	r1, .L39+88
+ 433 0260 B9F80020 		ldrh	r2, [r9, #0]
+ 434 0264 FFF7FEFF 		bl	EthernetPacketPut
+ 435 0268 0023     		movs	r3, #0
+ 436 026a A9F80030 		strh	r3, [r9, #0]	@ movhi
+ 437              	.L32:
+ 438 026e 0135     		adds	r5, r5, #1
+ 439 0270 022D     		cmp	r5, #2
+ 440 0272 E3D1     		bne	.L33
+ 441 0274 023D     		subs	r5, r5, #2
+ 442              	.L35:
+ 443 0276 2C4B     		ldr	r3, .L39+104
+ 444 0278 AA01     		lsls	r2, r5, #6
+ 445 027a D218     		adds	r2, r2, r3
+ 446 027c 2B4B     		ldr	r3, .L39+108
+ 447 027e 0520     		movs	r0, #5
+ 448 0280 1A60     		str	r2, [r3, #0]
+ 449 0282 FFF7FEFF 		bl	uip_process
+ 450 0286 B8F80030 		ldrh	r3, [r8, #0]
+ 451 028a DFF89090 		ldr	r9, .L39+92
+ 452 028e 53B1     		cbz	r3, .L34
+ 453 0290 FFF7FEFF 		bl	uip_arp_out
+ 454 0294 B9F80020 		ldrh	r2, [r9, #0]
+ 455 0298 1548     		ldr	r0, .L39+48
+ 456 029a 1F49     		ldr	r1, .L39+88
+ 457 029c FFF7FEFF 		bl	EthernetPacketPut
+ 458 02a0 0022     		movs	r2, #0
+ 459 02a2 A9F80020 		strh	r2, [r9, #0]	@ movhi
+ 460              	.L34:
+ 461 02a6 0135     		adds	r5, r5, #1
+ 462 02a8 042D     		cmp	r5, #4
+ 463 02aa E4D1     		bne	.L35
+ 464 02ac 043D     		subs	r5, r5, #4
+ 465              	.L31:
+ 466 02ae 42F21073 		movw	r3, #10000
+ 467 02b2 9C42     		cmp	r4, r3
+ 468 02b4 7FF776AF 		ble	.L38
+ 469 02b8 FFF7FEFF 		bl	uip_arp_timer
+ 470 02bc 0024     		movs	r4, #0
+ 471 02be 71E7     		b	.L38
+ 472              	.L40:
+ 473              		.align	2
+ 474              	.L39:
+ 475 02c0 4005C001 		.word	29361472
+ 476 02c4 01000010 		.word	268435457
+ 477 02c8 01000020 		.word	536870913
+ 478 02cc 00400040 		.word	1073758208
+ 479 02d0 00C00040 		.word	1073790976
+ 480 02d4 10000000 		.word	.LC2
+ 481 02d8 1D000000 		.word	.LC3
+ 482 02dc 35000000 		.word	.LC4
+ 483 02e0 00501020 		.word	537939968
+ 484 02e4 20000020 		.word	536870944
+ 485 02e8 00500240 		.word	1073893376
+ 486 02ec 010C0500 		.word	330753
+ 487 02f0 00800440 		.word	1074036736
+ 488 02f4 49000000 		.word	.LC5
+ 489 02f8 65000000 		.word	.LC6
+ 490 02fc 00000000 		.word	uip_hostaddr
+ 491 0300 00000000 		.word	uip_netmask
+ 492 0304 00000000 		.word	.LANCHOR2
+ 493 0308 00000000 		.word	uip_ethaddr
+ 494 030c 78000000 		.word	.LC7
+ 495 0310 8E000000 		.word	.LC8
+ 496 0314 00000000 		.word	.LANCHOR1
+ 497 0318 00000000 		.word	uip_buf
+ 498 031c 00000000 		.word	uip_len
+ 499 0320 00000000 		.word	uip_conns
+ 500 0324 00000000 		.word	uip_conn
+ 501 0328 00000000 		.word	uip_udp_conns
+ 502 032c 00000000 		.word	uip_udp_conn
+ 504              		.global	g_ulTickCounter
+ 505              		.section	.bss.g_ulTickCounter,"aw",%nobits
+ 506              		.align	2
+ 507              		.set	.LANCHOR0,. + 0
+ 510              	g_ulTickCounter:
+ 511 0000 00000000 		.space	4
+ 512              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 513              	.LC0:
+ 514 0000 25642E25 		.ascii	"%d.%d.%d.%d\000"
+ 514      642E2564 
+ 514      2E256400 
+ 515              	.LC1:
+ 516 000c 25730A00 		.ascii	"%s\012\000"
+ 517              	.LC2:
+ 518 0010 48656C6C 		.ascii	"Hello,world\012\000"
+ 518      6F2C776F 
+ 518      726C640A 
+ 518      00
+ 519              	.LC3:
+ 520 001d 43505520 		.ascii	"CPU Frequency is %d Hz\012\000"
+ 520      46726571 
+ 520      75656E63 
+ 520      79206973 
+ 520      20256420 
+ 521              	.LC4:
+ 522 0035 45746865 		.ascii	"Ethernet with uIP:\012\000"
+ 522      726E6574 
+ 522      20776974 
+ 522      68207549 
+ 522      503A0A00 
+ 523              	.LC5:
+ 524 0049 57616974 		.ascii	"Waiting for Link..........\012\000"
+ 524      696E6720 
+ 524      666F7220 
+ 524      4C696E6B 
+ 524      2E2E2E2E 
+ 525              	.LC6:
+ 526 0065 4C696E6B 		.ascii	"Link Established.\012\000"
+ 526      20457374 
+ 526      61626C69 
+ 526      73686564 
+ 526      2E0A00
+ 527              	.LC7:
+ 528 0078 5573696E 		.ascii	"Using DHCP..........\012\000"
+ 528      67204448 
+ 528      43502E2E 
+ 528      2E2E2E2E 
+ 528      2E2E2E2E 
+ 529              	.LC8:
+ 530 008e 44484350 		.ascii	"DHCP Finished..........\012\000"
+ 530      2046696E 
+ 530      69736865 
+ 530      642E2E2E 
+ 530      2E2E2E2E 
+ 531              		.section	.bss.g_ulFlags,"aw",%nobits
+ 532              		.align	2
+ 533              		.set	.LANCHOR1,. + 0
+ 536              	g_ulFlags:
+ 537 0000 00000000 		.space	4
+ 538              		.section	.bss.sTempAddr.1911,"aw",%nobits
+ 539              		.set	.LANCHOR2,. + 0
+ 542              	sTempAddr.1911:
+ 543 0000 00000000 		.space	6
+ 543      0000
+ 544              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccGpGX1R.s:15     .text.DisplayIPAddress.clone.0:00000000 $t
+     /tmp/ccGpGX1R.s:19     .text.DisplayIPAddress.clone.0:00000000 DisplayIPAddress.clone.0
+     /tmp/ccGpGX1R.s:40     .text.DisplayIPAddress.clone.0:00000024 $d
+     /tmp/ccGpGX1R.s:44     .text.SysTickIntHandler:00000000 $t
+     /tmp/ccGpGX1R.s:49     .text.SysTickIntHandler:00000000 SysTickIntHandler
+     /tmp/ccGpGX1R.s:69     .text.SysTickIntHandler:00000024 $d
+     /tmp/ccGpGX1R.s:73     .text.clock_time:00000000 $t
+     /tmp/ccGpGX1R.s:78     .text.clock_time:00000000 clock_time
+     /tmp/ccGpGX1R.s:88     .text.clock_time:00000008 $d
+     /tmp/ccGpGX1R.s:91     .text.EthernetIntHandler:00000000 $t
+     /tmp/ccGpGX1R.s:96     .text.EthernetIntHandler:00000000 EthernetIntHandler
+     /tmp/ccGpGX1R.s:126    .text.EthernetIntHandler:00000044 $d
+     /tmp/ccGpGX1R.s:130    .text.UARTIntHandler:00000000 $t
+     /tmp/ccGpGX1R.s:135    .text.UARTIntHandler:00000000 UARTIntHandler
+     /tmp/ccGpGX1R.s:161    .text.UARTIntHandler:00000030 $d
+     /tmp/ccGpGX1R.s:164    .text.dhcpc_configured:00000000 $t
+     /tmp/ccGpGX1R.s:169    .text.dhcpc_configured:00000000 dhcpc_configured
+     /tmp/ccGpGX1R.s:193    .text.dhcpc_configured:00000024 $d
+     /tmp/ccGpGX1R.s:198    .text.main:00000000 $t
+     /tmp/ccGpGX1R.s:203    .text.main:00000000 main
+     /tmp/ccGpGX1R.s:475    .text.main:000002c0 $d
+     /tmp/ccGpGX1R.s:510    .bss.g_ulTickCounter:00000000 g_ulTickCounter
+     /tmp/ccGpGX1R.s:506    .bss.g_ulTickCounter:00000000 $d
+     /tmp/ccGpGX1R.s:532    .bss.g_ulFlags:00000000 $d
+     /tmp/ccGpGX1R.s:536    .bss.g_ulFlags:00000000 g_ulFlags
+     /tmp/ccGpGX1R.s:542    .bss.sTempAddr.1911:00000000 sTempAddr.1911
+     /tmp/ccGpGX1R.s:543    .bss.sTempAddr.1911:00000000 $d
+
+UNDEFINED SYMBOLS
+usprintf
+UARTprintf
+EthernetIntStatus
+EthernetIntClear
+EthernetIntDisable
+UARTIntStatus
+UARTIntClear
+UARTCharGetNonBlocking
+UARTCharPutNonBlocking
+UARTCharsAvail
+uip_hostaddr
+uip_netmask
+uip_draddr
+SysCtlClockSet
+SysCtlPeripheralEnable
+GPIOPinTypeUART
+SysCtlClockGet
+UARTConfigSetExpClk
+IntEnable
+UARTIntEnable
+UARTStdioInit
+SysCtlPeripheralReset
+GPIOPinTypeEthernetLED
+GPIOPinConfigure
+SysTickPeriodSet
+SysTickEnable
+SysTickIntEnable
+EthernetInitExpClk
+EthernetConfigSet
+EthernetPHYRead
+EthernetEnable
+EthernetIntEnable
+IntMasterEnable
+uip_init
+FlashUserGet
+EthernetMACAddrSet
+dhcpc_init
+dhcpc_request
+httpd_init
+EthernetPacketGetNonBlocking
+uip_process
+uip_arp_out
+EthernetPacketPut
+uip_arp_arpin
+uip_arp_timer
+uip_ethaddr
+uip_buf
+uip_len
+uip_conns
+uip_conn
+uip_udp_conns
+uip_udp_conn

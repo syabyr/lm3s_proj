@@ -1,0 +1,256 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"usb_mouse_structs.c"
+  14              		.global	g_pLangDescriptor
+  15              		.global	g_pManufacturerString
+  16              		.global	g_pProductString
+  17              		.global	g_pSerialNumberString
+  18              		.global	g_pHIDInterfaceString
+  19              		.global	g_pConfigString
+  20              		.global	g_pStringDescriptors
+  21              		.global	g_sMouseDevice
+  22              		.global	g_sMouseInstance
+  23              		.section	.rodata.g_pStringDescriptors,"a",%progbits
+  24              		.align	2
+  27              	g_pStringDescriptors:
+  28 0000 00000000 		.word	g_pLangDescriptor
+  29 0004 00000000 		.word	g_pManufacturerString
+  30 0008 00000000 		.word	g_pProductString
+  31 000c 00000000 		.word	g_pSerialNumberString
+  32 0010 00000000 		.word	g_pHIDInterfaceString
+  33 0014 00000000 		.word	g_pConfigString
+  34              		.section	.rodata.g_sMouseDevice,"a",%progbits
+  35              		.align	2
+  38              	g_sMouseDevice:
+  39 0000 BE1C     		.short	7358
+  40 0002 0000     		.short	0
+  41 0004 F401     		.short	500
+  42 0006 C0       		.byte	-64
+  43 0007 00       		.space	1
+  44 0008 00000000 		.word	MouseHandler
+  45 000c 00000000 		.word	g_sMouseDevice
+  46 0010 00000000 		.word	g_pStringDescriptors
+  47 0014 06000000 		.word	6
+  48 0018 00000000 		.word	g_sMouseInstance
+  49              		.section	.rodata.g_pManufacturerString,"a",%progbits
+  52              	g_pManufacturerString:
+  53 0000 24       		.byte	36
+  54 0001 03       		.byte	3
+  55 0002 54       		.byte	84
+  56 0003 00       		.byte	0
+  57 0004 65       		.byte	101
+  58 0005 00       		.byte	0
+  59 0006 78       		.byte	120
+  60 0007 00       		.byte	0
+  61 0008 61       		.byte	97
+  62 0009 00       		.byte	0
+  63 000a 73       		.byte	115
+  64 000b 00       		.byte	0
+  65 000c 20       		.byte	32
+  66 000d 00       		.byte	0
+  67 000e 49       		.byte	73
+  68 000f 00       		.byte	0
+  69 0010 6E       		.byte	110
+  70 0011 00       		.byte	0
+  71 0012 73       		.byte	115
+  72 0013 00       		.byte	0
+  73 0014 74       		.byte	116
+  74 0015 00       		.byte	0
+  75 0016 72       		.byte	114
+  76 0017 00       		.byte	0
+  77 0018 75       		.byte	117
+  78 0019 00       		.byte	0
+  79 001a 6D       		.byte	109
+  80 001b 00       		.byte	0
+  81 001c 65       		.byte	101
+  82 001d 00       		.byte	0
+  83 001e 6E       		.byte	110
+  84 001f 00       		.byte	0
+  85 0020 74       		.byte	116
+  86 0021 00       		.byte	0
+  87 0022 73       		.byte	115
+  88 0023 00       		.byte	0
+  89              		.section	.rodata.g_pSerialNumberString,"a",%progbits
+  92              	g_pSerialNumberString:
+  93 0000 12       		.byte	18
+  94 0001 03       		.byte	3
+  95 0002 31       		.byte	49
+  96 0003 00       		.byte	0
+  97 0004 32       		.byte	50
+  98 0005 00       		.byte	0
+  99 0006 33       		.byte	51
+ 100 0007 00       		.byte	0
+ 101 0008 34       		.byte	52
+ 102 0009 00       		.byte	0
+ 103 000a 35       		.byte	53
+ 104 000b 00       		.byte	0
+ 105 000c 36       		.byte	54
+ 106 000d 00       		.byte	0
+ 107 000e 37       		.byte	55
+ 108 000f 00       		.byte	0
+ 109 0010 38       		.byte	56
+ 110 0011 00       		.byte	0
+ 111              		.section	.rodata.g_pProductString,"a",%progbits
+ 114              	g_pProductString:
+ 115 0000 1C       		.byte	28
+ 116 0001 03       		.byte	3
+ 117 0002 4D       		.byte	77
+ 118 0003 00       		.byte	0
+ 119 0004 6F       		.byte	111
+ 120 0005 00       		.byte	0
+ 121 0006 75       		.byte	117
+ 122 0007 00       		.byte	0
+ 123 0008 73       		.byte	115
+ 124 0009 00       		.byte	0
+ 125 000a 65       		.byte	101
+ 126 000b 00       		.byte	0
+ 127 000c 20       		.byte	32
+ 128 000d 00       		.byte	0
+ 129 000e 45       		.byte	69
+ 130 000f 00       		.byte	0
+ 131 0010 78       		.byte	120
+ 132 0011 00       		.byte	0
+ 133 0012 61       		.byte	97
+ 134 0013 00       		.byte	0
+ 135 0014 6D       		.byte	109
+ 136 0015 00       		.byte	0
+ 137 0016 70       		.byte	112
+ 138 0017 00       		.byte	0
+ 139 0018 6C       		.byte	108
+ 140 0019 00       		.byte	0
+ 141 001a 65       		.byte	101
+ 142 001b 00       		.byte	0
+ 143              		.section	.rodata.g_pHIDInterfaceString,"a",%progbits
+ 146              	g_pHIDInterfaceString:
+ 147 0000 28       		.byte	40
+ 148 0001 03       		.byte	3
+ 149 0002 48       		.byte	72
+ 150 0003 00       		.byte	0
+ 151 0004 49       		.byte	73
+ 152 0005 00       		.byte	0
+ 153 0006 44       		.byte	68
+ 154 0007 00       		.byte	0
+ 155 0008 20       		.byte	32
+ 156 0009 00       		.byte	0
+ 157 000a 4D       		.byte	77
+ 158 000b 00       		.byte	0
+ 159 000c 6F       		.byte	111
+ 160 000d 00       		.byte	0
+ 161 000e 75       		.byte	117
+ 162 000f 00       		.byte	0
+ 163 0010 73       		.byte	115
+ 164 0011 00       		.byte	0
+ 165 0012 65       		.byte	101
+ 166 0013 00       		.byte	0
+ 167 0014 20       		.byte	32
+ 168 0015 00       		.byte	0
+ 169 0016 49       		.byte	73
+ 170 0017 00       		.byte	0
+ 171 0018 6E       		.byte	110
+ 172 0019 00       		.byte	0
+ 173 001a 74       		.byte	116
+ 174 001b 00       		.byte	0
+ 175 001c 65       		.byte	101
+ 176 001d 00       		.byte	0
+ 177 001e 72       		.byte	114
+ 178 001f 00       		.byte	0
+ 179 0020 66       		.byte	102
+ 180 0021 00       		.byte	0
+ 181 0022 61       		.byte	97
+ 182 0023 00       		.byte	0
+ 183 0024 63       		.byte	99
+ 184 0025 00       		.byte	0
+ 185 0026 65       		.byte	101
+ 186 0027 00       		.byte	0
+ 187              		.section	.rodata.g_pConfigString,"a",%progbits
+ 190              	g_pConfigString:
+ 191 0000 30       		.byte	48
+ 192 0001 03       		.byte	3
+ 193 0002 48       		.byte	72
+ 194 0003 00       		.byte	0
+ 195 0004 49       		.byte	73
+ 196 0005 00       		.byte	0
+ 197 0006 44       		.byte	68
+ 198 0007 00       		.byte	0
+ 199 0008 20       		.byte	32
+ 200 0009 00       		.byte	0
+ 201 000a 4D       		.byte	77
+ 202 000b 00       		.byte	0
+ 203 000c 6F       		.byte	111
+ 204 000d 00       		.byte	0
+ 205 000e 75       		.byte	117
+ 206 000f 00       		.byte	0
+ 207 0010 73       		.byte	115
+ 208 0011 00       		.byte	0
+ 209 0012 65       		.byte	101
+ 210 0013 00       		.byte	0
+ 211 0014 20       		.byte	32
+ 212 0015 00       		.byte	0
+ 213 0016 43       		.byte	67
+ 214 0017 00       		.byte	0
+ 215 0018 6F       		.byte	111
+ 216 0019 00       		.byte	0
+ 217 001a 6E       		.byte	110
+ 218 001b 00       		.byte	0
+ 219 001c 66       		.byte	102
+ 220 001d 00       		.byte	0
+ 221 001e 69       		.byte	105
+ 222 001f 00       		.byte	0
+ 223 0020 67       		.byte	103
+ 224 0021 00       		.byte	0
+ 225 0022 75       		.byte	117
+ 226 0023 00       		.byte	0
+ 227 0024 72       		.byte	114
+ 228 0025 00       		.byte	0
+ 229 0026 61       		.byte	97
+ 230 0027 00       		.byte	0
+ 231 0028 74       		.byte	116
+ 232 0029 00       		.byte	0
+ 233 002a 69       		.byte	105
+ 234 002b 00       		.byte	0
+ 235 002c 6F       		.byte	111
+ 236 002d 00       		.byte	0
+ 237 002e 6E       		.byte	110
+ 238 002f 00       		.byte	0
+ 239              		.section	.bss.g_sMouseInstance,"aw",%nobits
+ 240              		.align	2
+ 243              	g_sMouseInstance:
+ 244 0000 00000000 		.space	112
+ 244      00000000 
+ 244      00000000 
+ 244      00000000 
+ 244      00000000 
+ 245              		.section	.rodata.g_pLangDescriptor,"a",%progbits
+ 248              	g_pLangDescriptor:
+ 249 0000 04       		.byte	4
+ 250 0001 03       		.byte	3
+ 251 0002 09       		.byte	9
+ 252 0003 04       		.byte	4
+ 253              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 usb_mouse_structs.c
+     /tmp/ccQ22wfU.s:248    .rodata.g_pLangDescriptor:00000000 g_pLangDescriptor
+     /tmp/ccQ22wfU.s:52     .rodata.g_pManufacturerString:00000000 g_pManufacturerString
+     /tmp/ccQ22wfU.s:114    .rodata.g_pProductString:00000000 g_pProductString
+     /tmp/ccQ22wfU.s:92     .rodata.g_pSerialNumberString:00000000 g_pSerialNumberString
+     /tmp/ccQ22wfU.s:146    .rodata.g_pHIDInterfaceString:00000000 g_pHIDInterfaceString
+     /tmp/ccQ22wfU.s:190    .rodata.g_pConfigString:00000000 g_pConfigString
+     /tmp/ccQ22wfU.s:27     .rodata.g_pStringDescriptors:00000000 g_pStringDescriptors
+     /tmp/ccQ22wfU.s:38     .rodata.g_sMouseDevice:00000000 g_sMouseDevice
+     /tmp/ccQ22wfU.s:243    .bss.g_sMouseInstance:00000000 g_sMouseInstance
+     /tmp/ccQ22wfU.s:24     .rodata.g_pStringDescriptors:00000000 $d
+     /tmp/ccQ22wfU.s:35     .rodata.g_sMouseDevice:00000000 $d
+     /tmp/ccQ22wfU.s:240    .bss.g_sMouseInstance:00000000 $d
+
+UNDEFINED SYMBOLS
+MouseHandler

@@ -1,0 +1,338 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"httpd.c"
+  14              		.section	.text.httpd_init,"ax",%progbits
+  15              		.align	1
+  16              		.global	httpd_init
+  17              		.thumb
+  18              		.thumb_func
+  20              	httpd_init:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 4FF4A040 		mov	r0, #20480
+  25 0004 FFF7FEBF 		b	uip_listen
+  27              		.section	.text.httpd_appcall,"ax",%progbits
+  28              		.align	1
+  29              		.global	httpd_appcall
+  30              		.thumb
+  31              		.thumb_func
+  33              	httpd_appcall:
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36 0000 474B     		ldr	r3, .L23
+  37 0002 10B5     		push	{r4, lr}
+  38 0004 1B68     		ldr	r3, [r3, #0]
+  39 0006 9A88     		ldrh	r2, [r3, #4]
+  40 0008 B2F5A04F 		cmp	r2, #20480
+  41 000c 454A     		ldr	r2, .L23+4
+  42 000e 40F08480 		bne	.L20
+  43 0012 454C     		ldr	r4, .L23+8
+  44 0014 03F11C01 		add	r1, r3, #28
+  45 0018 2160     		str	r1, [r4, #0]
+  46 001a 1178     		ldrb	r1, [r2, #0]	@ zero_extendqisi2
+  47 001c 11F0400F 		tst	r1, #64
+  48 0020 03D0     		beq	.L5
+  49 0022 0022     		movs	r2, #0
+  50 0024 1A77     		strb	r2, [r3, #28]
+  51 0026 DA83     		strh	r2, [r3, #30]	@ movhi
+  52 0028 10BD     		pop	{r4, pc}
+  53              	.L5:
+  54 002a 11F0080F 		tst	r1, #8
+  55 002e 05D0     		beq	.L7
+  56 0030 D98B     		ldrh	r1, [r3, #30]
+  57 0032 481C     		adds	r0, r1, #1
+  58 0034 0929     		cmp	r1, #9
+  59 0036 D883     		strh	r0, [r3, #30]	@ movhi
+  60 0038 71D9     		bls	.L2
+  61 003a 13E0     		b	.L9
+  62              	.L7:
+  63 003c 11F0020F 		tst	r1, #2
+  64 0040 25D0     		beq	.L8
+  65 0042 187F     		ldrb	r0, [r3, #28]	@ zero_extendqisi2
+  66 0044 0028     		cmp	r0, #0
+  67 0046 22D1     		bne	.L8
+  68 0048 384B     		ldr	r3, .L23+12
+  69 004a 1B68     		ldr	r3, [r3, #0]
+  70 004c 1978     		ldrb	r1, [r3, #0]	@ zero_extendqisi2
+  71 004e 4729     		cmp	r1, #71
+  72 0050 08D1     		bne	.L9
+  73 0052 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+  74 0054 4529     		cmp	r1, #69
+  75 0056 05D1     		bne	.L9
+  76 0058 9978     		ldrb	r1, [r3, #2]	@ zero_extendqisi2
+  77 005a 5429     		cmp	r1, #84
+  78 005c 02D1     		bne	.L9
+  79 005e D978     		ldrb	r1, [r3, #3]	@ zero_extendqisi2
+  80 0060 2029     		cmp	r1, #32
+  81 0062 01D0     		beq	.L10
+  82              	.L9:
+  83 0064 2023     		movs	r3, #32
+  84 0066 56E0     		b	.L22
+  85              	.L10:
+  86 0068 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+  87 006a 2F2A     		cmp	r2, #47
+  88 006c 06D1     		bne	.L11
+  89 006e 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+  90 0070 202B     		cmp	r3, #32
+  91 0072 03D1     		bne	.L11
+  92 0074 2E48     		ldr	r0, .L23+16
+  93 0076 40F29221 		movw	r1, #658
+  94 007a 18E0     		b	.L21
+  95              	.L11:
+  96 007c 2D48     		ldr	r0, .L23+20
+  97 007e 4FF48A71 		mov	r1, #276
+  98 0082 FFF7FEFF 		bl	uip_send
+  99 0086 2368     		ldr	r3, [r4, #0]
+ 100 0088 0322     		movs	r2, #3
+ 101 008a 5A80     		strh	r2, [r3, #2]	@ movhi
+ 102 008c 10BD     		pop	{r4, pc}
+ 103              	.L8:
+ 104 008e 11F0010F 		tst	r1, #1
+ 105 0092 44D0     		beq	.L2
+ 106 0094 D98B     		ldrh	r1, [r3, #30]
+ 107 0096 0131     		adds	r1, r1, #1
+ 108 0098 89B2     		uxth	r1, r1
+ 109 009a 0129     		cmp	r1, #1
+ 110 009c D983     		strh	r1, [r3, #30]	@ movhi
+ 111 009e 02D1     		bne	.L12
+ 112 00a0 2548     		ldr	r0, .L23+24
+ 113 00a2 0431     		adds	r1, r1, #4
+ 114 00a4 03E0     		b	.L21
+ 115              	.L12:
+ 116 00a6 0229     		cmp	r1, #2
+ 117 00a8 05D1     		bne	.L13
+ 118 00aa 2448     		ldr	r0, .L23+28
+ 119 00ac 2831     		adds	r1, r1, #40
+ 120              	.L21:
+ 121 00ae BDE81040 		pop	{r4, lr}
+ 122 00b2 FFF7FEBF 		b	uip_send
+ 123              	.L13:
+ 124 00b6 0329     		cmp	r1, #3
+ 125 00b8 2CD1     		bne	.L19
+ 126 00ba 1F4B     		ldr	r3, .L23+24
+ 127 00bc 1979     		ldrb	r1, [r3, #4]	@ zero_extendqisi2
+ 128 00be 0131     		adds	r1, r1, #1
+ 129 00c0 C9B2     		uxtb	r1, r1
+ 130 00c2 3A29     		cmp	r1, #58
+ 131 00c4 1971     		strb	r1, [r3, #4]
+ 132 00c6 04D1     		bne	.L15
+ 133 00c8 0A39     		subs	r1, r1, #10
+ 134 00ca 1971     		strb	r1, [r3, #4]
+ 135 00cc D978     		ldrb	r1, [r3, #3]	@ zero_extendqisi2
+ 136 00ce 0131     		adds	r1, r1, #1
+ 137 00d0 D970     		strb	r1, [r3, #3]
+ 138              	.L15:
+ 139 00d2 D878     		ldrb	r0, [r3, #3]	@ zero_extendqisi2
+ 140 00d4 1849     		ldr	r1, .L23+24
+ 141 00d6 3A28     		cmp	r0, #58
+ 142 00d8 04D1     		bne	.L16
+ 143 00da 0A38     		subs	r0, r0, #10
+ 144 00dc C870     		strb	r0, [r1, #3]
+ 145 00de 8878     		ldrb	r0, [r1, #2]	@ zero_extendqisi2
+ 146 00e0 0130     		adds	r0, r0, #1
+ 147 00e2 8870     		strb	r0, [r1, #2]
+ 148              	.L16:
+ 149 00e4 9878     		ldrb	r0, [r3, #2]	@ zero_extendqisi2
+ 150 00e6 1449     		ldr	r1, .L23+24
+ 151 00e8 3A28     		cmp	r0, #58
+ 152 00ea 04D1     		bne	.L17
+ 153 00ec 0A38     		subs	r0, r0, #10
+ 154 00ee 8870     		strb	r0, [r1, #2]
+ 155 00f0 4878     		ldrb	r0, [r1, #1]	@ zero_extendqisi2
+ 156 00f2 0130     		adds	r0, r0, #1
+ 157 00f4 4870     		strb	r0, [r1, #1]
+ 158              	.L17:
+ 159 00f6 5878     		ldrb	r0, [r3, #1]	@ zero_extendqisi2
+ 160 00f8 0F49     		ldr	r1, .L23+24
+ 161 00fa 3A28     		cmp	r0, #58
+ 162 00fc 04D1     		bne	.L18
+ 163 00fe 0A38     		subs	r0, r0, #10
+ 164 0100 4870     		strb	r0, [r1, #1]
+ 165 0102 0878     		ldrb	r0, [r1, #0]	@ zero_extendqisi2
+ 166 0104 0130     		adds	r0, r0, #1
+ 167 0106 0870     		strb	r0, [r1, #0]
+ 168              	.L18:
+ 169 0108 1B78     		ldrb	r3, [r3, #0]	@ zero_extendqisi2
+ 170 010a 3A2B     		cmp	r3, #58
+ 171 010c 02D1     		bne	.L19
+ 172 010e 0A4B     		ldr	r3, .L23+24
+ 173 0110 3021     		movs	r1, #48
+ 174 0112 1970     		strb	r1, [r3, #0]
+ 175              	.L19:
+ 176 0114 1023     		movs	r3, #16
+ 177              	.L22:
+ 178 0116 1370     		strb	r3, [r2, #0]
+ 179 0118 10BD     		pop	{r4, pc}
+ 180              	.L20:
+ 181 011a 2023     		movs	r3, #32
+ 182 011c 1370     		strb	r3, [r2, #0]
+ 183              	.L2:
+ 184 011e 10BD     		pop	{r4, pc}
+ 185              	.L24:
+ 186              		.align	2
+ 187              	.L23:
+ 188 0120 00000000 		.word	uip_conn
+ 189 0124 00000000 		.word	uip_flags
+ 190 0128 00000000 		.word	.LANCHOR0
+ 191 012c 00000000 		.word	uip_appdata
+ 192 0130 00000000 		.word	.LANCHOR1
+ 193 0134 00000000 		.word	.LANCHOR2
+ 194 0138 00000000 		.word	.LANCHOR3
+ 195 013c 00000000 		.word	.LANCHOR4
+ 197              		.global	hs
+ 198              		.section	.data.default_page_buf2of3,"aw",%progbits
+ 199              		.set	.LANCHOR3,. + 0
+ 202              	default_page_buf2of3:
+ 203 0000 30303030 		.ascii	"00001\000"
+ 203      3100
+ 204              		.section	.rodata.page_not_found,"a",%progbits
+ 205              		.set	.LANCHOR2,. + 0
+ 208              	page_not_found:
+ 209 0000 48545450 		.ascii	"HTTP/1.0 404 OK\015\012Server: UIP/1.0 (http://www."
+ 209      2F312E30 
+ 209      20343034 
+ 209      204F4B0D 
+ 209      0A536572 
+ 210 002d 73696373 		.ascii	"sics.se/~adam/uip/)\015\012Content-type: text/html\015"
+ 210      2E73652F 
+ 210      7E616461 
+ 210      6D2F7569 
+ 210      702F290D 
+ 211 005a 0A0D0A3C 		.ascii	"\012\015\012<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTM"
+ 211      21444F43 
+ 211      54595045 
+ 211      2048544D 
+ 211      4C205055 
+ 212 0083 4C20342E 		.ascii	"L 4.01 Transitional//ENhttp://www.w3.org/TR/html4/l"
+ 212      30312054 
+ 212      72616E73 
+ 212      6974696F 
+ 212      6E616C2F 
+ 213 00b6 6F6F7365 		.ascii	"oose.dtd\"><html><head><title>Page Not Found!</titl"
+ 213      2E647464 
+ 213      223E3C68 
+ 213      746D6C3E 
+ 213      3C686561 
+ 214 00e8 653E3C2F 		.ascii	"e></head><body>Page Not Found!</body></html>\000"
+ 214      68656164 
+ 214      3E3C626F 
+ 214      64793E50 
+ 214      61676520 
+ 215              		.section	.bss.hs,"aw",%nobits
+ 216              		.align	2
+ 217              		.set	.LANCHOR0,. + 0
+ 220              	hs:
+ 221 0000 00000000 		.space	4
+ 222              		.section	.rodata.default_page_buf1of3,"a",%progbits
+ 223              		.set	.LANCHOR1,. + 0
+ 226              	default_page_buf1of3:
+ 227 0000 48545450 		.ascii	"HTTP/1.0 200 OK\015\012Server: UIP/1.0 (http://www."
+ 227      2F312E30 
+ 227      20323030 
+ 227      204F4B0D 
+ 227      0A536572 
+ 228 002d 73696373 		.ascii	"sics.se/~adam/uip/)\015\012Content-type: text/html\015"
+ 228      2E73652F 
+ 228      7E616461 
+ 228      6D2F7569 
+ 228      702F290D 
+ 229 005a 0A0D0A3C 		.ascii	"\012\015\012<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTM"
+ 229      21444F43 
+ 229      54595045 
+ 229      2048544D 
+ 229      4C205055 
+ 230 0083 4C20342E 		.ascii	"L 4.01 Transitional//ENhttp://www.w3.org/TR/html4/l"
+ 230      30312054 
+ 230      72616E73 
+ 230      6974696F 
+ 230      6E616C2F 
+ 231 00b6 6F6F7365 		.ascii	"oose.dtd\"><html><head><title>Welcome to the uIP we"
+ 231      2E647464 
+ 231      223E3C68 
+ 231      746D6C3E 
+ 231      3C686561 
+ 232 00e8 62207365 		.ascii	"b server!</title></head><body><center><h1>&micro;IP"
+ 232      72766572 
+ 232      213C2F74 
+ 232      69746C65 
+ 232      3E3C2F68 
+ 233 011b 20576562 		.ascii	" Web Server</h1><p>This web page is served by a sma"
+ 233      20536572 
+ 233      7665723C 
+ 233      2F68313E 
+ 233      3C703E54 
+ 234 014e 6C6C2077 		.ascii	"ll web server running on top of the <a href=\"http:"
+ 234      65622073 
+ 234      65727665 
+ 234      72207275 
+ 234      6E6E696E 
+ 235 0180 2F2F7777 		.ascii	"//www.sics.se/~adam/uip/\">&micro;IP embedded TCP/I"
+ 235      772E7369 
+ 235      63732E73 
+ 235      652F7E61 
+ 235      64616D2F 
+ 236 01b2 50207374 		.ascii	"P stack</a>.<hr width=\"75%\"><p>The &micro;IP stac"
+ 236      61636B3C 
+ 236      2F613E2E 
+ 236      3C687220 
+ 236      77696474 
+ 237 01e3 6B206973 		.ascii	"k is running on a <a href=\"http://www.ti.com\">Tex"
+ 237      2072756E 
+ 237      6E696E67 
+ 237      206F6E20 
+ 237      61203C61 
+ 238 0214 61732049 		.ascii	"as Instruments</a> Stellaris<small><sup>&reg;</sup>"
+ 238      6E737472 
+ 238      756D656E 
+ 238      74733C2F 
+ 238      613E2053 
+ 239 0247 3C2F736D 		.ascii	"</small> Ethernet Evaluation Kit<hr width=\"75%\"><"
+ 239      616C6C3E 
+ 239      20457468 
+ 239      65726E65 
+ 239      74204576 
+ 240 0278 703E5468 		.ascii	"p>This page has been sent \000"
+ 240      69732070 
+ 240      61676520 
+ 240      68617320 
+ 240      6265656E 
+ 241              		.section	.rodata.default_page_buf3of3,"a",%progbits
+ 242              		.set	.LANCHOR4,. + 0
+ 245              	default_page_buf3of3:
+ 246 0000 2074696D 		.ascii	" times since reset!</center></body></html>\000"
+ 246      65732073 
+ 246      696E6365 
+ 246      20726573 
+ 246      6574213C 
+ 247              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 httpd.c
+     /tmp/ccLok67o.s:15     .text.httpd_init:00000000 $t
+     /tmp/ccLok67o.s:20     .text.httpd_init:00000000 httpd_init
+     /tmp/ccLok67o.s:28     .text.httpd_appcall:00000000 $t
+     /tmp/ccLok67o.s:33     .text.httpd_appcall:00000000 httpd_appcall
+     /tmp/ccLok67o.s:188    .text.httpd_appcall:00000120 $d
+     /tmp/ccLok67o.s:220    .bss.hs:00000000 hs
+     /tmp/ccLok67o.s:202    .data.default_page_buf2of3:00000000 default_page_buf2of3
+     /tmp/ccLok67o.s:208    .rodata.page_not_found:00000000 page_not_found
+     /tmp/ccLok67o.s:216    .bss.hs:00000000 $d
+     /tmp/ccLok67o.s:226    .rodata.default_page_buf1of3:00000000 default_page_buf1of3
+     /tmp/ccLok67o.s:245    .rodata.default_page_buf3of3:00000000 default_page_buf3of3
+
+UNDEFINED SYMBOLS
+uip_listen
+uip_send
+uip_conn
+uip_flags
+uip_appdata

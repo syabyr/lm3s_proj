@@ -1,0 +1,289 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"main.c"
+  14              		.section	.text.InitConsole,"ax",%progbits
+  15              		.align	1
+  16              		.global	InitConsole
+  17              		.thumb
+  18              		.thumb_func
+  20              	InitConsole:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 10B5     		push	{r4, lr}
+  24 0002 0948     		ldr	r0, .L2
+  25 0004 FFF7FEFF 		bl	SysCtlPeripheralEnable
+  26 0008 0120     		movs	r0, #1
+  27 000a FFF7FEFF 		bl	GPIOPinConfigure
+  28 000e 40F20140 		movw	r0, #1025
+  29 0012 FFF7FEFF 		bl	GPIOPinConfigure
+  30 0016 0548     		ldr	r0, .L2+4
+  31 0018 0321     		movs	r1, #3
+  32 001a FFF7FEFF 		bl	GPIOPinTypeUART
+  33 001e 0020     		movs	r0, #0
+  34 0020 BDE81040 		pop	{r4, lr}
+  35 0024 FFF7FEBF 		b	UARTStdioInit
+  36              	.L3:
+  37              		.align	2
+  38              	.L2:
+  39 0028 01000020 		.word	536870913
+  40 002c 00400040 		.word	1073758208
+  42              		.section	.text.Init_Timer_A,"ax",%progbits
+  43              		.align	1
+  44              		.global	Init_Timer_A
+  45              		.thumb
+  46              		.thumb_func
+  48              	Init_Timer_A:
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51 0000 10B5     		push	{r4, lr}
+  52 0002 1148     		ldr	r0, .L5
+  53 0004 FFF7FEFF 		bl	SysCtlPeripheralEnable
+  54 0008 FF21     		movs	r1, #255
+  55 000a 1048     		ldr	r0, .L5+4
+  56 000c FFF7FEFF 		bl	TimerDisable
+  57 0010 0221     		movs	r1, #2
+  58 0012 0E48     		ldr	r0, .L5+4
+  59 0014 FFF7FEFF 		bl	TimerConfigure
+  60 0018 FFF7FEFF 		bl	SysCtlClockGet
+  61 001c 4FF49672 		mov	r2, #300
+  62 0020 B0FBF2F2 		udiv	r2, r0, r2
+  63 0024 FF21     		movs	r1, #255
+  64 0026 0948     		ldr	r0, .L5+4
+  65 0028 FFF7FEFF 		bl	TimerLoadSet
+  66 002c 0121     		movs	r1, #1
+  67 002e 0748     		ldr	r0, .L5+4
+  68 0030 FFF7FEFF 		bl	TimerIntEnable
+  69 0034 2320     		movs	r0, #35
+  70 0036 FFF7FEFF 		bl	IntEnable
+  71 003a 0448     		ldr	r0, .L5+4
+  72 003c FF21     		movs	r1, #255
+  73 003e BDE81040 		pop	{r4, lr}
+  74 0042 FFF7FEBF 		b	TimerEnable
+  75              	.L6:
+  76 0046 00BF     		.align	2
+  77              	.L5:
+  78 0048 01001010 		.word	269484033
+  79 004c 00000340 		.word	1073938432
+  81              		.section	.text.Timer0IntHandler,"ax",%progbits
+  82              		.align	1
+  83              		.global	Timer0IntHandler
+  84              		.thumb
+  85              		.thumb_func
+  87              	Timer0IntHandler:
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90 0000 0121     		movs	r1, #1
+  91 0002 10B5     		push	{r4, lr}
+  92 0004 0448     		ldr	r0, .L8
+  93 0006 FFF7FEFF 		bl	TimerIntClear
+  94 000a 0448     		ldr	r0, .L8+4
+  95 000c 0321     		movs	r1, #3
+  96 000e BDE81040 		pop	{r4, lr}
+  97 0012 FFF7FEBF 		b	ADCProcessorTrigger
+  98              	.L9:
+  99 0016 00BF     		.align	2
+ 100              	.L8:
+ 101 0018 00000340 		.word	1073938432
+ 102 001c 00800340 		.word	1073971200
+ 104              		.section	.text.ADC0IntHandler,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	ADC0IntHandler
+ 107              		.thumb
+ 108              		.thumb_func
+ 110              	ADC0IntHandler:
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113 0000 10B5     		push	{r4, lr}
+ 114 0002 084C     		ldr	r4, .L11
+ 115 0004 0321     		movs	r1, #3
+ 116 0006 0848     		ldr	r0, .L11+4
+ 117 0008 FFF7FEFF 		bl	ADCIntClear
+ 118 000c 0321     		movs	r1, #3
+ 119 000e 2246     		mov	r2, r4
+ 120 0010 0548     		ldr	r0, .L11+4
+ 121 0012 FFF7FEFF 		bl	ADCSequenceDataGet
+ 122 0016 0548     		ldr	r0, .L11+8
+ 123 0018 2168     		ldr	r1, [r4, #0]
+ 124 001a BDE81040 		pop	{r4, lr}
+ 125 001e FFF7FEBF 		b	UARTprintf
+ 126              	.L12:
+ 127 0022 00BF     		.align	2
+ 128              	.L11:
+ 129 0024 00000000 		.word	.LANCHOR0
+ 130 0028 00800340 		.word	1073971200
+ 131 002c 00000000 		.word	.LC0
+ 133              		.section	.text.main,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	main
+ 136              		.thumb
+ 137              		.thumb_func
+ 139              	main:
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142 0000 08B5     		push	{r3, lr}
+ 143 0002 2148     		ldr	r0, .L15
+ 144 0004 FFF7FEFF 		bl	SysCtlClockSet
+ 145 0008 FFF7FEFF 		bl	InitConsole
+ 146 000c 1F48     		ldr	r0, .L15+4
+ 147 000e FFF7FEFF 		bl	UARTprintf
+ 148 0012 1F48     		ldr	r0, .L15+8
+ 149 0014 FFF7FEFF 		bl	UARTprintf
+ 150 0018 1E48     		ldr	r0, .L15+12
+ 151 001a FFF7FEFF 		bl	UARTprintf
+ 152 001e 1E48     		ldr	r0, .L15+16
+ 153 0020 FFF7FEFF 		bl	UARTprintf
+ 154 0024 1D48     		ldr	r0, .L15+20
+ 155 0026 FFF7FEFF 		bl	UARTprintf
+ 156 002a FFF7FEFF 		bl	Init_Timer_A
+ 157 002e 1C48     		ldr	r0, .L15+24
+ 158 0030 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 159 0034 1B48     		ldr	r0, .L15+28
+ 160 0036 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 161 003a 8021     		movs	r1, #128
+ 162 003c 1A48     		ldr	r0, .L15+32
+ 163 003e FFF7FEFF 		bl	GPIOPinTypeADC
+ 164 0042 4FF47060 		mov	r0, #3840
+ 165 0046 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 166 004a 1848     		ldr	r0, .L15+36
+ 167 004c 0321     		movs	r1, #3
+ 168 004e FFF7FEFF 		bl	ADCSequenceDisable
+ 169 0052 0022     		movs	r2, #0
+ 170 0054 1346     		mov	r3, r2
+ 171 0056 1548     		ldr	r0, .L15+36
+ 172 0058 0321     		movs	r1, #3
+ 173 005a FFF7FEFF 		bl	ADCSequenceConfigure
+ 174 005e 0022     		movs	r2, #0
+ 175 0060 6023     		movs	r3, #96
+ 176 0062 1248     		ldr	r0, .L15+36
+ 177 0064 0321     		movs	r1, #3
+ 178 0066 FFF7FEFF 		bl	ADCSequenceStepConfigure
+ 179 006a 0321     		movs	r1, #3
+ 180 006c 0F48     		ldr	r0, .L15+36
+ 181 006e FFF7FEFF 		bl	ADCIntEnable
+ 182 0072 2120     		movs	r0, #33
+ 183 0074 FFF7FEFF 		bl	IntEnable
+ 184 0078 FFF7FEFF 		bl	IntMasterEnable
+ 185 007c 0B48     		ldr	r0, .L15+36
+ 186 007e 0321     		movs	r1, #3
+ 187 0080 FFF7FEFF 		bl	ADCSequenceEnable
+ 188              	.L14:
+ 189 0084 FEE7     		b	.L14
+ 190              	.L16:
+ 191 0086 00BF     		.align	2
+ 192              	.L15:
+ 193 0088 4005C004 		.word	79693120
+ 194 008c 0C000000 		.word	.LC1
+ 195 0090 14000000 		.word	.LC2
+ 196 0094 2A000000 		.word	.LC3
+ 197 0098 3A000000 		.word	.LC4
+ 198 009c 50000000 		.word	.LC5
+ 199 00a0 01001000 		.word	1048577
+ 200 00a4 10000020 		.word	536870928
+ 201 00a8 00400240 		.word	1073889280
+ 202 00ac 00800340 		.word	1073971200
+ 204              		.global	adc_busy
+ 205              		.global	adc0Value
+ 206              		.global	ulADC0_Value
+ 207              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 208              	.LC0:
+ 209 0000 41494E30 		.ascii	"AIN0 = %4d\015\000"
+ 209      203D2025 
+ 209      34640D00 
+ 210              	.LC1:
+ 211 000c 41444320 		.ascii	"ADC ->\012\000"
+ 211      2D3E0A00 
+ 212              	.LC2:
+ 213 0014 20205479 		.ascii	"  Type: Single Ended\012\000"
+ 213      70653A20 
+ 213      53696E67 
+ 213      6C652045 
+ 213      6E646564 
+ 214              	.LC3:
+ 215 002a 20205361 		.ascii	"  Samples: One\012\000"
+ 215      6D706C65 
+ 215      733A204F 
+ 215      6E650A00 
+ 216              	.LC4:
+ 217 003a 20205570 		.ascii	"  Update Rate: 250ms\012\000"
+ 217      64617465 
+ 217      20526174 
+ 217      653A2032 
+ 217      35306D73 
+ 218              	.LC5:
+ 219 0050 2020496E 		.ascii	"  Input Pin: AIN0/PE7\012\012\000"
+ 219      70757420 
+ 219      50696E3A 
+ 219      2041494E 
+ 219      302F5045 
+ 220              		.section	.bss.ulADC0_Value,"aw",%nobits
+ 221              		.align	2
+ 222              		.set	.LANCHOR0,. + 0
+ 225              	ulADC0_Value:
+ 226 0000 00000000 		.space	4
+ 227              		.section	.bss.adc0Value,"aw",%nobits
+ 228              		.align	2
+ 231              	adc0Value:
+ 232 0000 00000000 		.space	4
+ 233              		.section	.bss.adc_busy,"aw",%nobits
+ 236              	adc_busy:
+ 237 0000 00       		.space	1
+ 238              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/cc1L4Ly0.s:15     .text.InitConsole:00000000 $t
+     /tmp/cc1L4Ly0.s:20     .text.InitConsole:00000000 InitConsole
+     /tmp/cc1L4Ly0.s:39     .text.InitConsole:00000028 $d
+     /tmp/cc1L4Ly0.s:43     .text.Init_Timer_A:00000000 $t
+     /tmp/cc1L4Ly0.s:48     .text.Init_Timer_A:00000000 Init_Timer_A
+     /tmp/cc1L4Ly0.s:78     .text.Init_Timer_A:00000048 $d
+     /tmp/cc1L4Ly0.s:82     .text.Timer0IntHandler:00000000 $t
+     /tmp/cc1L4Ly0.s:87     .text.Timer0IntHandler:00000000 Timer0IntHandler
+     /tmp/cc1L4Ly0.s:101    .text.Timer0IntHandler:00000018 $d
+     /tmp/cc1L4Ly0.s:105    .text.ADC0IntHandler:00000000 $t
+     /tmp/cc1L4Ly0.s:110    .text.ADC0IntHandler:00000000 ADC0IntHandler
+     /tmp/cc1L4Ly0.s:129    .text.ADC0IntHandler:00000024 $d
+     /tmp/cc1L4Ly0.s:134    .text.main:00000000 $t
+     /tmp/cc1L4Ly0.s:139    .text.main:00000000 main
+     /tmp/cc1L4Ly0.s:193    .text.main:00000088 $d
+     /tmp/cc1L4Ly0.s:236    .bss.adc_busy:00000000 adc_busy
+     /tmp/cc1L4Ly0.s:231    .bss.adc0Value:00000000 adc0Value
+     /tmp/cc1L4Ly0.s:225    .bss.ulADC0_Value:00000000 ulADC0_Value
+     /tmp/cc1L4Ly0.s:221    .bss.ulADC0_Value:00000000 $d
+     /tmp/cc1L4Ly0.s:228    .bss.adc0Value:00000000 $d
+     /tmp/cc1L4Ly0.s:237    .bss.adc_busy:00000000 $d
+
+UNDEFINED SYMBOLS
+SysCtlPeripheralEnable
+GPIOPinConfigure
+GPIOPinTypeUART
+UARTStdioInit
+TimerDisable
+TimerConfigure
+SysCtlClockGet
+TimerLoadSet
+TimerIntEnable
+IntEnable
+TimerEnable
+TimerIntClear
+ADCProcessorTrigger
+ADCIntClear
+ADCSequenceDataGet
+UARTprintf
+SysCtlClockSet
+GPIOPinTypeADC
+ADCSequenceDisable
+ADCSequenceConfigure
+ADCSequenceStepConfigure
+ADCIntEnable
+IntMasterEnable
+ADCSequenceEnable

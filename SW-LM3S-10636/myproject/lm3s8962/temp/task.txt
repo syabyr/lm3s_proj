@@ -1,0 +1,27 @@
+查看LM3S8962和OLED驱动芯片SSD1329的连接.
+
+OLED管脚定义:
+PA3/SSI0FSS->OLEDCSn->CSn(9),地电平时使能通信
+MCURSTn->RESn(10),低电平时复位芯片.
+PA6/CCP1->OLEDDC->D/Cn(11),Data/Command,数据和命令选择,高电平使能数据,低电平使能命令.
+PA2/SSI0CLK->SSICLK->D0/SCLK(14)
+PA5/SSI0TX->SSITX->D1/SDIN(15)
+熟悉SSD1329芯片的使用.
+按照自己的要求画出需要的图形.
+
+
+蜂鸣器管脚定义:
+PG1/PWM1->SOUND
+按键定义:
+SELECT	PF1/IDX1
+UP		PE0/PWM4
+DOWN	PE1/PWM5
+LEFT		PE2/PhB1
+RIGHT	PE3/PhA1
+
+LED定义:
+LED		PF0/PWM0
+
+
+必须得熟悉TI提供的API才能高效地进行下一步开发.
+

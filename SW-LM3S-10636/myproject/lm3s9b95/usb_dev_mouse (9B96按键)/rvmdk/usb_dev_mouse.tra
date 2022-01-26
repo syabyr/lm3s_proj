@@ -1,0 +1,24 @@
+*** Creating Trace Output File '.\rvmdk\usb_dev_mouse.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\rvmdk\startup_rvmdk.o"'
+### List of Objects: adding '".\rvmdk\uartstdio.o"'
+### List of Objects: adding '".\rvmdk\usb_dev_mouse.o"'
+### List of Objects: adding '".\rvmdk\usb_mouse_structs.o"'
+### List of Objects: adding '"..\..\..\driverlib\rvmdk\driverlib.lib"'
+### List of Objects: adding '"..\..\..\usblib\rvmdk\usblib.lib"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 ".\rvmdk\startup_rvmdk.o" ".\rvmdk\uartstdio.o" ".\rvmdk\usb_dev_mouse.o" ".\rvmdk\usb_mouse_structs.o" "..\..\..\driverlib\rvmdk\driverlib.lib" "..\..\..\usblib\rvmdk\usblib.lib" --library_type=microlib --strict --scatter ".\rvmdk\usb_dev_mouse.sct" 
+--entry Reset_Handler --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\rvmdk\usb_dev_mouse.map" -o ".\rvmdk\usb_dev_mouse.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\rvmdk\usb_dev_mouse.axf'
+### ADS-LD Command File: '.\rvmdk\usb_dev_mouse.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\rvmdk\usb_dev_mouse.lnp', Handle=0x00000544
+### Writing '.lnp' file
+### ADS-LD Command file '.\rvmdk\usb_dev_mouse.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

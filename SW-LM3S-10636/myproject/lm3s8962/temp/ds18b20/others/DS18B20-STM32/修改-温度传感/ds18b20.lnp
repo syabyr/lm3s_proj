@@ -1,0 +1,4 @@
+--device DARMSTM "stm32f10x.o" "stm32_init.o" "tft200.o" "main.o" --strict --scatter "ds18b20.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\ds18b20.map" -o "ds18b20.axf"

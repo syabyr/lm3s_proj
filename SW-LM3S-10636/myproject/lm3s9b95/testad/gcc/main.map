@@ -1,0 +1,1048 @@
+Archive member included because of file (symbol)
+
+../../lib/libdriver.a(adc.o)  gcc/main.o (ADCIntEnable)
+../../lib/libdriver.a(gpio.o)
+                              gcc/main.o (GPIOPinTypeUART)
+../../lib/libdriver.a(interrupt.o)
+                              gcc/main.o (IntMasterEnable)
+../../lib/libdriver.a(sysctl.o)
+                              gcc/uartstdio.o (SysCtlPeripheralPresent)
+../../lib/libdriver.a(timer.o)
+                              gcc/main.o (TimerEnable)
+../../lib/libdriver.a(uart.o)
+                              gcc/uartstdio.o (UARTEnable)
+../../lib/libdriver.a(cpu.o)  ../../lib/libdriver.a(interrupt.o) (CPUcpsid)
+/opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+                              gcc/ustdlib.o (memcpy)
+/opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+                              gcc/ustdlib.o (strlen)
+/opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+                              gcc/ustdlib.o (strncmp)
+/opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+                              gcc/ustdlib.o (strncpy)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 gcc/main.o
+ .data          0x00000000        0x0 gcc/main.o
+ .bss           0x00000000        0x0 gcc/main.o
+ .bss.d         0x00000000        0x1 gcc/main.o
+ .bss.j         0x00000000        0x4 gcc/main.o
+ .data.a        0x00000000        0x1 gcc/main.o
+ .data.b        0x00000000        0x1 gcc/main.o
+ .data.c        0x00000000        0x1 gcc/main.o
+ .bss.i         0x00000000        0x4 gcc/main.o
+ .bss.temp      0x00000000        0x8 gcc/main.o
+ .text          0x00000000        0x0 gcc/startup.o
+ .data          0x00000000        0x0 gcc/startup.o
+ .bss           0x00000000        0x0 gcc/startup.o
+ .text          0x00000000        0x0 gcc/ustdlib.o
+ .data          0x00000000        0x0 gcc/ustdlib.o
+ .bss           0x00000000        0x0 gcc/ustdlib.o
+ .text.uvsnprintf
+                0x00000000      0x24c gcc/ustdlib.o
+ .text.usprintf
+                0x00000000       0x1c gcc/ustdlib.o
+ .text.usnprintf
+                0x00000000       0x18 gcc/ustdlib.o
+ .text.ulocaltime
+                0x00000000       0xa0 gcc/ustdlib.o
+ .text.ustrtoul
+                0x00000000       0xb4 gcc/ustdlib.o
+ .text.ustrstr  0x00000000       0x2c gcc/ustdlib.o
+ .text.ustrnicmp
+                0x00000000       0x4e gcc/ustdlib.o
+ .text.ustrcasecmp
+                0x00000000        0x8 gcc/ustdlib.o
+ .rodata.g_psDaysToMonth
+                0x00000000       0x18 gcc/ustdlib.o
+ .rodata.str1.1
+                0x00000000       0x17 gcc/ustdlib.o
+ .text          0x00000000        0x0 gcc/uartstdio.o
+ .data          0x00000000        0x0 gcc/uartstdio.o
+ .bss           0x00000000        0x0 gcc/uartstdio.o
+ .text.UARTgets
+                0x00000000       0x78 gcc/uartstdio.o
+ .text.UARTgetc
+                0x00000000       0x14 gcc/uartstdio.o
+ .bss.bLastWasCR.1409
+                0x00000000        0x1 gcc/uartstdio.o
+ .text          0x00000000        0x0 ../../lib/libdriver.a(adc.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(adc.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(adc.o)
+ .text.ADCIntRegister
+                0x00000000       0x28 ../../lib/libdriver.a(adc.o)
+ .text.ADCIntUnregister
+                0x00000000       0x24 ../../lib/libdriver.a(adc.o)
+ .text.ADCIntDisable
+                0x00000000        0xe ../../lib/libdriver.a(adc.o)
+ .text.ADCIntStatus
+                0x00000000       0x36 ../../lib/libdriver.a(adc.o)
+ .text.ADCSequenceOverflow
+                0x00000000        0xa ../../lib/libdriver.a(adc.o)
+ .text.ADCSequenceOverflowClear
+                0x00000000        0x8 ../../lib/libdriver.a(adc.o)
+ .text.ADCSequenceUnderflow
+                0x00000000        0xa ../../lib/libdriver.a(adc.o)
+ .text.ADCSequenceUnderflowClear
+                0x00000000        0x8 ../../lib/libdriver.a(adc.o)
+ .text.ADCSoftwareOversampleConfigure
+                0x00000000       0x18 ../../lib/libdriver.a(adc.o)
+ .text.ADCSoftwareOversampleStepConfigure
+                0x00000000       0x64 ../../lib/libdriver.a(adc.o)
+ .text.ADCSoftwareOversampleDataGet
+                0x00000000       0x34 ../../lib/libdriver.a(adc.o)
+ .text.ADCHardwareOversampleConfigure
+                0x00000000       0x12 ../../lib/libdriver.a(adc.o)
+ .text.ADCComparatorConfigure
+                0x00000000        0xa ../../lib/libdriver.a(adc.o)
+ .text.ADCComparatorRegionSet
+                0x00000000        0xe ../../lib/libdriver.a(adc.o)
+ .text.ADCComparatorReset
+                0x00000000       0x1e ../../lib/libdriver.a(adc.o)
+ .text.ADCComparatorIntDisable
+                0x00000000       0x10 ../../lib/libdriver.a(adc.o)
+ .text.ADCComparatorIntEnable
+                0x00000000       0x10 ../../lib/libdriver.a(adc.o)
+ .text.ADCComparatorIntStatus
+                0x00000000        0x4 ../../lib/libdriver.a(adc.o)
+ .text.ADCComparatorIntClear
+                0x00000000        0x4 ../../lib/libdriver.a(adc.o)
+ .text.ADCReferenceSet
+                0x00000000        0xc ../../lib/libdriver.a(adc.o)
+ .text.ADCReferenceGet
+                0x00000000        0x8 ../../lib/libdriver.a(adc.o)
+ .text.ADCPhaseDelaySet
+                0x00000000        0x4 ../../lib/libdriver.a(adc.o)
+ .text.ADCPhaseDelayGet
+                0x00000000        0x4 ../../lib/libdriver.a(adc.o)
+ .bss.g_pucOversampleFactor
+                0x00000000        0x3 ../../lib/libdriver.a(adc.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(gpio.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(gpio.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOGetIntNumber
+                0x00000000       0xf4 ../../lib/libdriver.a(gpio.o)
+ .text.GPIODirModeGet
+                0x00000000       0x24 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOIntTypeSet
+                0x00000000       0x48 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOIntTypeGet
+                0x00000000       0x32 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPadConfigGet
+                0x00000000       0x78 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntEnable
+                0x00000000        0xc ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntDisable
+                0x00000000        0xe ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntStatus
+                0x00000000        0xe ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntClear
+                0x00000000        0x6 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPortIntRegister
+                0x00000000       0x1a ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPortIntUnregister
+                0x00000000       0x16 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinRead
+                0x00000000        0x6 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinWrite
+                0x00000000        0x6 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeADC
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeCAN
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeComparator
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeGPIOInput
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeGPIOOutput
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeGPIOOutputOD
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeI2C
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypePWM
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeQEI
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeSSI
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeTimer
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeUSBDigital
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeUSBAnalog
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeI2S
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeEthernetLED
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeEPI
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinConfigure
+                0x00000000       0x4c ../../lib/libdriver.a(gpio.o)
+ .rodata.g_pulGPIOBaseAddrs
+                0x00000000       0x48 ../../lib/libdriver.a(gpio.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(interrupt.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(interrupt.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(interrupt.o)
+ .text.IntDefaultHandler
+                0x00000000        0x2 ../../lib/libdriver.a(interrupt.o)
+ .text.IntRegister
+                0x00000000       0x30 ../../lib/libdriver.a(interrupt.o)
+ .text.IntUnregister
+                0x00000000       0x14 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityGroupingSet
+                0x00000000       0x1c ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityGroupingGet
+                0x00000000       0x24 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPrioritySet
+                0x00000000       0x28 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityGet
+                0x00000000       0x1c ../../lib/libdriver.a(interrupt.o)
+ .text.IntDisable
+                0x00000000       0x70 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPendSet
+                0x00000000       0x60 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPendClear
+                0x00000000       0x50 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityMaskSet
+                0x00000000        0x4 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityMaskGet
+                0x00000000        0x4 ../../lib/libdriver.a(interrupt.o)
+ vtable         0x00000000      0x11c ../../lib/libdriver.a(interrupt.o)
+ .rodata.g_pulPriority
+                0x00000000       0x20 ../../lib/libdriver.a(interrupt.o)
+ .rodata.g_pulRegs
+                0x00000000       0x48 ../../lib/libdriver.a(interrupt.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(sysctl.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(sysctl.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlSRAMSizeGet
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlFlashSizeGet
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPinPresent
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralReset
+                0x00000000       0x40 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralDisable
+                0x00000000       0x24 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralSleepEnable
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralSleepDisable
+                0x00000000       0x24 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralDeepSleepEnable
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralDeepSleepDisable
+                0x00000000       0x24 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralClockGating
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntRegister
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntUnregister
+                0x00000000       0x12 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntEnable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntDisable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntClear
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntStatus
+                0x00000000       0x18 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlLDOSet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlLDOGet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlLDOConfigSet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlReset
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlSleep
+                0x00000000        0x4 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlDeepSleep
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlResetCauseGet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlResetCauseClear
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlBrownOutConfigSet
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPWMClockSet
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPWMClockGet
+                0x00000000       0x18 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlADCSpeedSet
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlADCSpeedGet
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIOSCVerificationSet
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlMOSCVerificationSet
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPLLVerificationSet
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlClkVerificationClear
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlGPIOAHBEnable
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlGPIOAHBDisable
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlUSBPLLEnable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlUSBPLLDisable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlI2SMClkSet
+                0x00000000       0xe4 ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulDCGCRegs
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulSCGCRegs
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulSRCRRegs
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(timer.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(timer.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(timer.o)
+ .text.TimerControlLevel
+                0x00000000       0x20 ../../lib/libdriver.a(timer.o)
+ .text.TimerControlTrigger
+                0x00000000       0x20 ../../lib/libdriver.a(timer.o)
+ .text.TimerControlEvent
+                0x00000000       0x1c ../../lib/libdriver.a(timer.o)
+ .text.TimerControlStall
+                0x00000000       0x20 ../../lib/libdriver.a(timer.o)
+ .text.TimerControlWaitOnTrigger
+                0x00000000       0x34 ../../lib/libdriver.a(timer.o)
+ .text.TimerRTCEnable
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerRTCDisable
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerPrescaleGet
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerPrescaleMatchSet
+                0x00000000       0x12 ../../lib/libdriver.a(timer.o)
+ .text.TimerPrescaleMatchGet
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerLoadGet
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerValueGet
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerMatchSet
+                0x00000000       0x12 ../../lib/libdriver.a(timer.o)
+ .text.TimerMatchGet
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerIntRegister
+                0x00000000       0x60 ../../lib/libdriver.a(timer.o)
+ .text.TimerIntUnregister
+                0x00000000       0x5c ../../lib/libdriver.a(timer.o)
+ .text.TimerIntDisable
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerIntStatus
+                0x00000000        0xa ../../lib/libdriver.a(timer.o)
+ .text.TimerQuiesce
+                0x00000000       0x3c ../../lib/libdriver.a(timer.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(uart.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(uart.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(uart.o)
+ .text.UARTParityModeSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTParityModeGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFOLevelSet
+                0x00000000        0x6 ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFOLevelGet
+                0x00000000       0x10 ../../lib/libdriver.a(uart.o)
+ .text.UARTConfigGetExpClk
+                0x00000000       0x28 ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFOEnable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFODisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTEnableSIR
+                0x00000000       0x14 ../../lib/libdriver.a(uart.o)
+ .text.UARTDisableSIR
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTSmartCardEnable
+                0x00000000       0x16 ../../lib/libdriver.a(uart.o)
+ .text.UARTSmartCardDisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTModemControlSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTModemControlClear
+                0x00000000        0xe ../../lib/libdriver.a(uart.o)
+ .text.UARTModemControlGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTModemStatusGet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTFlowControlSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTFlowControlGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTTxIntModeSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTTxIntModeGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTSpaceAvail
+                0x00000000       0x10 ../../lib/libdriver.a(uart.o)
+ .text.UARTCharGet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTBreakCtl
+                0x00000000       0x18 ../../lib/libdriver.a(uart.o)
+ .text.UARTBusy
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTIntRegister
+                0x00000000       0x30 ../../lib/libdriver.a(uart.o)
+ .text.UARTIntUnregister
+                0x00000000       0x30 ../../lib/libdriver.a(uart.o)
+ .text.UARTIntDisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTDMAEnable
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTDMADisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTRxErrorGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTRxErrorClear
+                0x00000000        0x6 ../../lib/libdriver.a(uart.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(cpu.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(cpu.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(cpu.o)
+ .text.CPUprimask
+                0x00000000        0x6 ../../lib/libdriver.a(cpu.o)
+ .text.CPUwfi   0x00000000        0x4 ../../lib/libdriver.a(cpu.o)
+ .text.CPUbasepriSet
+                0x00000000        0x6 ../../lib/libdriver.a(cpu.o)
+ .text.CPUbasepriGet
+                0x00000000        0x6 ../../lib/libdriver.a(cpu.o)
+ .text          0x00000000      0x2d0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+ .data          0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+ .bss           0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+ .text          0x00000000       0x64 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .data          0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .text          0x00000000       0xa0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .data          0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .bss           0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .text          0x00000000       0x7c /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+ .data          0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+ .bss           0x00000000        0x0 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x20000000         0x00010000         xr
+SRAM             0x20010000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD gcc/main.o
+LOAD gcc/startup.o
+LOAD gcc/ustdlib.o
+LOAD gcc/uartstdio.o
+LOAD ../../lib/libdriver.a
+LOAD ../../lib/libgr.a
+LOAD /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a
+LOAD /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libm.a
+LOAD /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a
+LOAD /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/libgcc.a
+START GROUP
+LOAD /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/libgcc.a
+LOAD /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a
+END GROUP
+                0x00000800                __STACKSIZE__ = 0x800
+                0x00000080                __HEAPSIZE__ = 0x80
+                0x20018000                __SRAM_TOP__ = 0x20018000
+
+.text           0x20000000      0xddc
+                0x20000000                _text = .
+ *(.vectors)
+ .vectors       0x20000000       0xf0 gcc/startup.o
+                0x20000000                _vectorstable
+ *(.init)
+ .init          0x200000f0       0x64 gcc/startup.o
+                0x200000f0                ResetHandler
+ *(.text*)
+ .text.Timer0IntHandler
+                0x20000154       0x28 gcc/main.o
+                0x20000154                Timer0IntHandler
+ .text.ADC0IntHandler
+                0x2000017c       0x38 gcc/main.o
+                0x2000017c                ADC0IntHandler
+ .text.UARTIntHandler
+                0x200001b4       0x34 gcc/main.o
+                0x200001b4                UARTIntHandler
+ .text.UARTSend
+                0x200001e8       0x20 gcc/main.o
+                0x200001e8                UARTSend
+ .text.Init_Timer_A
+                0x20000208       0x54 gcc/main.o
+                0x20000208                Init_Timer_A
+ .text.Init_ADC0
+                0x2000025c       0x4c gcc/main.o
+                0x2000025c                Init_ADC0
+ .text.main     0x200002a8       0x8c gcc/main.o
+                0x200002a8                main
+ .text.NmiHandler
+                0x20000334        0x2 gcc/startup.o
+ .text.FaultHandler
+                0x20000336        0x2 gcc/startup.o
+ .text.DefaultHandler
+                0x20000338        0x2 gcc/startup.o
+ *fill*         0x2000033a        0x2 00
+ .text.UARTStdioInitExpClk
+                0x2000033c       0x54 gcc/uartstdio.o
+                0x2000033c                UARTStdioInitExpClk
+ .text.UARTStdioInit
+                0x20000390        0x8 gcc/uartstdio.o
+                0x20000390                UARTStdioInit
+ .text.UARTwrite
+                0x20000398       0x30 gcc/uartstdio.o
+                0x20000398                UARTwrite
+ .text.UARTprintf
+                0x200003c8      0x1b8 gcc/uartstdio.o
+                0x200003c8                UARTprintf
+ .text.ADCIntEnable
+                0x20000580        0xe ../../lib/libdriver.a(adc.o)
+                0x20000580                ADCIntEnable
+ .text.ADCIntClear
+                0x2000058e        0x8 ../../lib/libdriver.a(adc.o)
+                0x2000058e                ADCIntClear
+ .text.ADCSequenceEnable
+                0x20000596        0xe ../../lib/libdriver.a(adc.o)
+                0x20000596                ADCSequenceEnable
+ .text.ADCSequenceDisable
+                0x200005a4        0xe ../../lib/libdriver.a(adc.o)
+                0x200005a4                ADCSequenceDisable
+ .text.ADCSequenceConfigure
+                0x200005b2       0x2c ../../lib/libdriver.a(adc.o)
+                0x200005b2                ADCSequenceConfigure
+ .text.ADCSequenceStepConfigure
+                0x200005de       0x6a ../../lib/libdriver.a(adc.o)
+                0x200005de                ADCSequenceStepConfigure
+ .text.ADCSequenceDataGet
+                0x20000648       0x20 ../../lib/libdriver.a(adc.o)
+                0x20000648                ADCSequenceDataGet
+ .text.ADCProcessorTrigger
+                0x20000668       0x16 ../../lib/libdriver.a(adc.o)
+                0x20000668                ADCProcessorTrigger
+ .text.GPIODirModeSet
+                0x2000067e       0x2e ../../lib/libdriver.a(gpio.o)
+                0x2000067e                GPIODirModeSet
+ .text.GPIOPadConfigSet
+                0x200006ac       0xc8 ../../lib/libdriver.a(gpio.o)
+                0x200006ac                GPIOPadConfigSet
+ .text.GPIOPinTypeUART
+                0x20000774       0x1c ../../lib/libdriver.a(gpio.o)
+                0x20000774                GPIOPinTypeUART
+ .text.IntMasterEnable
+                0x20000790        0xa ../../lib/libdriver.a(interrupt.o)
+                0x20000790                IntMasterEnable
+ .text.IntMasterDisable
+                0x2000079a        0xa ../../lib/libdriver.a(interrupt.o)
+                0x2000079a                IntMasterDisable
+ .text.IntEnable
+                0x200007a4       0x70 ../../lib/libdriver.a(interrupt.o)
+                0x200007a4                IntEnable
+ .text.SysCtlPeripheralPresent
+                0x20000814       0x44 ../../lib/libdriver.a(sysctl.o)
+                0x20000814                SysCtlPeripheralPresent
+ .text.SysCtlPeripheralEnable
+                0x20000858       0x20 ../../lib/libdriver.a(sysctl.o)
+                0x20000858                SysCtlPeripheralEnable
+ .text.SysCtlDelay
+                0x20000878        0x6 ../../lib/libdriver.a(sysctl.o)
+                0x20000878                SysCtlDelay
+ *fill*         0x2000087e        0x2 00
+ .text.SysCtlClockSet
+                0x20000880      0x158 ../../lib/libdriver.a(sysctl.o)
+                0x20000880                SysCtlClockSet
+ .text.SysCtlClockGet
+                0x200009d8      0x1dc ../../lib/libdriver.a(sysctl.o)
+                0x200009d8                SysCtlClockGet
+ .text.TimerEnable
+                0x20000bb4       0x12 ../../lib/libdriver.a(timer.o)
+                0x20000bb4                TimerEnable
+ .text.TimerDisable
+                0x20000bc6       0x12 ../../lib/libdriver.a(timer.o)
+                0x20000bc6                TimerDisable
+ .text.TimerConfigure
+                0x20000bd8       0x20 ../../lib/libdriver.a(timer.o)
+                0x20000bd8                TimerConfigure
+ .text.TimerPrescaleSet
+                0x20000bf8       0x12 ../../lib/libdriver.a(timer.o)
+                0x20000bf8                TimerPrescaleSet
+ .text.TimerLoadSet
+                0x20000c0a       0x12 ../../lib/libdriver.a(timer.o)
+                0x20000c0a                TimerLoadSet
+ .text.TimerIntEnable
+                0x20000c1c        0x8 ../../lib/libdriver.a(timer.o)
+                0x20000c1c                TimerIntEnable
+ .text.TimerIntClear
+                0x20000c24        0x4 ../../lib/libdriver.a(timer.o)
+                0x20000c24                TimerIntClear
+ .text.UARTEnable
+                0x20000c28       0x16 ../../lib/libdriver.a(uart.o)
+                0x20000c28                UARTEnable
+ .text.UARTDisable
+                0x20000c3e       0x1e ../../lib/libdriver.a(uart.o)
+                0x20000c3e                UARTDisable
+ .text.UARTConfigSetExpClk
+                0x20000c5c       0x4e ../../lib/libdriver.a(uart.o)
+                0x20000c5c                UARTConfigSetExpClk
+ .text.UARTCharsAvail
+                0x20000caa       0x10 ../../lib/libdriver.a(uart.o)
+                0x20000caa                UARTCharsAvail
+ .text.UARTCharGetNonBlocking
+                0x20000cba       0x10 ../../lib/libdriver.a(uart.o)
+                0x20000cba                UARTCharGetNonBlocking
+ .text.UARTCharPutNonBlocking
+                0x20000cca       0x12 ../../lib/libdriver.a(uart.o)
+                0x20000cca                UARTCharPutNonBlocking
+ .text.UARTCharPut
+                0x20000cdc        0xc ../../lib/libdriver.a(uart.o)
+                0x20000cdc                UARTCharPut
+ .text.UARTIntEnable
+                0x20000ce8        0x8 ../../lib/libdriver.a(uart.o)
+                0x20000ce8                UARTIntEnable
+ .text.UARTIntStatus
+                0x20000cf0        0xa ../../lib/libdriver.a(uart.o)
+                0x20000cf0                UARTIntStatus
+ .text.UARTIntClear
+                0x20000cfa        0x4 ../../lib/libdriver.a(uart.o)
+                0x20000cfa                UARTIntClear
+ .text.CPUcpsid
+                0x20000cfe        0x8 ../../lib/libdriver.a(cpu.o)
+                0x20000cfe                CPUcpsid
+ .text.CPUcpsie
+                0x20000d06        0x8 ../../lib/libdriver.a(cpu.o)
+                0x20000d06                CPUcpsie
+ *(.rodata*)
+ .rodata.str1.1
+                0x20000d0e       0x1e gcc/main.o
+ .rodata.g_ulUARTPeriph
+                0x20000d2c        0xc gcc/uartstdio.o
+ .rodata.str1.1
+                0x20000d38       0x1e gcc/uartstdio.o
+                                 0x20 (size before relaxing)
+ *fill*         0x20000d56        0x2 00
+ .rodata.g_ulUARTBase
+                0x20000d58        0xc gcc/uartstdio.o
+ .rodata.g_pulDCRegs
+                0x20000d64       0x10 ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulXtals
+                0x20000d74       0x5c ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulRCGCRegs
+                0x20000dd0        0xc ../../lib/libdriver.a(sysctl.o)
+
+.glue_7         0x20000ddc        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x20000ddc        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x20000ddc        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x20000ddc        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.ARM.extab      0x20000ddc        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+
+.ARM.exidx      0x20000ddc        0x0
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x20000ddc                _etext = (((_text + SIZEOF (.text)) + SIZEOF (.ARM.extab)) + SIZEOF (.ARM.exidx))
+
+.data           0x20010000        0x0 load address 0x20000ddc
+                0x20010000                _data = .
+ *(.vectors_ram)
+ *(.data*)
+                0x20010000                _edata = (_data + SIZEOF (.data))
+
+.bss            0x20010000        0x8
+                0x20010000                _bss = .
+ *(.bss*)
+ .bss.adc_busy  0x20010000        0x1 gcc/main.o
+                0x20010000                adc_busy
+ *fill*         0x20010001        0x3 00
+ .bss.g_ulBase  0x20010004        0x4 gcc/uartstdio.o
+ *(COMMON)
+                0x20010008                _ebss = (_bss + SIZEOF (.bss))
+
+.heap           0x20010008       0x80
+                0x20010008                _heap = .
+ *(.heap*)
+                0x20010088                . = ALIGN (MAX ((_heap + __HEAPSIZE__), .), 0x4)
+ *fill*         0x20010008       0x80 00
+                0x20010088                _eheap = (_heap + SIZEOF (.heap))
+
+.stack          0x20017800      0x800
+                0x20017800                _stack = .
+ *(.stack*)
+                0x20018000                . = ALIGN (MAX ((_stack + __STACKSIZE__), .), 0x4)
+ *fill*         0x20017800      0x800 00
+                0x20018000                _estack = (_stack + SIZEOF (.stack))
+                0x20010008                PROVIDE (__HEAP_START, _heap)
+OUTPUT(gcc/main.axf elf32-littlearm)
+
+.comment        0x00000000       0x25
+ .comment       0x00000000       0x25 gcc/main.o
+                                 0x26 (size before relaxing)
+ .comment       0x00000000       0x26 gcc/startup.o
+ .comment       0x00000000       0x26 gcc/ustdlib.o
+ .comment       0x00000000       0x26 gcc/uartstdio.o
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(adc.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(gpio.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(interrupt.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(sysctl.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(timer.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(uart.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(cpu.o)
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x31 gcc/main.o
+ .ARM.attributes
+                0x00000031       0x31 gcc/startup.o
+ .ARM.attributes
+                0x00000062       0x31 gcc/ustdlib.o
+ .ARM.attributes
+                0x00000093       0x31 gcc/uartstdio.o
+ .ARM.attributes
+                0x000000c4       0x31 ../../lib/libdriver.a(adc.o)
+ .ARM.attributes
+                0x000000f5       0x31 ../../lib/libdriver.a(gpio.o)
+ .ARM.attributes
+                0x00000126       0x31 ../../lib/libdriver.a(interrupt.o)
+ .ARM.attributes
+                0x00000157       0x31 ../../lib/libdriver.a(sysctl.o)
+ .ARM.attributes
+                0x00000188       0x31 ../../lib/libdriver.a(timer.o)
+ .ARM.attributes
+                0x000001b9       0x31 ../../lib/libdriver.a(uart.o)
+ .ARM.attributes
+                0x000001ea       0x31 ../../lib/libdriver.a(cpu.o)
+ .ARM.attributes
+                0x0000021b       0x21 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+ .ARM.attributes
+                0x0000023c       0x31 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x0000026d       0x31 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .ARM.attributes
+                0x0000029e       0x31 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+
+.debug_frame    0x00000000       0x78
+ .debug_frame   0x00000000       0x20 /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .debug_frame   0x00000020       0x2c /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .debug_frame   0x0000004c       0x2c /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+
+Cross Reference Table
+
+Symbol                                            File
+ADC0IntHandler                                    gcc/main.o
+                                                  gcc/startup.o
+ADCComparatorConfigure                            ../../lib/libdriver.a(adc.o)
+ADCComparatorIntClear                             ../../lib/libdriver.a(adc.o)
+ADCComparatorIntDisable                           ../../lib/libdriver.a(adc.o)
+ADCComparatorIntEnable                            ../../lib/libdriver.a(adc.o)
+ADCComparatorIntStatus                            ../../lib/libdriver.a(adc.o)
+ADCComparatorRegionSet                            ../../lib/libdriver.a(adc.o)
+ADCComparatorReset                                ../../lib/libdriver.a(adc.o)
+ADCHardwareOversampleConfigure                    ../../lib/libdriver.a(adc.o)
+ADCIntClear                                       ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCIntDisable                                     ../../lib/libdriver.a(adc.o)
+ADCIntEnable                                      ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCIntRegister                                    ../../lib/libdriver.a(adc.o)
+ADCIntStatus                                      ../../lib/libdriver.a(adc.o)
+ADCIntUnregister                                  ../../lib/libdriver.a(adc.o)
+ADCPhaseDelayGet                                  ../../lib/libdriver.a(adc.o)
+ADCPhaseDelaySet                                  ../../lib/libdriver.a(adc.o)
+ADCProcessorTrigger                               ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCReferenceGet                                   ../../lib/libdriver.a(adc.o)
+ADCReferenceSet                                   ../../lib/libdriver.a(adc.o)
+ADCSequenceConfigure                              ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCSequenceDataGet                                ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCSequenceDisable                                ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCSequenceEnable                                 ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCSequenceOverflow                               ../../lib/libdriver.a(adc.o)
+ADCSequenceOverflowClear                          ../../lib/libdriver.a(adc.o)
+ADCSequenceStepConfigure                          ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+ADCSequenceUnderflow                              ../../lib/libdriver.a(adc.o)
+ADCSequenceUnderflowClear                         ../../lib/libdriver.a(adc.o)
+ADCSoftwareOversampleConfigure                    ../../lib/libdriver.a(adc.o)
+ADCSoftwareOversampleDataGet                      ../../lib/libdriver.a(adc.o)
+ADCSoftwareOversampleStepConfigure                ../../lib/libdriver.a(adc.o)
+CPUbasepriGet                                     ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUbasepriSet                                     ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUcpsid                                          ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUcpsie                                          ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUprimask                                        ../../lib/libdriver.a(cpu.o)
+CPUwfi                                            ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+GPIODirModeGet                                    ../../lib/libdriver.a(gpio.o)
+GPIODirModeSet                                    ../../lib/libdriver.a(gpio.o)
+GPIOIntTypeGet                                    ../../lib/libdriver.a(gpio.o)
+GPIOIntTypeSet                                    ../../lib/libdriver.a(gpio.o)
+GPIOPadConfigGet                                  ../../lib/libdriver.a(gpio.o)
+GPIOPadConfigSet                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinConfigure                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinIntClear                                   ../../lib/libdriver.a(gpio.o)
+GPIOPinIntDisable                                 ../../lib/libdriver.a(gpio.o)
+GPIOPinIntEnable                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinIntStatus                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinRead                                       ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeADC                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeCAN                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeComparator                             ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeEPI                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeEthernetLED                            ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeGPIOInput                              ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeGPIOOutput                             ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeGPIOOutputOD                           ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeI2C                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeI2S                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypePWM                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeQEI                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeSSI                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeTimer                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeUART                                   ../../lib/libdriver.a(gpio.o)
+                                                  gcc/main.o
+GPIOPinTypeUSBAnalog                              ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeUSBDigital                             ../../lib/libdriver.a(gpio.o)
+GPIOPinWrite                                      ../../lib/libdriver.a(gpio.o)
+GPIOPortIntRegister                               ../../lib/libdriver.a(gpio.o)
+GPIOPortIntUnregister                             ../../lib/libdriver.a(gpio.o)
+Init_ADC0                                         gcc/main.o
+Init_Timer_A                                      gcc/main.o
+IntDisable                                        ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(timer.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+                                                  ../../lib/libdriver.a(adc.o)
+IntEnable                                         ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(timer.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+                                                  ../../lib/libdriver.a(adc.o)
+                                                  gcc/main.o
+IntMasterDisable                                  ../../lib/libdriver.a(interrupt.o)
+                                                  gcc/main.o
+IntMasterEnable                                   ../../lib/libdriver.a(interrupt.o)
+                                                  gcc/main.o
+IntPendClear                                      ../../lib/libdriver.a(interrupt.o)
+IntPendSet                                        ../../lib/libdriver.a(interrupt.o)
+IntPriorityGet                                    ../../lib/libdriver.a(interrupt.o)
+IntPriorityGroupingGet                            ../../lib/libdriver.a(interrupt.o)
+IntPriorityGroupingSet                            ../../lib/libdriver.a(interrupt.o)
+IntPriorityMaskGet                                ../../lib/libdriver.a(interrupt.o)
+IntPriorityMaskSet                                ../../lib/libdriver.a(interrupt.o)
+IntPrioritySet                                    ../../lib/libdriver.a(interrupt.o)
+IntRegister                                       ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(timer.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+                                                  ../../lib/libdriver.a(adc.o)
+IntUnregister                                     ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(timer.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+                                                  ../../lib/libdriver.a(adc.o)
+ResetHandler                                      gcc/startup.o
+SysCtlADCSpeedGet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlADCSpeedSet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlBrownOutConfigSet                           ../../lib/libdriver.a(sysctl.o)
+SysCtlClkVerificationClear                        ../../lib/libdriver.a(sysctl.o)
+SysCtlClockGet                                    ../../lib/libdriver.a(sysctl.o)
+                                                  gcc/uartstdio.o
+                                                  gcc/main.o
+SysCtlClockSet                                    ../../lib/libdriver.a(sysctl.o)
+                                                  gcc/main.o
+SysCtlDeepSleep                                   ../../lib/libdriver.a(sysctl.o)
+SysCtlDelay                                       ../../lib/libdriver.a(sysctl.o)
+SysCtlFlashSizeGet                                ../../lib/libdriver.a(sysctl.o)
+SysCtlGPIOAHBDisable                              ../../lib/libdriver.a(sysctl.o)
+SysCtlGPIOAHBEnable                               ../../lib/libdriver.a(sysctl.o)
+SysCtlI2SMClkSet                                  ../../lib/libdriver.a(sysctl.o)
+SysCtlIOSCVerificationSet                         ../../lib/libdriver.a(sysctl.o)
+SysCtlIntClear                                    ../../lib/libdriver.a(sysctl.o)
+SysCtlIntDisable                                  ../../lib/libdriver.a(sysctl.o)
+SysCtlIntEnable                                   ../../lib/libdriver.a(sysctl.o)
+SysCtlIntRegister                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlIntStatus                                   ../../lib/libdriver.a(sysctl.o)
+SysCtlIntUnregister                               ../../lib/libdriver.a(sysctl.o)
+SysCtlLDOConfigSet                                ../../lib/libdriver.a(sysctl.o)
+SysCtlLDOGet                                      ../../lib/libdriver.a(sysctl.o)
+SysCtlLDOSet                                      ../../lib/libdriver.a(sysctl.o)
+SysCtlMOSCVerificationSet                         ../../lib/libdriver.a(sysctl.o)
+SysCtlPLLVerificationSet                          ../../lib/libdriver.a(sysctl.o)
+SysCtlPWMClockGet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlPWMClockSet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralClockGating                       ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralDeepSleepDisable                  ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralDeepSleepEnable                   ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralDisable                           ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralEnable                            ../../lib/libdriver.a(sysctl.o)
+                                                  gcc/uartstdio.o
+                                                  gcc/main.o
+SysCtlPeripheralPresent                           ../../lib/libdriver.a(sysctl.o)
+                                                  gcc/uartstdio.o
+SysCtlPeripheralReset                             ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralSleepDisable                      ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralSleepEnable                       ../../lib/libdriver.a(sysctl.o)
+SysCtlPinPresent                                  ../../lib/libdriver.a(sysctl.o)
+SysCtlReset                                       ../../lib/libdriver.a(sysctl.o)
+SysCtlResetCauseClear                             ../../lib/libdriver.a(sysctl.o)
+SysCtlResetCauseGet                               ../../lib/libdriver.a(sysctl.o)
+SysCtlSRAMSizeGet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlSleep                                       ../../lib/libdriver.a(sysctl.o)
+SysCtlUSBPLLDisable                               ../../lib/libdriver.a(sysctl.o)
+SysCtlUSBPLLEnable                                ../../lib/libdriver.a(sysctl.o)
+Timer0IntHandler                                  gcc/main.o
+                                                  gcc/startup.o
+TimerConfigure                                    ../../lib/libdriver.a(timer.o)
+                                                  gcc/main.o
+TimerControlEvent                                 ../../lib/libdriver.a(timer.o)
+TimerControlLevel                                 ../../lib/libdriver.a(timer.o)
+TimerControlStall                                 ../../lib/libdriver.a(timer.o)
+TimerControlTrigger                               ../../lib/libdriver.a(timer.o)
+TimerControlWaitOnTrigger                         ../../lib/libdriver.a(timer.o)
+TimerDisable                                      ../../lib/libdriver.a(timer.o)
+                                                  gcc/main.o
+TimerEnable                                       ../../lib/libdriver.a(timer.o)
+                                                  gcc/main.o
+TimerIntClear                                     ../../lib/libdriver.a(timer.o)
+                                                  gcc/main.o
+TimerIntDisable                                   ../../lib/libdriver.a(timer.o)
+TimerIntEnable                                    ../../lib/libdriver.a(timer.o)
+                                                  gcc/main.o
+TimerIntRegister                                  ../../lib/libdriver.a(timer.o)
+TimerIntStatus                                    ../../lib/libdriver.a(timer.o)
+TimerIntUnregister                                ../../lib/libdriver.a(timer.o)
+TimerLoadGet                                      ../../lib/libdriver.a(timer.o)
+TimerLoadSet                                      ../../lib/libdriver.a(timer.o)
+                                                  gcc/main.o
+TimerMatchGet                                     ../../lib/libdriver.a(timer.o)
+TimerMatchSet                                     ../../lib/libdriver.a(timer.o)
+TimerPrescaleGet                                  ../../lib/libdriver.a(timer.o)
+TimerPrescaleMatchGet                             ../../lib/libdriver.a(timer.o)
+TimerPrescaleMatchSet                             ../../lib/libdriver.a(timer.o)
+TimerPrescaleSet                                  ../../lib/libdriver.a(timer.o)
+                                                  gcc/main.o
+TimerQuiesce                                      ../../lib/libdriver.a(timer.o)
+TimerRTCDisable                                   ../../lib/libdriver.a(timer.o)
+TimerRTCEnable                                    ../../lib/libdriver.a(timer.o)
+TimerValueGet                                     ../../lib/libdriver.a(timer.o)
+UARTBreakCtl                                      ../../lib/libdriver.a(uart.o)
+UARTBusy                                          ../../lib/libdriver.a(uart.o)
+UARTCharGet                                       ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+UARTCharGetNonBlocking                            ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTCharPut                                       ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+UARTCharPutNonBlocking                            ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTCharsAvail                                    ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTConfigGetExpClk                               ../../lib/libdriver.a(uart.o)
+UARTConfigSetExpClk                               ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+                                                  gcc/main.o
+UARTDMADisable                                    ../../lib/libdriver.a(uart.o)
+UARTDMAEnable                                     ../../lib/libdriver.a(uart.o)
+UARTDisable                                       ../../lib/libdriver.a(uart.o)
+UARTDisableSIR                                    ../../lib/libdriver.a(uart.o)
+UARTEnable                                        ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+UARTEnableSIR                                     ../../lib/libdriver.a(uart.o)
+UARTFIFODisable                                   ../../lib/libdriver.a(uart.o)
+UARTFIFOEnable                                    ../../lib/libdriver.a(uart.o)
+UARTFIFOLevelGet                                  ../../lib/libdriver.a(uart.o)
+UARTFIFOLevelSet                                  ../../lib/libdriver.a(uart.o)
+UARTFlowControlGet                                ../../lib/libdriver.a(uart.o)
+UARTFlowControlSet                                ../../lib/libdriver.a(uart.o)
+UARTIntClear                                      ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTIntDisable                                    ../../lib/libdriver.a(uart.o)
+UARTIntEnable                                     ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTIntHandler                                    gcc/main.o
+                                                  gcc/startup.o
+UARTIntRegister                                   ../../lib/libdriver.a(uart.o)
+UARTIntStatus                                     ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTIntUnregister                                 ../../lib/libdriver.a(uart.o)
+UARTModemControlClear                             ../../lib/libdriver.a(uart.o)
+UARTModemControlGet                               ../../lib/libdriver.a(uart.o)
+UARTModemControlSet                               ../../lib/libdriver.a(uart.o)
+UARTModemStatusGet                                ../../lib/libdriver.a(uart.o)
+UARTParityModeGet                                 ../../lib/libdriver.a(uart.o)
+UARTParityModeSet                                 ../../lib/libdriver.a(uart.o)
+UARTRxErrorClear                                  ../../lib/libdriver.a(uart.o)
+UARTRxErrorGet                                    ../../lib/libdriver.a(uart.o)
+UARTSend                                          gcc/main.o
+UARTSmartCardDisable                              ../../lib/libdriver.a(uart.o)
+UARTSmartCardEnable                               ../../lib/libdriver.a(uart.o)
+UARTSpaceAvail                                    ../../lib/libdriver.a(uart.o)
+UARTStdioInit                                     gcc/uartstdio.o
+                                                  gcc/main.o
+UARTStdioInitExpClk                               gcc/uartstdio.o
+UARTTxIntModeGet                                  ../../lib/libdriver.a(uart.o)
+UARTTxIntModeSet                                  ../../lib/libdriver.a(uart.o)
+UARTgetc                                          gcc/uartstdio.o
+UARTgets                                          gcc/uartstdio.o
+UARTprintf                                        gcc/uartstdio.o
+                                                  gcc/main.o
+UARTwrite                                         gcc/uartstdio.o
+_bss                                              gcc/startup.o
+_data                                             gcc/startup.o
+_ebss                                             gcc/startup.o
+_edata                                            gcc/startup.o
+_estack                                           gcc/startup.o
+_etext                                            gcc/startup.o
+_text                                             gcc/startup.o
+_vectorstable                                     gcc/startup.o
+a                                                 gcc/main.o
+adc_busy                                          gcc/main.o
+b                                                 gcc/main.o
+c                                                 gcc/main.o
+d                                                 gcc/main.o
+i                                                 gcc/main.o
+j                                                 gcc/main.o
+main                                              gcc/main.o
+                                                  gcc/startup.o
+memcpy                                            /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+                                                  gcc/ustdlib.o
+strlen                                            /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+                                                  gcc/ustdlib.o
+strncmp                                           /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+                                                  gcc/ustdlib.o
+strncpy                                           /opt/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+                                                  gcc/ustdlib.o
+temp                                              gcc/main.o
+ulocaltime                                        gcc/ustdlib.o
+usnprintf                                         gcc/ustdlib.o
+usprintf                                          gcc/ustdlib.o
+ustrcasecmp                                       gcc/ustdlib.o
+ustrnicmp                                         gcc/ustdlib.o
+ustrstr                                           gcc/ustdlib.o
+ustrtoul                                          gcc/ustdlib.o
+uvsnprintf                                        gcc/ustdlib.o

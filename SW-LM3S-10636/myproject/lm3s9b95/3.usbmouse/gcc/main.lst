@@ -1,0 +1,151 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"main.c"
+  14              		.section	.text.UARTIntHandler,"ax",%progbits
+  15              		.align	1
+  16              		.global	UARTIntHandler
+  17              		.thumb
+  18              		.thumb_func
+  20              	UARTIntHandler:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 0121     		movs	r1, #1
+  24 0002 08B5     		push	{r3, lr}
+  25 0004 0A48     		ldr	r0, .L4
+  26 0006 FFF7FEFF 		bl	UARTIntStatus
+  27 000a 0146     		mov	r1, r0
+  28 000c 0848     		ldr	r0, .L4
+  29 000e FFF7FEFF 		bl	UARTIntClear
+  30 0012 06E0     		b	.L2
+  31              	.L3:
+  32 0014 0648     		ldr	r0, .L4
+  33 0016 FFF7FEFF 		bl	UARTCharGetNonBlocking
+  34 001a C1B2     		uxtb	r1, r0
+  35 001c 0448     		ldr	r0, .L4
+  36 001e FFF7FEFF 		bl	UARTCharPutNonBlocking
+  37              	.L2:
+  38 0022 0348     		ldr	r0, .L4
+  39 0024 FFF7FEFF 		bl	UARTCharsAvail
+  40 0028 0028     		cmp	r0, #0
+  41 002a F3D1     		bne	.L3
+  42 002c 08BD     		pop	{r3, pc}
+  43              	.L5:
+  44 002e 00BF     		.align	2
+  45              	.L4:
+  46 0030 00C00040 		.word	1073790976
+  48              		.section	.text.UARTSend,"ax",%progbits
+  49              		.align	1
+  50              		.global	UARTSend
+  51              		.thumb
+  52              		.thumb_func
+  54              	UARTSend:
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 38B5     		push	{r3, r4, r5, lr}
+  58 0002 0546     		mov	r5, r0
+  59 0004 0C46     		mov	r4, r1
+  60 0006 05E0     		b	.L7
+  61              	.L8:
+  62 0008 0448     		ldr	r0, .L9
+  63 000a 15F8011B 		ldrb	r1, [r5], #1	@ zero_extendqisi2
+  64 000e FFF7FEFF 		bl	UARTCharPutNonBlocking
+  65 0012 013C     		subs	r4, r4, #1
+  66              	.L7:
+  67 0014 002C     		cmp	r4, #0
+  68 0016 F7D1     		bne	.L8
+  69 0018 38BD     		pop	{r3, r4, r5, pc}
+  70              	.L10:
+  71 001a 00BF     		.align	2
+  72              	.L9:
+  73 001c 00C00040 		.word	1073790976
+  75              		.section	.text.main,"ax",%progbits
+  76              		.align	1
+  77              		.global	main
+  78              		.thumb
+  79              		.thumb_func
+  81              	main:
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84 0000 08B5     		push	{r3, lr}
+  85 0002 1048     		ldr	r0, .L12
+  86 0004 FFF7FEFF 		bl	SysCtlClockSet
+  87 0008 0F48     		ldr	r0, .L12+4
+  88 000a FFF7FEFF 		bl	SysCtlPeripheralEnable
+  89 000e 0F48     		ldr	r0, .L12+8
+  90 0010 FFF7FEFF 		bl	SysCtlPeripheralEnable
+  91 0014 0321     		movs	r1, #3
+  92 0016 0E48     		ldr	r0, .L12+12
+  93 0018 FFF7FEFF 		bl	GPIOPinTypeUART
+  94 001c FFF7FEFF 		bl	SysCtlClockGet
+  95 0020 4FF4E132 		mov	r2, #115200
+  96 0024 0146     		mov	r1, r0
+  97 0026 6023     		movs	r3, #96
+  98 0028 0A48     		ldr	r0, .L12+16
+  99 002a FFF7FEFF 		bl	UARTConfigSetExpClk
+ 100 002e 0020     		movs	r0, #0
+ 101 0030 FFF7FEFF 		bl	UARTStdioInit
+ 102 0034 FFF7FEFF 		bl	SysCtlClockGet
+ 103 0038 0146     		mov	r1, r0
+ 104 003a 0748     		ldr	r0, .L12+20
+ 105 003c FFF7FEFF 		bl	UARTprintf
+ 106 0040 0020     		movs	r0, #0
+ 107 0042 08BD     		pop	{r3, pc}
+ 108              	.L13:
+ 109              		.align	2
+ 110              	.L12:
+ 111 0044 4005C000 		.word	12584256
+ 112 0048 01000010 		.word	268435457
+ 113 004c 01000020 		.word	536870913
+ 114 0050 00400040 		.word	1073758208
+ 115 0054 00C00040 		.word	1073790976
+ 116 0058 00000000 		.word	.LC0
+ 118              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 119              	.LC0:
+ 120 0000 E7B3BBE7 		.ascii	"\347\263\273\347\273\237\345\267\262\347\273\217\345"
+ 120      BB9FE5B7 
+ 120      B2E7BB8F 
+ 120      E5
+ 121 000d 90AFE58A 		.ascii	"\220\257\345\212\250,\346\227\266\351\222\237\351\242"
+ 121      A82CE697 
+ 121      B6E9929F 
+ 121      E9A2
+ 122 001b 91E78E87 		.ascii	"\221\347\216\207\344\270\272%d Hz\012\000"
+ 122      E4B8BA25 
+ 122      6420487A 
+ 122      0A00
+ 123              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccCv0uQI.s:15     .text.UARTIntHandler:00000000 $t
+     /tmp/ccCv0uQI.s:20     .text.UARTIntHandler:00000000 UARTIntHandler
+     /tmp/ccCv0uQI.s:46     .text.UARTIntHandler:00000030 $d
+     /tmp/ccCv0uQI.s:49     .text.UARTSend:00000000 $t
+     /tmp/ccCv0uQI.s:54     .text.UARTSend:00000000 UARTSend
+     /tmp/ccCv0uQI.s:73     .text.UARTSend:0000001c $d
+     /tmp/ccCv0uQI.s:76     .text.main:00000000 $t
+     /tmp/ccCv0uQI.s:81     .text.main:00000000 main
+     /tmp/ccCv0uQI.s:111    .text.main:00000044 $d
+
+UNDEFINED SYMBOLS
+UARTIntStatus
+UARTIntClear
+UARTCharGetNonBlocking
+UARTCharPutNonBlocking
+UARTCharsAvail
+SysCtlClockSet
+SysCtlPeripheralEnable
+GPIOPinTypeUART
+SysCtlClockGet
+UARTConfigSetExpClk
+UARTStdioInit
+UARTprintf

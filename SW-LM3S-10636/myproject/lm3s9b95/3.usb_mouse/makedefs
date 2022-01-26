@@ -1,0 +1,47 @@
+#定义单片机的型号
+PART = LM3S9B95
+#定义目标名称
+TARGET = main
+#定义启动源文件
+STARTUP = startup.c
+#定义交叉编译链前缀
+TCHAIN_PREFIX = arm-stellaris-eabi-
+
+#***生成ROM执行文件***
+#RUN_MODE = ROM_RUN
+RUN_MODE = RAM_RUN
+
+#c源文件
+SRC = $(TARGET).c
+SRC += $(STARTUP)
+SRC += uartstdio.c
+SRC += usb_mouse_structs.c
+
+
+#cpp源文件
+CPPSRC =
+
+#asm源文件
+ASRC =
+
+#额外的include文件
+IPATH = ../..
+IPATH+=../../driverlib
+IPATH+=../../drivers
+IPATH+=../../grlib
+IPATH+=../../inc
+IPATH+=../../usblib
+IPATH+=../../utils
+
+VPATH=../../drivers
+VPATH+=../../utils/
+
+
+#额外的库文件目录
+EXTRA_LIBDIRS = ../../lib
+#额外的库文件
+EXTRA_LIBS =
+#静态库文件
+LIBA = ../../lib/libdriver.a
+LIBA += ../../lib/libgr.a
+LIBA += ../../lib/libusb.a

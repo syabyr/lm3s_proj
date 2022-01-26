@@ -1,0 +1,305 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"main.c"
+  14              		.section	.text.MouseHandler,"ax",%progbits
+  15              		.align	1
+  16              		.global	MouseHandler
+  17              		.thumb
+  18              		.thumb_func
+  20              	MouseHandler:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 0129     		cmp	r1, #1
+  25 0002 08D0     		beq	.L4
+  26 0004 02D3     		bcc	.L3
+  27 0006 0529     		cmp	r1, #5
+  28 0008 0ED1     		bne	.L2
+  29 000a 0AE0     		b	.L7
+  30              	.L3:
+  31 000c 074A     		ldr	r2, .L8
+  32 000e 0123     		movs	r3, #1
+  33 0010 1370     		strb	r3, [r2, #0]
+  34 0012 074A     		ldr	r2, .L8+4
+  35 0014 03E0     		b	.L6
+  36              	.L4:
+  37 0016 064A     		ldr	r2, .L8+4
+  38 0018 0023     		movs	r3, #0
+  39 001a 1370     		strb	r3, [r2, #0]
+  40 001c 034A     		ldr	r2, .L8
+  41              	.L6:
+  42 001e 1370     		strb	r3, [r2, #0]
+  43 0020 02E0     		b	.L2
+  44              	.L7:
+  45 0022 024B     		ldr	r3, .L8
+  46 0024 0122     		movs	r2, #1
+  47 0026 1A70     		strb	r2, [r3, #0]
+  48              	.L2:
+  49 0028 0020     		movs	r0, #0
+  50 002a 7047     		bx	lr
+  51              	.L9:
+  52              		.align	2
+  53              	.L8:
+  54 002c 00000000 		.word	.LANCHOR0
+  55 0030 00000000 		.word	.LANCHOR1
+  57              		.section	.text.WaitForSendIdle,"ax",%progbits
+  58              		.align	1
+  59              		.global	WaitForSendIdle
+  60              		.thumb
+  61              		.thumb_func
+  63              	WaitForSendIdle:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 084B     		ldr	r3, .L18
+  67 0002 10B5     		push	{r4, lr}
+  68 0004 1968     		ldr	r1, [r3, #0]
+  69 0006 0022     		movs	r2, #0
+  70 0008 1C46     		mov	r4, r3
+  71 000a 05E0     		b	.L17
+  72              	.L15:
+  73 000c 064B     		ldr	r3, .L18+4
+  74 000e 1B78     		ldrb	r3, [r3, #0]	@ zero_extendqisi2
+  75 0010 012B     		cmp	r3, #1
+  76 0012 05D0     		beq	.L16
+  77 0014 2268     		ldr	r2, [r4, #0]
+  78 0016 521A     		subs	r2, r2, r1
+  79              	.L17:
+  80 0018 8242     		cmp	r2, r0
+  81 001a F7D3     		bcc	.L15
+  82 001c 0020     		movs	r0, #0
+  83 001e 10BD     		pop	{r4, pc}
+  84              	.L16:
+  85 0020 1846     		mov	r0, r3
+  86 0022 10BD     		pop	{r4, pc}
+  87              	.L19:
+  88              		.align	2
+  89              	.L18:
+  90 0024 00000000 		.word	.LANCHOR2
+  91 0028 00000000 		.word	.LANCHOR0
+  93              		.section	.text.SysTickHandler,"ax",%progbits
+  94              		.align	1
+  95              		.global	SysTickHandler
+  96              		.thumb
+  97              		.thumb_func
+  99              	SysTickHandler:
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102              		@ link register save eliminated.
+ 103 0000 024B     		ldr	r3, .L21
+ 104 0002 1A68     		ldr	r2, [r3, #0]
+ 105 0004 0132     		adds	r2, r2, #1
+ 106 0006 1A60     		str	r2, [r3, #0]
+ 107 0008 7047     		bx	lr
+ 108              	.L22:
+ 109 000a 00BF     		.align	2
+ 110              	.L21:
+ 111 000c 00000000 		.word	.LANCHOR2
+ 113              		.section	.text.main,"ax",%progbits
+ 114              		.align	1
+ 115              		.global	main
+ 116              		.thumb
+ 117              		.thumb_func
+ 119              	main:
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122 0000 70B5     		push	{r4, r5, r6, lr}
+ 123 0002 4748     		ldr	r0, .L41
+ 124 0004 FFF7FEFF 		bl	SysCtlClockSet
+ 125 0008 4648     		ldr	r0, .L41+4
+ 126 000a FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 127 000e 0421     		movs	r1, #4
+ 128 0010 4548     		ldr	r0, .L41+8
+ 129 0012 FFF7FEFF 		bl	GPIOPinTypeGPIOOutput
+ 130 0016 0421     		movs	r1, #4
+ 131 0018 0A46     		mov	r2, r1
+ 132 001a 4348     		ldr	r0, .L41+8
+ 133 001c FFF7FEFF 		bl	GPIOPinWrite
+ 134 0020 4248     		ldr	r0, .L41+12
+ 135 0022 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 136 0026 4248     		ldr	r0, .L41+16
+ 137 0028 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 138 002c 4148     		ldr	r0, .L41+20
+ 139 002e FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 140 0032 3021     		movs	r1, #48
+ 141 0034 0022     		movs	r2, #0
+ 142 0036 4048     		ldr	r0, .L41+24
+ 143 0038 FFF7FEFF 		bl	GPIODirModeSet
+ 144 003c 3021     		movs	r1, #48
+ 145 003e 0022     		movs	r2, #0
+ 146 0040 3E48     		ldr	r0, .L41+28
+ 147 0042 FFF7FEFF 		bl	GPIODirModeSet
+ 148 0046 2021     		movs	r1, #32
+ 149 0048 0022     		movs	r2, #0
+ 150 004a 3D48     		ldr	r0, .L41+32
+ 151 004c FFF7FEFF 		bl	GPIODirModeSet
+ 152 0050 3021     		movs	r1, #48
+ 153 0052 0122     		movs	r2, #1
+ 154 0054 0A23     		movs	r3, #10
+ 155 0056 3848     		ldr	r0, .L41+24
+ 156 0058 FFF7FEFF 		bl	GPIOPadConfigSet
+ 157 005c 3021     		movs	r1, #48
+ 158 005e 0122     		movs	r2, #1
+ 159 0060 0A23     		movs	r3, #10
+ 160 0062 3648     		ldr	r0, .L41+28
+ 161 0064 FFF7FEFF 		bl	GPIOPadConfigSet
+ 162 0068 0122     		movs	r2, #1
+ 163 006a 0A23     		movs	r3, #10
+ 164 006c 2021     		movs	r1, #32
+ 165 006e 3448     		ldr	r0, .L41+32
+ 166 0070 FFF7FEFF 		bl	GPIOPadConfigSet
+ 167 0074 3348     		ldr	r0, .L41+36
+ 168 0076 FFF7FEFF 		bl	SysCtlPeripheralEnable
+ 169 007a 0321     		movs	r1, #3
+ 170 007c 3248     		ldr	r0, .L41+40
+ 171 007e FFF7FEFF 		bl	GPIOPinTypeUART
+ 172 0082 0020     		movs	r0, #0
+ 173 0084 FFF7FEFF 		bl	UARTStdioInit
+ 174 0088 FFF7FEFF 		bl	SysCtlClockGet
+ 175 008c 6423     		movs	r3, #100
+ 176 008e B0FBF3F0 		udiv	r0, r0, r3
+ 177 0092 FFF7FEFF 		bl	SysTickPeriodSet
+ 178 0096 FFF7FEFF 		bl	SysTickIntEnable
+ 179 009a FFF7FEFF 		bl	SysTickEnable
+ 180 009e 0020     		movs	r0, #0
+ 181 00a0 2A49     		ldr	r1, .L41+44
+ 182 00a2 FFF7FEFF 		bl	USBDHIDMouseInit
+ 183              	.L38:
+ 184 00a6 2A4C     		ldr	r4, .L41+48
+ 185 00a8 2378     		ldrb	r3, [r4, #0]	@ zero_extendqisi2
+ 186 00aa 002B     		cmp	r3, #0
+ 187 00ac FBD0     		beq	.L38
+ 188 00ae 33E0     		b	.L39
+ 189              	.L40:
+ 190 00b0 2021     		movs	r1, #32
+ 191 00b2 2348     		ldr	r0, .L41+32
+ 192 00b4 FFF7FEFF 		bl	GPIOPinRead
+ 193 00b8 2021     		movs	r1, #32
+ 194 00ba 0028     		cmp	r0, #0
+ 195 00bc 0CBF     		ite	eq
+ 196 00be FD26     		moveq	r6, #253
+ 197 00c0 0026     		movne	r6, #0
+ 198 00c2 1E48     		ldr	r0, .L41+28
+ 199 00c4 FFF7FEFF 		bl	GPIOPinRead
+ 200 00c8 1021     		movs	r1, #16
+ 201 00ca 0028     		cmp	r0, #0
+ 202 00cc 0CBF     		ite	eq
+ 203 00ce FD25     		moveq	r5, #253
+ 204 00d0 0025     		movne	r5, #0
+ 205 00d2 1A48     		ldr	r0, .L41+28
+ 206 00d4 FFF7FEFF 		bl	GPIOPinRead
+ 207 00d8 08B9     		cbnz	r0, .L28
+ 208 00da 0335     		adds	r5, r5, #3
+ 209 00dc EDB2     		uxtb	r5, r5
+ 210              	.L28:
+ 211 00de 1648     		ldr	r0, .L41+24
+ 212 00e0 2021     		movs	r1, #32
+ 213 00e2 FFF7FEFF 		bl	GPIOPinRead
+ 214 00e6 08B9     		cbnz	r0, .L29
+ 215 00e8 0336     		adds	r6, r6, #3
+ 216 00ea F6B2     		uxtb	r6, r6
+ 217              	.L29:
+ 218 00ec 1021     		movs	r1, #16
+ 219 00ee 1248     		ldr	r0, .L41+24
+ 220 00f0 FFF7FEFF 		bl	GPIOPinRead
+ 221 00f4 174B     		ldr	r3, .L41+52
+ 222 00f6 0222     		movs	r2, #2
+ 223 00f8 1A70     		strb	r2, [r3, #0]
+ 224 00fa D0F10103 		rsbs	r3, r0, #1
+ 225 00fe 38BF     		it	cc
+ 226 0100 0023     		movcc	r3, #0
+ 227 0102 1248     		ldr	r0, .L41+44
+ 228 0104 3146     		mov	r1, r6
+ 229 0106 2A46     		mov	r2, r5
+ 230 0108 FFF7FEFF 		bl	USBDHIDMouseStateChange
+ 231 010c 20B9     		cbnz	r0, .L39
+ 232 010e 3230     		adds	r0, r0, #50
+ 233 0110 FFF7FEFF 		bl	WaitForSendIdle
+ 234 0114 00B9     		cbnz	r0, .L39
+ 235 0116 2070     		strb	r0, [r4, #0]
+ 236              	.L39:
+ 237 0118 2378     		ldrb	r3, [r4, #0]	@ zero_extendqisi2
+ 238 011a 002B     		cmp	r3, #0
+ 239 011c C3D0     		beq	.L38
+ 240 011e C7E7     		b	.L40
+ 241              	.L42:
+ 242              		.align	2
+ 243              	.L41:
+ 244 0120 4005C001 		.word	29361472
+ 245 0124 80000020 		.word	536871040
+ 246 0128 00700240 		.word	1073901568
+ 247 012c 04000020 		.word	536870916
+ 248 0130 02000020 		.word	536870914
+ 249 0134 20000020 		.word	536870944
+ 250 0138 00600040 		.word	1073766400
+ 251 013c 00500040 		.word	1073762304
+ 252 0140 00500240 		.word	1073893376
+ 253 0144 01000020 		.word	536870913
+ 254 0148 00400040 		.word	1073758208
+ 255 014c 00000000 		.word	g_sMouseDevice
+ 256 0150 00000000 		.word	.LANCHOR1
+ 257 0154 00000000 		.word	.LANCHOR0
+ 259              		.global	g_eMouseState
+ 260              		.global	g_bConnected
+ 261              		.global	g_ulSysTickCount
+ 262              		.section	.bss.g_ulSysTickCount,"aw",%nobits
+ 263              		.align	2
+ 264              		.set	.LANCHOR2,. + 0
+ 267              	g_ulSysTickCount:
+ 268 0000 00000000 		.space	4
+ 269              		.section	.bss.g_eMouseState,"aw",%nobits
+ 270              		.set	.LANCHOR0,. + 0
+ 273              	g_eMouseState:
+ 274 0000 00       		.space	1
+ 275              		.section	.bss.g_bConnected,"aw",%nobits
+ 276              		.set	.LANCHOR1,. + 0
+ 279              	g_bConnected:
+ 280 0000 00       		.space	1
+ 281              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccbb8JZF.s:15     .text.MouseHandler:00000000 $t
+     /tmp/ccbb8JZF.s:20     .text.MouseHandler:00000000 MouseHandler
+     /tmp/ccbb8JZF.s:54     .text.MouseHandler:0000002c $d
+     /tmp/ccbb8JZF.s:58     .text.WaitForSendIdle:00000000 $t
+     /tmp/ccbb8JZF.s:63     .text.WaitForSendIdle:00000000 WaitForSendIdle
+     /tmp/ccbb8JZF.s:90     .text.WaitForSendIdle:00000024 $d
+     /tmp/ccbb8JZF.s:94     .text.SysTickHandler:00000000 $t
+     /tmp/ccbb8JZF.s:99     .text.SysTickHandler:00000000 SysTickHandler
+     /tmp/ccbb8JZF.s:111    .text.SysTickHandler:0000000c $d
+     /tmp/ccbb8JZF.s:114    .text.main:00000000 $t
+     /tmp/ccbb8JZF.s:119    .text.main:00000000 main
+     /tmp/ccbb8JZF.s:244    .text.main:00000120 $d
+     /tmp/ccbb8JZF.s:273    .bss.g_eMouseState:00000000 g_eMouseState
+     /tmp/ccbb8JZF.s:279    .bss.g_bConnected:00000000 g_bConnected
+     /tmp/ccbb8JZF.s:267    .bss.g_ulSysTickCount:00000000 g_ulSysTickCount
+     /tmp/ccbb8JZF.s:263    .bss.g_ulSysTickCount:00000000 $d
+     /tmp/ccbb8JZF.s:274    .bss.g_eMouseState:00000000 $d
+     /tmp/ccbb8JZF.s:280    .bss.g_bConnected:00000000 $d
+
+UNDEFINED SYMBOLS
+SysCtlClockSet
+SysCtlPeripheralEnable
+GPIOPinTypeGPIOOutput
+GPIOPinWrite
+GPIODirModeSet
+GPIOPadConfigSet
+GPIOPinTypeUART
+UARTStdioInit
+SysCtlClockGet
+SysTickPeriodSet
+SysTickIntEnable
+SysTickEnable
+USBDHIDMouseInit
+GPIOPinRead
+USBDHIDMouseStateChange
+g_sMouseDevice

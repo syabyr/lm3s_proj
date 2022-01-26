@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/20/trunk/thermo
+END
+delay.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/5/trunk/thermo/delay.c
+END
+crc8.c
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/5/trunk/thermo/crc8.c
+END
+lcd.c
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/20/trunk/thermo/lcd.c
+END
+delay.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/5/trunk/thermo/delay.h
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/5/trunk/thermo/.project
+END
+crc8.h
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/5/trunk/thermo/crc8.h
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/19/trunk/thermo/.cproject
+END
+lcd.h
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/5/trunk/thermo/lcd.h
+END
+onewire.c
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/5/trunk/thermo/onewire.c
+END
+ds18x20.c
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/5/trunk/thermo/ds18x20.c
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/5/trunk/thermo/config.h
+END
+uart.c
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/5/trunk/thermo/uart.c
+END
+onewire.h
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/5/trunk/thermo/onewire.h
+END
+ds18x20.h
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/20/trunk/thermo/ds18x20.h
+END
+uart.h
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/5/trunk/thermo/uart.h
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/20/trunk/thermo/main.c
+END
+main.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/18/trunk/thermo/main.h
+END

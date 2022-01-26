@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/20/trunk/thermo/Release
+END
+delay.d
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/12/trunk/thermo/Release/delay.d
+END
+avr-test.map
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/20/trunk/thermo/Release/avr-test.map
+END
+crc8.d
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/12/trunk/thermo/Release/crc8.d
+END
+lcd.d
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/12/trunk/thermo/Release/lcd.d
+END
+avr-test.lss
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/20/trunk/thermo/Release/avr-test.lss
+END
+main.d
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/12/trunk/thermo/Release/main.d
+END
+avr-test.hex
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/20/trunk/thermo/Release/avr-test.hex
+END
+avr-test.elf
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/20/trunk/thermo/Release/avr-test.elf
+END
+onewire.d
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/12/trunk/thermo/Release/onewire.d
+END
+ds18x20.d
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/12/trunk/thermo/Release/ds18x20.d
+END
+avr-test.eep
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/20/trunk/thermo/Release/avr-test.eep
+END
+uart.d
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/12/trunk/thermo/Release/uart.d
+END

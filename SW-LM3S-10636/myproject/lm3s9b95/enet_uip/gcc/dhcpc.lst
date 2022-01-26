@@ -1,0 +1,522 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"dhcpc.c"
+  14              		.section	.text.add_msg_type,"ax",%progbits
+  15              		.align	1
+  16              		.thumb
+  17              		.thumb_func
+  19              	add_msg_type:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22              		@ link register save eliminated.
+  23 0000 0346     		mov	r3, r0
+  24 0002 3522     		movs	r2, #53
+  25 0004 03F8012B 		strb	r2, [r3], #1
+  26 0008 343A     		subs	r2, r2, #52
+  27 000a 4270     		strb	r2, [r0, #1]
+  28 000c 5970     		strb	r1, [r3, #1]
+  29 000e 981C     		adds	r0, r3, #2
+  30 0010 7047     		bx	lr
+  32              		.section	.text.add_end,"ax",%progbits
+  33              		.align	1
+  34              		.thumb
+  35              		.thumb_func
+  37              	add_end:
+  38              		@ args = 0, pretend = 0, frame = 0
+  39              		@ frame_needed = 0, uses_anonymous_args = 0
+  40              		@ link register save eliminated.
+  41 0000 FF23     		movs	r3, #255
+  42 0002 00F8013B 		strb	r3, [r0], #1
+  43 0006 7047     		bx	lr
+  45              		.section	.text.create_msg,"ax",%progbits
+  46              		.align	1
+  47              		.thumb
+  48              		.thumb_func
+  50              	create_msg:
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+  54 0004 214E     		ldr	r6, .L4
+  55 0006 0123     		movs	r3, #1
+  56 0008 0370     		strb	r3, [r0, #0]
+  57 000a 4370     		strb	r3, [r0, #1]
+  58 000c B369     		ldr	r3, [r6, #24]
+  59 000e 0025     		movs	r5, #0
+  60 0010 0427     		movs	r7, #4
+  61 0012 0446     		mov	r4, r0
+  62 0014 8370     		strb	r3, [r0, #2]
+  63 0016 C570     		strb	r5, [r0, #3]
+  64 0018 3A46     		mov	r2, r7
+  65 001a 4FF08008 		mov	r8, #128
+  66 001e C019     		adds	r0, r0, r7
+  67 0020 1B49     		ldr	r1, .L4+4
+  68 0022 FFF7FEFF 		bl	memcpy
+  69 0026 3A46     		mov	r2, r7
+  70 0028 2581     		strh	r5, [r4, #8]	@ movhi
+  71 002a A4F80A80 		strh	r8, [r4, #10]	@ movhi
+  72 002e 04F10C00 		add	r0, r4, #12
+  73 0032 1849     		ldr	r1, .L4+8
+  74 0034 FFF7FEFF 		bl	memcpy
+  75 0038 04F11C09 		add	r9, r4, #28
+  76 003c 0023     		movs	r3, #0
+  77 003e 6382     		strh	r3, [r4, #18]	@ movhi
+  78 0040 E382     		strh	r3, [r4, #22]	@ movhi
+  79 0042 6383     		strh	r3, [r4, #26]	@ movhi
+  80 0044 7169     		ldr	r1, [r6, #20]
+  81 0046 B269     		ldr	r2, [r6, #24]
+  82 0048 2582     		strh	r5, [r4, #16]	@ movhi
+  83 004a A582     		strh	r5, [r4, #20]	@ movhi
+  84 004c 2583     		strh	r5, [r4, #24]	@ movhi
+  85 004e 4846     		mov	r0, r9
+  86 0050 FFF7FEFF 		bl	memcpy
+  87 0054 B269     		ldr	r2, [r6, #24]
+  88 0056 2946     		mov	r1, r5
+  89 0058 09EB0200 		add	r0, r9, r2
+  90 005c C2F11002 		rsb	r2, r2, #16
+  91 0060 FFF7FEFF 		bl	memset
+  92 0064 2946     		mov	r1, r5
+  93 0066 4022     		movs	r2, #64
+  94 0068 04F12C00 		add	r0, r4, #44
+  95 006c FFF7FEFF 		bl	memset
+  96 0070 2946     		mov	r1, r5
+  97 0072 4246     		mov	r2, r8
+  98 0074 04F16C00 		add	r0, r4, #108
+  99 0078 FFF7FEFF 		bl	memset
+ 100 007c 04F1EC00 		add	r0, r4, #236
+ 101 0080 0549     		ldr	r1, .L4+12
+ 102 0082 3A46     		mov	r2, r7
+ 103 0084 FFF7FEFF 		bl	memcpy
+ 104 0088 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 105              	.L5:
+ 106              		.align	2
+ 107              	.L4:
+ 108 008c 00000000 		.word	.LANCHOR0
+ 109 0090 00000000 		.word	.LANCHOR1
+ 110 0094 00000000 		.word	uip_hostaddr
+ 111 0098 00000000 		.word	.LANCHOR2
+ 113              		.section	.text.parse_msg,"ax",%progbits
+ 114              		.align	1
+ 115              		.thumb
+ 116              		.thumb_func
+ 118              	parse_msg:
+ 119              		@ args = 0, pretend = 0, frame = 0
+ 120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 122 0002 274B     		ldr	r3, .L25
+ 123 0004 1C68     		ldr	r4, [r3, #0]
+ 124 0006 2378     		ldrb	r3, [r4, #0]	@ zero_extendqisi2
+ 125 0008 022B     		cmp	r3, #2
+ 126 000a 45D1     		bne	.L20
+ 127 000c 201D     		adds	r0, r4, #4
+ 128 000e 2549     		ldr	r1, .L25+4
+ 129 0010 0422     		movs	r2, #4
+ 130 0012 FFF7FEFF 		bl	memcmp
+ 131 0016 0546     		mov	r5, r0
+ 132 0018 0028     		cmp	r0, #0
+ 133 001a 3DD1     		bne	.L20
+ 134 001c 224E     		ldr	r6, .L25+8
+ 135 001e 04F11C00 		add	r0, r4, #28
+ 136 0022 7169     		ldr	r1, [r6, #20]
+ 137 0024 B269     		ldr	r2, [r6, #24]
+ 138 0026 FFF7FEFF 		bl	memcmp
+ 139 002a 0746     		mov	r7, r0
+ 140 002c 0028     		cmp	r0, #0
+ 141 002e 34D1     		bne	.L7
+ 142 0030 06F12400 		add	r0, r6, #36
+ 143 0034 04F11001 		add	r1, r4, #16
+ 144 0038 0422     		movs	r2, #4
+ 145 003a FFF7FEFF 		bl	memcpy
+ 146 003e 1B4B     		ldr	r3, .L25+12
+ 147 0040 F034     		adds	r4, r4, #240
+ 148 0042 1E88     		ldrh	r6, [r3, #0]
+ 149 0044 3D46     		mov	r5, r7
+ 150 0046 A619     		adds	r6, r4, r6
+ 151 0048 23E0     		b	.L8
+ 152              	.L18:
+ 153 004a 2378     		ldrb	r3, [r4, #0]	@ zero_extendqisi2
+ 154 004c 332B     		cmp	r3, #51
+ 155 004e 18D0     		beq	.L13
+ 156 0050 06D8     		bhi	.L17
+ 157 0052 032B     		cmp	r3, #3
+ 158 0054 0DD0     		beq	.L11
+ 159 0056 062B     		cmp	r3, #6
+ 160 0058 0DD0     		beq	.L12
+ 161 005a 012B     		cmp	r3, #1
+ 162 005c 16D1     		bne	.L9
+ 163 005e 06E0     		b	.L23
+ 164              	.L17:
+ 165 0060 362B     		cmp	r3, #54
+ 166 0062 0CD0     		beq	.L15
+ 167 0064 FF2B     		cmp	r3, #255
+ 168 0066 18D0     		beq	.L7
+ 169 0068 352B     		cmp	r3, #53
+ 170 006a 0FD1     		bne	.L9
+ 171 006c 05E0     		b	.L24
+ 172              	.L23:
+ 173 006e 1048     		ldr	r0, .L25+16
+ 174 0070 08E0     		b	.L22
+ 175              	.L11:
+ 176 0072 1048     		ldr	r0, .L25+20
+ 177 0074 06E0     		b	.L22
+ 178              	.L12:
+ 179 0076 1048     		ldr	r0, .L25+24
+ 180 0078 04E0     		b	.L22
+ 181              	.L24:
+ 182 007a A578     		ldrb	r5, [r4, #2]	@ zero_extendqisi2
+ 183 007c 06E0     		b	.L9
+ 184              	.L15:
+ 185 007e 0F48     		ldr	r0, .L25+28
+ 186 0080 00E0     		b	.L22
+ 187              	.L13:
+ 188 0082 0F48     		ldr	r0, .L25+32
+ 189              	.L22:
+ 190 0084 A11C     		adds	r1, r4, #2
+ 191 0086 0422     		movs	r2, #4
+ 192 0088 FFF7FEFF 		bl	memcpy
+ 193              	.L9:
+ 194 008c 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 195 008e 0233     		adds	r3, r3, #2
+ 196 0090 E418     		adds	r4, r4, r3
+ 197              	.L8:
+ 198 0092 B442     		cmp	r4, r6
+ 199 0094 D9D3     		bcc	.L18
+ 200 0096 00E0     		b	.L7
+ 201              	.L20:
+ 202 0098 0025     		movs	r5, #0
+ 203              	.L7:
+ 204 009a 2846     		mov	r0, r5
+ 205 009c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 206              	.L26:
+ 207 009e 00BF     		.align	2
+ 208              	.L25:
+ 209 00a0 00000000 		.word	uip_appdata
+ 210 00a4 00000000 		.word	.LANCHOR1
+ 211 00a8 00000000 		.word	.LANCHOR0
+ 212 00ac 00000000 		.word	uip_len
+ 213 00b0 28000000 		.word	.LANCHOR0+40
+ 214 00b4 30000000 		.word	.LANCHOR0+48
+ 215 00b8 2C000000 		.word	.LANCHOR0+44
+ 216 00bc 1C000000 		.word	.LANCHOR0+28
+ 217 00c0 20000000 		.word	.LANCHOR0+32
+ 219              		.section	.text.dhcpc_init,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	dhcpc_init
+ 222              		.thumb
+ 223              		.thumb_func
+ 225              	dhcpc_init:
+ 226              		@ args = 0, pretend = 0, frame = 8
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228 0000 13B5     		push	{r0, r1, r4, lr}
+ 229 0002 0C4C     		ldr	r4, .L29
+ 230 0004 0023     		movs	r3, #0
+ 231 0006 6061     		str	r0, [r4, #20]
+ 232 0008 A161     		str	r1, [r4, #24]
+ 233 000a A370     		strb	r3, [r4, #2]
+ 234 000c 01A8     		add	r0, sp, #4
+ 235 000e 4FF0FF33 		mov	r3, #-1	@ movhi
+ 236 0012 4FF48641 		mov	r1, #17152
+ 237 0016 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 238 001a ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 239 001e FFF7FEFF 		bl	uip_udp_new
+ 240 0022 6060     		str	r0, [r4, #4]
+ 241 0024 10B1     		cbz	r0, .L28
+ 242 0026 4FF48843 		mov	r3, #17408	@ movhi
+ 243 002a 8380     		strh	r3, [r0, #4]	@ movhi
+ 244              	.L28:
+ 245 002c 0023     		movs	r3, #0
+ 246 002e 2380     		strh	r3, [r4, #0]	@ movhi
+ 247 0030 1CBD     		pop	{r2, r3, r4, pc}
+ 248              	.L30:
+ 249 0032 00BF     		.align	2
+ 250              	.L29:
+ 251 0034 00000000 		.word	.LANCHOR0
+ 253              		.section	.text.dhcpc_appcall,"ax",%progbits
+ 254              		.align	1
+ 255              		.global	dhcpc_appcall
+ 256              		.thumb
+ 257              		.thumb_func
+ 259              	dhcpc_appcall:
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 263 0004 674C     		ldr	r4, .L54
+ 264 0006 2388     		ldrh	r3, [r4, #0]
+ 265 0008 B3F5827F 		cmp	r3, #260
+ 266 000c 42D0     		beq	.L35
+ 267 000e 06D8     		bhi	.L39
+ 268 0010 9BB1     		cbz	r3, .L33
+ 269 0012 40F20312 		movw	r2, #259
+ 270 0016 9342     		cmp	r3, r2
+ 271 0018 40F0BF80 		bne	.L32
+ 272 001c 37E0     		b	.L52
+ 273              	.L39:
+ 274 001e B3F58B7F 		cmp	r3, #278
+ 275 0022 00F08F80 		beq	.L37
+ 276 0026 B3F59F7F 		cmp	r3, #318
+ 277 002a 00F0B180 		beq	.L38
+ 278 002e 40F21512 		movw	r2, #277
+ 279 0032 9342     		cmp	r3, r2
+ 280 0034 40F0B180 		bne	.L32
+ 281 0038 81E0     		b	.L53
+ 282              	.L33:
+ 283 003a 0123     		movs	r3, #1
+ 284 003c 6422     		movs	r2, #100
+ 285 003e A370     		strb	r3, [r4, #2]
+ 286 0040 2282     		strh	r2, [r4, #16]	@ movhi
+ 287              	.L45:
+ 288 0042 594D     		ldr	r5, .L54+4
+ 289 0044 2E68     		ldr	r6, [r5, #0]
+ 290 0046 3046     		mov	r0, r6
+ 291 0048 FFF7FEFF 		bl	create_msg
+ 292 004c 0121     		movs	r1, #1
+ 293 004e 06F1F000 		add	r0, r6, #240
+ 294 0052 FFF7FEFF 		bl	add_msg_type
+ 295 0056 3722     		movs	r2, #55
+ 296 0058 0346     		mov	r3, r0
+ 297 005a 03F8012B 		strb	r2, [r3], #1
+ 298 005e 0321     		movs	r1, #3
+ 299 0060 4170     		strb	r1, [r0, #1]
+ 300 0062 5A1C     		adds	r2, r3, #1
+ 301 0064 0120     		movs	r0, #1
+ 302 0066 5870     		strb	r0, [r3, #1]
+ 303 0068 9970     		strb	r1, [r3, #2]
+ 304 006a 1018     		adds	r0, r2, r0
+ 305 006c 0623     		movs	r3, #6
+ 306 006e 4370     		strb	r3, [r0, #1]
+ 307 0070 0230     		adds	r0, r0, #2
+ 308 0072 FFF7FEFF 		bl	add_end
+ 309 0076 2B68     		ldr	r3, [r5, #0]
+ 310 0078 C11A     		subs	r1, r0, r3
+ 311 007a 1846     		mov	r0, r3
+ 312 007c FFF7FEFF 		bl	uip_send
+ 313 0080 4A48     		ldr	r0, .L54+8
+ 314 0082 218A     		ldrh	r1, [r4, #16]
+ 315 0084 FFF7FEFF 		bl	timer_set
+ 316 0088 40F20313 		movw	r3, 259	@ movhi
+ 317 008c 82E0     		b	.L51
+ 318              	.L52:
+ 319 008e 4FF48272 		mov	r2, #260	@ movhi
+ 320 0092 2280     		strh	r2, [r4, #0]	@ movhi
+ 321              	.L35:
+ 322 0094 464D     		ldr	r5, .L54+12
+ 323 0096 2B78     		ldrb	r3, [r5, #0]	@ zero_extendqisi2
+ 324 0098 13F0020F 		tst	r3, #2
+ 325 009c 04D1     		bne	.L41
+ 326 009e 4348     		ldr	r0, .L54+8
+ 327 00a0 FFF7FEFF 		bl	timer_expired
+ 328 00a4 0028     		cmp	r0, #0
+ 329 00a6 7AD0     		beq	.L31
+ 330              	.L41:
+ 331 00a8 2B78     		ldrb	r3, [r5, #0]	@ zero_extendqisi2
+ 332 00aa 13F0020F 		tst	r3, #2
+ 333 00ae 05D0     		beq	.L42
+ 334 00b0 FFF7FEFF 		bl	parse_msg
+ 335 00b4 0228     		cmp	r0, #2
+ 336 00b6 01D1     		bne	.L42
+ 337 00b8 A070     		strb	r0, [r4, #2]
+ 338 00ba 0AE0     		b	.L43
+ 339              	.L42:
+ 340 00bc 238A     		ldrh	r3, [r4, #16]
+ 341 00be 41F26F72 		movw	r2, #5999
+ 342 00c2 9342     		cmp	r3, r2
+ 343 00c4 02D8     		bhi	.L44
+ 344 00c6 374A     		ldr	r2, .L54
+ 345 00c8 5B00     		lsls	r3, r3, #1
+ 346 00ca 1382     		strh	r3, [r2, #16]	@ movhi
+ 347              	.L44:
+ 348 00cc A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 349 00ce 022B     		cmp	r3, #2
+ 350 00d0 B7D1     		bne	.L45
+ 351              	.L43:
+ 352 00d2 6423     		movs	r3, #100
+ 353 00d4 2382     		strh	r3, [r4, #16]	@ movhi
+ 354              	.L50:
+ 355 00d6 DFF8D080 		ldr	r8, .L54+4
+ 356 00da 0427     		movs	r7, #4
+ 357 00dc D8F80050 		ldr	r5, [r8, #0]
+ 358 00e0 2846     		mov	r0, r5
+ 359 00e2 FFF7FEFF 		bl	create_msg
+ 360 00e6 05F1F000 		add	r0, r5, #240
+ 361 00ea 0321     		movs	r1, #3
+ 362 00ec FFF7FEFF 		bl	add_msg_type
+ 363 00f0 3623     		movs	r3, #54
+ 364 00f2 0546     		mov	r5, r0
+ 365 00f4 05F8013B 		strb	r3, [r5], #1
+ 366 00f8 0646     		mov	r6, r0
+ 367 00fa 2E49     		ldr	r1, .L54+16
+ 368 00fc 3A46     		mov	r2, r7
+ 369 00fe 7770     		strb	r7, [r6, #1]
+ 370 0100 681C     		adds	r0, r5, #1
+ 371 0102 FFF7FEFF 		bl	memcpy
+ 372 0106 3223     		movs	r3, #50
+ 373 0108 3A46     		mov	r2, r7
+ 374 010a 6B71     		strb	r3, [r5, #5]
+ 375 010c 2A49     		ldr	r1, .L54+20
+ 376 010e AF71     		strb	r7, [r5, #6]
+ 377 0110 06F10800 		add	r0, r6, #8
+ 378 0114 FFF7FEFF 		bl	memcpy
+ 379 0118 06F10C00 		add	r0, r6, #12
+ 380 011c FFF7FEFF 		bl	add_end
+ 381 0120 D8F80030 		ldr	r3, [r8, #0]
+ 382 0124 C11A     		subs	r1, r0, r3
+ 383 0126 1846     		mov	r0, r3
+ 384 0128 FFF7FEFF 		bl	uip_send
+ 385 012c 1F48     		ldr	r0, .L54+8
+ 386 012e 218A     		ldrh	r1, [r4, #16]
+ 387 0130 FFF7FEFF 		bl	timer_set
+ 388 0134 40F21512 		movw	r2, 277	@ movhi
+ 389 0138 2280     		strh	r2, [r4, #0]	@ movhi
+ 390 013a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 391              	.L53:
+ 392 013e 4FF48B73 		mov	r3, #278	@ movhi
+ 393 0142 2380     		strh	r3, [r4, #0]	@ movhi
+ 394              	.L37:
+ 395 0144 1A4D     		ldr	r5, .L54+12
+ 396 0146 2B78     		ldrb	r3, [r5, #0]	@ zero_extendqisi2
+ 397 0148 13F0020F 		tst	r3, #2
+ 398 014c 03D1     		bne	.L46
+ 399 014e 1748     		ldr	r0, .L54+8
+ 400 0150 FFF7FEFF 		bl	timer_expired
+ 401 0154 18B3     		cbz	r0, .L31
+ 402              	.L46:
+ 403 0156 2B78     		ldrb	r3, [r5, #0]	@ zero_extendqisi2
+ 404 0158 13F0020F 		tst	r3, #2
+ 405 015c 06D0     		beq	.L47
+ 406 015e FFF7FEFF 		bl	parse_msg
+ 407 0162 0528     		cmp	r0, #5
+ 408 0164 02D1     		bne	.L47
+ 409 0166 0323     		movs	r3, #3
+ 410 0168 A370     		strb	r3, [r4, #2]
+ 411 016a 0EE0     		b	.L48
+ 412              	.L47:
+ 413 016c 228A     		ldrh	r2, [r4, #16]
+ 414 016e 0D4B     		ldr	r3, .L54
+ 415 0170 B2F57A7F 		cmp	r2, #1000
+ 416 0174 05D8     		bhi	.L49
+ 417 0176 6432     		adds	r2, r2, #100
+ 418 0178 1A82     		strh	r2, [r3, #16]	@ movhi
+ 419 017a 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 420 017c 032B     		cmp	r3, #3
+ 421 017e AAD1     		bne	.L50
+ 422 0180 03E0     		b	.L48
+ 423              	.L49:
+ 424 0182 0022     		movs	r2, #0
+ 425 0184 1A80     		strh	r2, [r3, #0]	@ movhi
+ 426 0186 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 427              	.L48:
+ 428 018a 0648     		ldr	r0, .L54
+ 429 018c FFF7FEFF 		bl	dhcpc_configured
+ 430              	.L38:
+ 431 0190 4FF49F73 		mov	r3, #318	@ movhi
+ 432              	.L51:
+ 433 0194 2380     		strh	r3, [r4, #0]	@ movhi
+ 434 0196 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 435              	.L32:
+ 436 019a 0022     		movs	r2, #0
+ 437 019c 2280     		strh	r2, [r4, #0]	@ movhi
+ 438              	.L31:
+ 439 019e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 440              	.L55:
+ 441 01a2 00BF     		.align	2
+ 442              	.L54:
+ 443 01a4 00000000 		.word	.LANCHOR0
+ 444 01a8 00000000 		.word	uip_appdata
+ 445 01ac 08000000 		.word	.LANCHOR0+8
+ 446 01b0 00000000 		.word	uip_flags
+ 447 01b4 1C000000 		.word	.LANCHOR0+28
+ 448 01b8 24000000 		.word	.LANCHOR0+36
+ 450              		.section	.text.dhcpc_request,"ax",%progbits
+ 451              		.align	1
+ 452              		.global	dhcpc_request
+ 453              		.thumb
+ 454              		.thumb_func
+ 456              	dhcpc_request:
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 0, uses_anonymous_args = 0
+ 459              		@ link register save eliminated.
+ 460 0000 034B     		ldr	r3, .L58
+ 461 0002 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 462 0004 13B9     		cbnz	r3, .L56
+ 463 0006 034A     		ldr	r2, .L58+4
+ 464 0008 1380     		strh	r3, [r2, #0]	@ movhi
+ 465 000a 5380     		strh	r3, [r2, #2]	@ movhi
+ 466              	.L56:
+ 467 000c 7047     		bx	lr
+ 468              	.L59:
+ 469 000e 00BF     		.align	2
+ 470              	.L58:
+ 471 0010 00000000 		.word	.LANCHOR0
+ 472 0014 00000000 		.word	uip_hostaddr
+ 474              		.section	.rodata.xid,"a",%progbits
+ 475              		.set	.LANCHOR1,. + 0
+ 478              	xid:
+ 479 0000 AD       		.byte	-83
+ 480 0001 DE       		.byte	-34
+ 481 0002 12       		.byte	18
+ 482 0003 23       		.byte	35
+ 483              		.section	.bss.s,"aw",%nobits
+ 484              		.align	2
+ 485              		.set	.LANCHOR0,. + 0
+ 488              	s:
+ 489 0000 00000000 		.space	52
+ 489      00000000 
+ 489      00000000 
+ 489      00000000 
+ 489      00000000 
+ 490              		.section	.rodata.magic_cookie,"a",%progbits
+ 491              		.set	.LANCHOR2,. + 0
+ 494              	magic_cookie:
+ 495 0000 63       		.byte	99
+ 496 0001 82       		.byte	-126
+ 497 0002 53       		.byte	83
+ 498 0003 63       		.byte	99
+ 499              		.ident	"GCC: (Sourcery G++ 2010.09-48) 4.5.1"
+DEFINED SYMBOLS
+                            *ABS*:00000000 dhcpc.c
+     /tmp/ccRjPLOu.s:15     .text.add_msg_type:00000000 $t
+     /tmp/ccRjPLOu.s:19     .text.add_msg_type:00000000 add_msg_type
+     /tmp/ccRjPLOu.s:33     .text.add_end:00000000 $t
+     /tmp/ccRjPLOu.s:37     .text.add_end:00000000 add_end
+     /tmp/ccRjPLOu.s:46     .text.create_msg:00000000 $t
+     /tmp/ccRjPLOu.s:50     .text.create_msg:00000000 create_msg
+     /tmp/ccRjPLOu.s:108    .text.create_msg:0000008c $d
+     /tmp/ccRjPLOu.s:114    .text.parse_msg:00000000 $t
+     /tmp/ccRjPLOu.s:118    .text.parse_msg:00000000 parse_msg
+     /tmp/ccRjPLOu.s:209    .text.parse_msg:000000a0 $d
+     /tmp/ccRjPLOu.s:220    .text.dhcpc_init:00000000 $t
+     /tmp/ccRjPLOu.s:225    .text.dhcpc_init:00000000 dhcpc_init
+     /tmp/ccRjPLOu.s:251    .text.dhcpc_init:00000034 $d
+     /tmp/ccRjPLOu.s:254    .text.dhcpc_appcall:00000000 $t
+     /tmp/ccRjPLOu.s:259    .text.dhcpc_appcall:00000000 dhcpc_appcall
+     /tmp/ccRjPLOu.s:443    .text.dhcpc_appcall:000001a4 $d
+     /tmp/ccRjPLOu.s:451    .text.dhcpc_request:00000000 $t
+     /tmp/ccRjPLOu.s:456    .text.dhcpc_request:00000000 dhcpc_request
+     /tmp/ccRjPLOu.s:471    .text.dhcpc_request:00000010 $d
+     /tmp/ccRjPLOu.s:478    .rodata.xid:00000000 xid
+     /tmp/ccRjPLOu.s:484    .bss.s:00000000 $d
+     /tmp/ccRjPLOu.s:488    .bss.s:00000000 s
+     /tmp/ccRjPLOu.s:494    .rodata.magic_cookie:00000000 magic_cookie
+
+UNDEFINED SYMBOLS
+memcpy
+memset
+uip_hostaddr
+memcmp
+uip_appdata
+uip_len
+uip_udp_new
+uip_send
+timer_set
+timer_expired
+dhcpc_configured
+uip_flags

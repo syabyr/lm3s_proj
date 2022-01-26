@@ -1,0 +1,69 @@
+#这是一个为LM3S系列Cortex-M3单片机编写的Makefile配置文件
+#Auther:mybays@qq.com
+#Date:Jun-6-2011
+
+
+#单片机的型号
+PART = LM3S9B95
+SUBMDL = $(PART)
+CHIP = $(PART)
+CPART = lm3s9b95
+
+#被编译器识别的架构
+MCU = cortex-m3
+
+#开发板型号
+BOARD = EK-LM3S9B95
+
+#交叉编译链前缀
+TCHAIN_PREFIX = arm-stellaris-eabi
+
+#启动源文件
+STARTUP = startup_9b95.c
+
+#所有工程的都以main.c为主要源文件
+TARGET = main
+
+#优化级别:0,1,2,3,s
+OPT = s
+
+#输出格式:ihex,binary,both
+LOADFORMAT = both
+
+#生成ROM执行文件,如果是在调试的话,而且代码比较小,那么就可以把内存当flash使用,将程序下载到内存中运行,节约运行速度并减小flash读写次数:ROM_RUN RAM_RUN
+RUN_MODE = RAM_RUN
+
+#作为开发者,一般情况下都是在调试,所以默认RAM_RUN
+ifndef RUN_MODE
+RUN_MODE = RAM_RUN
+endif
+
+#输出目录
+OUTDIR = gcc
+
+ROOT=../../..
+
+
+
+
+
+
+#需要编译的C++源文件
+CPPSRC = 
+CPPSRC += 
+
+#需要编译的汇编源文件
+ASRC = 
+ASRC += 
+
+
+
+#打包库文件路径
+EXTRA_LIBDIRS = ${ROOT}/lib
+#额外的库文件
+EXTRA_LIBS =
+#静态库文件
+LIBA = ${EXTRA_LIBDIRS}/libdriver.a
+LIBA += ${EXTRA_LIBDIRS}/libgr.a
+LIBA += ${EXTRA_LIBDIRS}/libusb.a
+LIBA += ${EXTRA_LIBDIRS}/IQmathLib.a

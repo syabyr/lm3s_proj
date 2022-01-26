@@ -1,0 +1,1 @@
+-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -ID:\StellarisWare(eklm3s3748) -I..\..\..\boards\ek-lm3s3748 -I "D:\Keil\ARM\INC" -I "D:\Keil\ARM\INC\Luminary" -Drvmdk -DPART_LM3S3748 -DUART_BUFFERED -DTARGET_IS_DUSTDEVIL_RA0 -o ".\rvmdk\timer0a.o" --omf_browse ".\rvmdk\timer0a.crf" --depend ".\rvmdk\timer0a.d" "Timer0A.c"

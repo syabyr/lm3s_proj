@@ -1,0 +1,24 @@
+*** Creating Trace Output File '.\Output\ds18b20.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\output\stm32f10x.o"'
+### List of Objects: adding '".\output\stm32_init.o"'
+### List of Objects: adding '".\output\tft200.o"'
+### List of Objects: adding '".\output\main.o"'
+### List of Objects: adding '".\output\ds18b20.o"'
+### List of Objects: adding '".\STM32F10xR.LIB"'
+### ADS-LD Command completed:
+--device DARMSTM ".\output\stm32f10x.o" ".\output\stm32_init.o" ".\output\tft200.o" ".\output\main.o" ".\output\ds18b20.o" ".\STM32F10xR.LIB" --strict --scatter ".\Output\ds18b20.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\ds18b20.map" -o ".\Output\ds18b20.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Output\ds18b20.axf'
+### ADS-LD Command File: '.\Output\ds18b20.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Output\ds18b20.lnp', Handle=0x00000348
+### Writing '.lnp' file
+### ADS-LD Command file '.\Output\ds18b20.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

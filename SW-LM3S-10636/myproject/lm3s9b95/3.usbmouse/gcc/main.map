@@ -1,0 +1,1351 @@
+Archive member included because of file (symbol)
+
+../../lib/libdriver.a(gpio.o)
+                              gcc/main.o (GPIOPinTypeUART)
+../../lib/libdriver.a(interrupt.o)
+                              ../../lib/libdriver.a(gpio.o) (IntRegister)
+../../lib/libdriver.a(sysctl.o)
+                              gcc/uartstdio.o (SysCtlPeripheralPresent)
+../../lib/libdriver.a(uart.o)
+                              gcc/uartstdio.o (UARTEnable)
+../../lib/libdriver.a(cpu.o)  ../../lib/libdriver.a(interrupt.o) (CPUcpsid)
+../../lib/libusb.a(usbdhandler.o)
+                              gcc/startup.o (USB0DeviceIntHandler)
+../../lib/libusb.a(usbdenum.o)
+                              ../../lib/libusb.a(usbdhandler.o) (USBDeviceIntHandlerInternal)
+../../lib/libusb.a(usbmode.o)
+                              ../../lib/libusb.a(usbdenum.o) (g_eUSBMode)
+../../lib/libusb.a(usbtick.o)
+                              ../../lib/libusb.a(usbdenum.o) (InternalUSBTickInit)
+../../lib/libusb.a(usbdcdesc.o)
+                              ../../lib/libusb.a(usbdenum.o) (USBDCDConfigDescGetSize)
+../../lib/libusb.a(usbdconfig.o)
+                              ../../lib/libusb.a(usbdenum.o) (USBDeviceConfig)
+../../lib/libusb.a(usbdesc.o)
+                              ../../lib/libusb.a(usbdcdesc.o) (USBDescGetNum)
+../../lib/libusb.a(usbhostenum.o)
+                              ../../lib/libusb.a(usbmode.o) (USBHCDPowerConfigGet)
+/home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+                              gcc/ustdlib.o (memcpy)
+/home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+                              gcc/ustdlib.o (strlen)
+/home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+                              gcc/ustdlib.o (strncmp)
+/home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+                              gcc/ustdlib.o (strncpy)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 gcc/main.o
+ .data          0x00000000        0x0 gcc/main.o
+ .bss           0x00000000        0x0 gcc/main.o
+ .text.UARTIntHandler
+                0x00000000       0x34 gcc/main.o
+ .text.UARTSend
+                0x00000000       0x20 gcc/main.o
+ .text          0x00000000        0x0 gcc/startup.o
+ .data          0x00000000        0x0 gcc/startup.o
+ .bss           0x00000000        0x0 gcc/startup.o
+ .text          0x00000000        0x0 gcc/mydelay.o
+ .data          0x00000000        0x0 gcc/mydelay.o
+ .bss           0x00000000        0x0 gcc/mydelay.o
+ .text._delay_ms
+                0x00000000       0x1a gcc/mydelay.o
+ .text._delay_us
+                0x00000000       0x1c gcc/mydelay.o
+ .text          0x00000000        0x0 gcc/ustdlib.o
+ .data          0x00000000        0x0 gcc/ustdlib.o
+ .bss           0x00000000        0x0 gcc/ustdlib.o
+ .text.uvsnprintf
+                0x00000000      0x24c gcc/ustdlib.o
+ .text.usprintf
+                0x00000000       0x1c gcc/ustdlib.o
+ .text.usnprintf
+                0x00000000       0x18 gcc/ustdlib.o
+ .text.ulocaltime
+                0x00000000       0xa0 gcc/ustdlib.o
+ .text.ustrtoul
+                0x00000000       0xb4 gcc/ustdlib.o
+ .text.ustrstr  0x00000000       0x2c gcc/ustdlib.o
+ .text.ustrnicmp
+                0x00000000       0x4e gcc/ustdlib.o
+ .text.ustrcasecmp
+                0x00000000        0x8 gcc/ustdlib.o
+ .rodata.g_psDaysToMonth
+                0x00000000       0x18 gcc/ustdlib.o
+ .rodata.str1.1
+                0x00000000       0x17 gcc/ustdlib.o
+ .text          0x00000000        0x0 gcc/uartstdio.o
+ .data          0x00000000        0x0 gcc/uartstdio.o
+ .bss           0x00000000        0x0 gcc/uartstdio.o
+ .text.UARTgets
+                0x00000000       0x78 gcc/uartstdio.o
+ .text.UARTgetc
+                0x00000000       0x14 gcc/uartstdio.o
+ .bss.bLastWasCR.1409
+                0x00000000        0x1 gcc/uartstdio.o
+ .text          0x00000000        0x0 gcc/usb_mouse_structs.o
+ .data          0x00000000        0x0 gcc/usb_mouse_structs.o
+ .bss           0x00000000        0x0 gcc/usb_mouse_structs.o
+ .rodata.g_pStringDescriptors
+                0x00000000       0x18 gcc/usb_mouse_structs.o
+ .rodata.g_sMouseDevice
+                0x00000000       0x1c gcc/usb_mouse_structs.o
+ .rodata.g_pManufacturerString
+                0x00000000       0x24 gcc/usb_mouse_structs.o
+ .rodata.g_pSerialNumberString
+                0x00000000       0x12 gcc/usb_mouse_structs.o
+ .rodata.g_pProductString
+                0x00000000       0x1c gcc/usb_mouse_structs.o
+ .rodata.g_pHIDInterfaceString
+                0x00000000       0x28 gcc/usb_mouse_structs.o
+ .rodata.g_pConfigString
+                0x00000000       0x30 gcc/usb_mouse_structs.o
+ .bss.g_sMouseInstance
+                0x00000000       0x70 gcc/usb_mouse_structs.o
+ .rodata.g_pLangDescriptor
+                0x00000000        0x4 gcc/usb_mouse_structs.o
+ .text          0x00000000        0x0 ../../lib/libdriver.a(gpio.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(gpio.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOGetIntNumber
+                0x00000000       0xf4 ../../lib/libdriver.a(gpio.o)
+ .text.GPIODirModeGet
+                0x00000000       0x24 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOIntTypeSet
+                0x00000000       0x48 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOIntTypeGet
+                0x00000000       0x32 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPadConfigGet
+                0x00000000       0x78 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntEnable
+                0x00000000        0xc ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntDisable
+                0x00000000        0xe ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntStatus
+                0x00000000        0xe ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinIntClear
+                0x00000000        0x6 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPortIntRegister
+                0x00000000       0x1a ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPortIntUnregister
+                0x00000000       0x16 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinRead
+                0x00000000        0x6 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinWrite
+                0x00000000        0x6 ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeADC
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeCAN
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeComparator
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeGPIOInput
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeGPIOOutput
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeGPIOOutputOD
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeI2C
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypePWM
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeQEI
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeSSI
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeTimer
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeUSBDigital
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeUSBAnalog
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeI2S
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeEthernetLED
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinTypeEPI
+                0x00000000       0x1c ../../lib/libdriver.a(gpio.o)
+ .text.GPIOPinConfigure
+                0x00000000       0x4c ../../lib/libdriver.a(gpio.o)
+ .rodata.g_pulGPIOBaseAddrs
+                0x00000000       0x48 ../../lib/libdriver.a(gpio.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(interrupt.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(interrupt.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(interrupt.o)
+ .text.IntDefaultHandler
+                0x00000000        0x2 ../../lib/libdriver.a(interrupt.o)
+ .text.IntMasterEnable
+                0x00000000        0xa ../../lib/libdriver.a(interrupt.o)
+ .text.IntMasterDisable
+                0x00000000        0xa ../../lib/libdriver.a(interrupt.o)
+ .text.IntRegister
+                0x00000000       0x30 ../../lib/libdriver.a(interrupt.o)
+ .text.IntUnregister
+                0x00000000       0x14 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityGroupingSet
+                0x00000000       0x1c ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityGroupingGet
+                0x00000000       0x24 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPrioritySet
+                0x00000000       0x28 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityGet
+                0x00000000       0x1c ../../lib/libdriver.a(interrupt.o)
+ .text.IntEnable
+                0x00000000       0x70 ../../lib/libdriver.a(interrupt.o)
+ .text.IntDisable
+                0x00000000       0x70 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPendSet
+                0x00000000       0x60 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPendClear
+                0x00000000       0x50 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityMaskSet
+                0x00000000        0x4 ../../lib/libdriver.a(interrupt.o)
+ .text.IntPriorityMaskGet
+                0x00000000        0x4 ../../lib/libdriver.a(interrupt.o)
+ vtable         0x00000000      0x11c ../../lib/libdriver.a(interrupt.o)
+ .rodata.g_pulPriority
+                0x00000000       0x20 ../../lib/libdriver.a(interrupt.o)
+ .rodata.g_pulRegs
+                0x00000000       0x48 ../../lib/libdriver.a(interrupt.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(sysctl.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(sysctl.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlSRAMSizeGet
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlFlashSizeGet
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPinPresent
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralReset
+                0x00000000       0x40 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralDisable
+                0x00000000       0x24 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralSleepEnable
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralSleepDisable
+                0x00000000       0x24 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralDeepSleepEnable
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralDeepSleepDisable
+                0x00000000       0x24 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPeripheralClockGating
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntRegister
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntUnregister
+                0x00000000       0x12 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntEnable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntDisable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntClear
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIntStatus
+                0x00000000       0x18 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlLDOSet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlLDOGet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlLDOConfigSet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlReset
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlSleep
+                0x00000000        0x4 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlDeepSleep
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlResetCauseGet
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlResetCauseClear
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlBrownOutConfigSet
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPWMClockSet
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPWMClockGet
+                0x00000000       0x18 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlADCSpeedSet
+                0x00000000       0x20 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlADCSpeedGet
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlIOSCVerificationSet
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlMOSCVerificationSet
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlPLLVerificationSet
+                0x00000000       0x1c ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlClkVerificationClear
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlGPIOAHBEnable
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlGPIOAHBDisable
+                0x00000000       0x14 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlUSBPLLEnable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlUSBPLLDisable
+                0x00000000       0x10 ../../lib/libdriver.a(sysctl.o)
+ .text.SysCtlI2SMClkSet
+                0x00000000       0xe4 ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulDCGCRegs
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulSCGCRegs
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulSRCRRegs
+                0x00000000        0xc ../../lib/libdriver.a(sysctl.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(uart.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(uart.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(uart.o)
+ .text.UARTParityModeSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTParityModeGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFOLevelSet
+                0x00000000        0x6 ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFOLevelGet
+                0x00000000       0x10 ../../lib/libdriver.a(uart.o)
+ .text.UARTConfigGetExpClk
+                0x00000000       0x28 ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFOEnable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTFIFODisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTEnableSIR
+                0x00000000       0x14 ../../lib/libdriver.a(uart.o)
+ .text.UARTDisableSIR
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTSmartCardEnable
+                0x00000000       0x16 ../../lib/libdriver.a(uart.o)
+ .text.UARTSmartCardDisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTModemControlSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTModemControlClear
+                0x00000000        0xe ../../lib/libdriver.a(uart.o)
+ .text.UARTModemControlGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTModemStatusGet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTFlowControlSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTFlowControlGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTTxIntModeSet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTTxIntModeGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTCharsAvail
+                0x00000000       0x10 ../../lib/libdriver.a(uart.o)
+ .text.UARTSpaceAvail
+                0x00000000       0x10 ../../lib/libdriver.a(uart.o)
+ .text.UARTCharGetNonBlocking
+                0x00000000       0x10 ../../lib/libdriver.a(uart.o)
+ .text.UARTCharGet
+                0x00000000        0xc ../../lib/libdriver.a(uart.o)
+ .text.UARTCharPutNonBlocking
+                0x00000000       0x12 ../../lib/libdriver.a(uart.o)
+ .text.UARTBreakCtl
+                0x00000000       0x18 ../../lib/libdriver.a(uart.o)
+ .text.UARTBusy
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTIntRegister
+                0x00000000       0x30 ../../lib/libdriver.a(uart.o)
+ .text.UARTIntUnregister
+                0x00000000       0x30 ../../lib/libdriver.a(uart.o)
+ .text.UARTIntEnable
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTIntDisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTIntStatus
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTIntClear
+                0x00000000        0x4 ../../lib/libdriver.a(uart.o)
+ .text.UARTDMAEnable
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTDMADisable
+                0x00000000        0xa ../../lib/libdriver.a(uart.o)
+ .text.UARTRxErrorGet
+                0x00000000        0x8 ../../lib/libdriver.a(uart.o)
+ .text.UARTRxErrorClear
+                0x00000000        0x6 ../../lib/libdriver.a(uart.o)
+ .text          0x00000000        0x0 ../../lib/libdriver.a(cpu.o)
+ .data          0x00000000        0x0 ../../lib/libdriver.a(cpu.o)
+ .bss           0x00000000        0x0 ../../lib/libdriver.a(cpu.o)
+ .text.CPUcpsid
+                0x00000000        0x8 ../../lib/libdriver.a(cpu.o)
+ .text.CPUprimask
+                0x00000000        0x6 ../../lib/libdriver.a(cpu.o)
+ .text.CPUcpsie
+                0x00000000        0x8 ../../lib/libdriver.a(cpu.o)
+ .text.CPUwfi   0x00000000        0x4 ../../lib/libdriver.a(cpu.o)
+ .text.CPUbasepriSet
+                0x00000000        0x6 ../../lib/libdriver.a(cpu.o)
+ .text.CPUbasepriGet
+                0x00000000        0x6 ../../lib/libdriver.a(cpu.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbdhandler.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbdhandler.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbdhandler.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbdenum.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbdenum.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDInit
+                0x00000000       0xcc ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDTerm
+                0x00000000       0x50 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDRequestDataEP0
+                0x00000000       0x14 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDSendDataEP0
+                0x00000000       0x10 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDSetDefaultConfiguration
+                0x00000000        0xc ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDPowerStatusSet
+                0x00000000       0x20 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDRemoteWakeupRequest
+                0x00000000       0x38 ../../lib/libusb.a(usbdenum.o)
+ .rodata.g_sUSBDefaultFIFOConfig
+                0x00000000       0x78 ../../lib/libusb.a(usbdenum.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbmode.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbmode.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbmode.o)
+ .text.USBOTGSetMode
+                0x00000000       0x80 ../../lib/libusb.a(usbmode.o)
+ .text.USBStackModeSet
+                0x00000000       0x1c ../../lib/libusb.a(usbmode.o)
+ .text.USB0DualModeIntHandler
+                0x00000000       0x44 ../../lib/libusb.a(usbmode.o)
+ .text.USBDualModeInit
+                0x00000000       0x68 ../../lib/libusb.a(usbmode.o)
+ .text.USBDualModeTerm
+                0x00000000       0x24 ../../lib/libusb.a(usbmode.o)
+ .text.USBOTGModeTerm
+                0x00000000       0x2c ../../lib/libusb.a(usbmode.o)
+ .text.USBOTGModeInit
+                0x00000000       0x90 ../../lib/libusb.a(usbmode.o)
+ .text.USBOTGPollRate
+                0x00000000        0xc ../../lib/libusb.a(usbmode.o)
+ .text.USB0OTGModeIntHandler
+                0x00000000       0xc8 ../../lib/libusb.a(usbmode.o)
+ .text.OTGDeviceDisconnect
+                0x00000000       0x1c ../../lib/libusb.a(usbmode.o)
+ .text.USBOTGMain
+                0x00000000       0x7c ../../lib/libusb.a(usbmode.o)
+ .data.g_eUSBMode
+                0x00000000        0x1 ../../lib/libusb.a(usbmode.o)
+ .bss.g_ulPollRate
+                0x00000000        0x4 ../../lib/libusb.a(usbmode.o)
+ .data.g_eDualMode
+                0x00000000        0x1 ../../lib/libusb.a(usbmode.o)
+ .bss.g_ulWaitTicks
+                0x00000000        0x4 ../../lib/libusb.a(usbmode.o)
+ .bss.g_pfnUSBModeCallback
+                0x00000000        0x4 ../../lib/libusb.a(usbmode.o)
+ .bss.g_eOTGModeState
+                0x00000000        0x1 ../../lib/libusb.a(usbmode.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbtick.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbtick.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbtick.o)
+ .text.InternalUSBTickInit
+                0x00000000       0x28 ../../lib/libusb.a(usbtick.o)
+ .text.InternalUSBRegisterTickHandler
+                0x00000000       0x18 ../../lib/libusb.a(usbtick.o)
+ .bss.g_bUSBTimerInitialized
+                0x00000000        0x1 ../../lib/libusb.a(usbtick.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbdcdesc.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbdcdesc.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbdcdesc.o)
+ .text.USBDCDConfigGetNumAlternateInterfaces
+                0x00000000       0x32 ../../lib/libusb.a(usbdcdesc.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbdconfig.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbdconfig.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbdconfig.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbdesc.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbdesc.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbdesc.o)
+ .text.USBDescGetNumAlternateInterfaces
+                0x00000000       0x2c ../../lib/libusb.a(usbdesc.o)
+ .text.USBDescGetInterface
+                0x00000000       0x4c ../../lib/libusb.a(usbdesc.o)
+ .text.USBDescGetInterfaceEndpoint
+                0x00000000       0x14 ../../lib/libusb.a(usbdesc.o)
+ .text          0x00000000        0x0 ../../lib/libusb.a(usbhostenum.o)
+ .data          0x00000000        0x0 ../../lib/libusb.a(usbhostenum.o)
+ .bss           0x00000000        0x0 ../../lib/libusb.a(usbhostenum.o)
+ .text.FIFOFree
+                0x00000000       0x30 ../../lib/libusb.a(usbhostenum.o)
+ .text.FIFOAlloc
+                0x00000000       0x7c ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDDeviceDisconnected.clone.1
+                0x00000000       0x98 ../../lib/libusb.a(usbhostenum.o)
+ .text.SendUnknownConnect.clone.4
+                0x00000000       0x38 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeAllocSize
+                0x00000000      0x210 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeAlloc
+                0x00000000        0xc ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeConfig
+                0x00000000       0xe0 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeStatus
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeSchedule
+                0x00000000       0xe8 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeReadNonBlocking
+                0x00000000       0x3c ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeFree
+                0x00000000       0x8c ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPowerConfigInit
+                0x00000000        0xc ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPowerConfigGet
+                0x00000000        0xc ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPowerConfigSet
+                0x00000000       0x48 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDInitInternal
+                0x00000000       0xf8 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPowerAutomatic
+                0x00000000       0x18 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDInit
+                0x00000000       0xac ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDRegisterDrivers
+                0x00000000       0x10 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDTerm
+                0x00000000       0x70 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDReset
+                0x00000000       0x34 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDSuspend
+                0x00000000        0xc ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDResume
+                0x00000000       0x2c ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHostCheckPipes
+                0x00000000       0x58 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHostIntHandlerInternal
+                0x00000000      0x390 ../../lib/libusb.a(usbhostenum.o)
+ .text.USB0HostIntHandler
+                0x00000000       0x18 ../../lib/libusb.a(usbhostenum.o)
+ .text.InternalUSBHCDSendEvent
+                0x00000000       0x2c ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDControlTransfer
+                0x00000000       0x88 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDSetInterface
+                0x00000000       0x30 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDSetConfig
+                0x00000000       0x30 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDSetAddress
+                0x00000000       0x3c ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDMain
+                0x00000000      0x28c ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDClearFeature.clone.6
+                0x00000000       0x84 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeWrite
+                0x00000000      0x114 ../../lib/libusb.a(usbhostenum.o)
+ .text.USBHCDPipeRead
+                0x00000000      0x130 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_ulCurrentTick
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .data.g_iUSBHActiveDriver
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .data.g_ulTickms
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_pvDriverInstance
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_bUseDMAWA
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .data.g_ulPowerConfig
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .bss.ulSOFDivide.2243
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_sUSBHEP0State
+                0x00000000       0x18 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_ulUSBHIntEvents
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_ulDMAPending
+                0x00000000        0x4 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_ulAlloc
+                0x00000000        0x8 ../../lib/libusb.a(usbhostenum.o)
+ .bss.g_sUSBHCD
+                0x00000000      0x434 ../../lib/libusb.a(usbhostenum.o)
+ .data          0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+ .bss           0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+ .text          0x00000000       0x64 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .data          0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .text          0x00000000       0xa0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .data          0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .bss           0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .text          0x00000000       0x7c /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+ .data          0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+ .bss           0x00000000        0x0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x20000000         0x00010000         xr
+SRAM             0x20010000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD gcc/main.o
+LOAD gcc/startup.o
+LOAD gcc/mydelay.o
+LOAD gcc/ustdlib.o
+LOAD gcc/uartstdio.o
+LOAD gcc/usb_mouse_structs.o
+LOAD ../../lib/libdriver.a
+LOAD ../../lib/libgr.a
+LOAD ../../lib/libusb.a
+LOAD /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a
+LOAD /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libm.a
+LOAD /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a
+LOAD /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/libgcc.a
+START GROUP
+LOAD /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/libgcc.a
+LOAD /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a
+END GROUP
+                0x00000800                __STACKSIZE__ = 0x800
+                0x00000080                __HEAPSIZE__ = 0x80
+                0x20018000                __SRAM_TOP__ = 0x20018000
+
+.text           0x20000000     0x1aec
+                0x20000000                _text = .
+ *(.vectors)
+ .vectors       0x20000000      0x11c gcc/startup.o
+                0x20000000                _vectorstable
+ *(.init)
+ .init          0x2000011c       0x64 gcc/startup.o
+                0x2000011c                ResetHandler
+ *(.text*)
+ .text.main     0x20000180       0x5c gcc/main.o
+                0x20000180                main
+ .text.NmiHandler
+                0x200001dc        0x2 gcc/startup.o
+ .text.FaultHandler
+                0x200001de        0x2 gcc/startup.o
+ .text.DefaultHandler
+                0x200001e0        0x2 gcc/startup.o
+ *fill*         0x200001e2        0x2 00
+ .text.UARTStdioInitExpClk
+                0x200001e4       0x54 gcc/uartstdio.o
+                0x200001e4                UARTStdioInitExpClk
+ .text.UARTStdioInit
+                0x20000238        0x8 gcc/uartstdio.o
+                0x20000238                UARTStdioInit
+ .text.UARTwrite
+                0x20000240       0x30 gcc/uartstdio.o
+                0x20000240                UARTwrite
+ .text.UARTprintf
+                0x20000270      0x1b8 gcc/uartstdio.o
+                0x20000270                UARTprintf
+ .text.GPIODirModeSet
+                0x20000428       0x2e ../../lib/libdriver.a(gpio.o)
+                0x20000428                GPIODirModeSet
+ .text.GPIOPadConfigSet
+                0x20000456       0xc8 ../../lib/libdriver.a(gpio.o)
+                0x20000456                GPIOPadConfigSet
+ .text.GPIOPinTypeUART
+                0x2000051e       0x1c ../../lib/libdriver.a(gpio.o)
+                0x2000051e                GPIOPinTypeUART
+ *fill*         0x2000053a        0x2 00
+ .text.SysCtlPeripheralPresent
+                0x2000053c       0x44 ../../lib/libdriver.a(sysctl.o)
+                0x2000053c                SysCtlPeripheralPresent
+ .text.SysCtlPeripheralEnable
+                0x20000580       0x20 ../../lib/libdriver.a(sysctl.o)
+                0x20000580                SysCtlPeripheralEnable
+ .text.SysCtlDelay
+                0x200005a0        0x6 ../../lib/libdriver.a(sysctl.o)
+                0x200005a0                SysCtlDelay
+ *fill*         0x200005a6        0x2 00
+ .text.SysCtlClockSet
+                0x200005a8      0x158 ../../lib/libdriver.a(sysctl.o)
+                0x200005a8                SysCtlClockSet
+ .text.SysCtlClockGet
+                0x20000700      0x1dc ../../lib/libdriver.a(sysctl.o)
+                0x20000700                SysCtlClockGet
+ .text.UARTEnable
+                0x200008dc       0x16 ../../lib/libdriver.a(uart.o)
+                0x200008dc                UARTEnable
+ .text.UARTDisable
+                0x200008f2       0x1e ../../lib/libdriver.a(uart.o)
+                0x200008f2                UARTDisable
+ .text.UARTConfigSetExpClk
+                0x20000910       0x4e ../../lib/libdriver.a(uart.o)
+                0x20000910                UARTConfigSetExpClk
+ .text.UARTCharPut
+                0x2000095e        0xc ../../lib/libdriver.a(uart.o)
+                0x2000095e                UARTCharPut
+ *fill*         0x2000096a        0x2 00
+ .text.USB0DeviceIntHandler
+                0x2000096c       0x18 ../../lib/libusb.a(usbdhandler.o)
+                0x2000096c                USB0DeviceIntHandler
+ .text.USBDSetAddress
+                0x20000984       0x28 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDEP0StateTx.clone.0
+                0x200009ac       0x68 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDGetConfiguration
+                0x20000a14       0x34 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDEP0StateTxConfig.clone.1
+                0x20000a48      0x144 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDCDStallEP0
+                0x20000b8c       0x1c ../../lib/libusb.a(usbdenum.o)
+                0x20000b8c                USBDCDStallEP0
+ .text.USBDReadAndDispatchRequest.clone.2
+                0x20000ba8       0x60 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDSyncFrame
+                0x20000c08       0x1c ../../lib/libusb.a(usbdenum.o)
+ .text.USBDSetInterface
+                0x20000c24       0x9c ../../lib/libusb.a(usbdenum.o)
+ .text.USBDGetInterface
+                0x20000cc0       0x4c ../../lib/libusb.a(usbdenum.o)
+ .text.USBDSetConfiguration
+                0x20000d0c       0x88 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDSetDescriptor
+                0x20000d94       0x1c ../../lib/libusb.a(usbdenum.o)
+ .text.USBDGetDescriptor
+                0x20000db0      0x13c ../../lib/libusb.a(usbdenum.o)
+ .text.USBDSetFeature
+                0x20000eec       0x7c ../../lib/libusb.a(usbdenum.o)
+ .text.USBDClearFeature
+                0x20000f68       0x90 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDGetStatus
+                0x20000ff8       0x78 ../../lib/libusb.a(usbdenum.o)
+ .text.USBDeviceResumeTickHandler
+                0x20001070       0x48 ../../lib/libusb.a(usbdenum.o)
+                0x20001070                USBDeviceResumeTickHandler
+ .text.USBDeviceEnumHandler
+                0x200010b8       0xc4 ../../lib/libusb.a(usbdenum.o)
+                0x200010b8                USBDeviceEnumHandler
+ .text.USBDeviceEnumResetHandler
+                0x2000117c       0x38 ../../lib/libusb.a(usbdenum.o)
+                0x2000117c                USBDeviceEnumResetHandler
+ .text.USBDeviceIntHandlerInternal
+                0x200011b4       0xa4 ../../lib/libusb.a(usbdenum.o)
+                0x200011b4                USBDeviceIntHandlerInternal
+ .text.InternalUSBStartOfFrameTick
+                0x20001258       0x30 ../../lib/libusb.a(usbtick.o)
+                0x20001258                InternalUSBStartOfFrameTick
+ .text.NextConfigDescGet
+                0x20001288       0x30 ../../lib/libusb.a(usbdcdesc.o)
+ .text.USBDCDConfigDescGetSize
+                0x200012b8       0x1e ../../lib/libusb.a(usbdcdesc.o)
+                0x200012b8                USBDCDConfigDescGetSize
+ .text.USBDCDConfigDescGetNum
+                0x200012d6       0x2a ../../lib/libusb.a(usbdcdesc.o)
+                0x200012d6                USBDCDConfigDescGetNum
+ .text.USBDCDConfigDescGet
+                0x20001300       0x5a ../../lib/libusb.a(usbdcdesc.o)
+                0x20001300                USBDCDConfigDescGet
+ .text.USBDCDConfigGetInterface
+                0x2000135a       0x5c ../../lib/libusb.a(usbdcdesc.o)
+                0x2000135a                USBDCDConfigGetInterface
+ .text.USBDCDConfigGetInterfaceEndpoint
+                0x200013b6       0x3c ../../lib/libusb.a(usbdcdesc.o)
+                0x200013b6                USBDCDConfigGetInterfaceEndpoint
+ .text.GetEndpointFIFOSize
+                0x200013f2       0x42 ../../lib/libusb.a(usbdconfig.o)
+ .text.GetEPDescriptorType
+                0x20001434       0x50 ../../lib/libusb.a(usbdconfig.o)
+ .text.USBDeviceConfig
+                0x20001484      0x18c ../../lib/libusb.a(usbdconfig.o)
+                0x20001484                USBDeviceConfig
+ .text.USBDeviceConfigAlternate
+                0x20001610       0xac ../../lib/libusb.a(usbdconfig.o)
+                0x20001610                USBDeviceConfigAlternate
+ .text.USBDescGetNum
+                0x200016bc       0x26 ../../lib/libusb.a(usbdesc.o)
+                0x200016bc                USBDescGetNum
+ .text.USBDescGet
+                0x200016e2       0x2a ../../lib/libusb.a(usbdesc.o)
+                0x200016e2                USBDescGet
+ .text          0x2000170c      0x2d0 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+                0x2000170c                memcpy
+ *(.rodata*)
+ .rodata.str1.1
+                0x200019dc       0x29 gcc/main.o
+ *fill*         0x20001a05        0x3 00
+ .rodata.g_ulUARTPeriph
+                0x20001a08        0xc gcc/uartstdio.o
+ .rodata.str1.1
+                0x20001a14       0x20 gcc/uartstdio.o
+ .rodata.g_ulUARTBase
+                0x20001a34        0xc gcc/uartstdio.o
+ .rodata.g_pulDCRegs
+                0x20001a40       0x10 ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulXtals
+                0x20001a50       0x5c ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_pulRCGCRegs
+                0x20001aac        0xc ../../lib/libdriver.a(sysctl.o)
+ .rodata.g_psUSBDStdRequests
+                0x20001ab8       0x34 ../../lib/libusb.a(usbdenum.o)
+
+.glue_7         0x20001aec        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x20001aec        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x20001aec        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x20001aec        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.ARM.extab      0x20001aec        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+
+.ARM.exidx      0x20001aec        0x0
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x20001aec                _etext = (((_text + SIZEOF (.text)) + SIZEOF (.ARM.extab)) + SIZEOF (.ARM.exidx))
+
+.data           0x20010000        0x0 load address 0x20001aec
+                0x20010000                _data = .
+ *(.vectors_ram)
+ *(.data*)
+                0x20010000                _edata = (_data + SIZEOF (.data))
+
+.bss            0x20010000       0xbc
+                0x20010000                _bss = .
+ *(.bss*)
+ .bss.g_ulBase  0x20010000        0x4 gcc/uartstdio.o
+ .bss.g_psUSBDevice
+                0x20010004       0x54 ../../lib/libusb.a(usbdenum.o)
+                0x20010004                g_psUSBDevice
+ .bss.ulSOFDivide.2098
+                0x20010058        0x4 ../../lib/libusb.a(usbdenum.o)
+ .bss.g_pucDataBufferIn
+                0x2001005c       0x40 ../../lib/libusb.a(usbdenum.o)
+ .bss.g_ulCurrentUSBTick
+                0x2001009c        0x4 ../../lib/libusb.a(usbtick.o)
+                0x2001009c                g_ulCurrentUSBTick
+ .bss.g_pfTickHandlers
+                0x200100a0        0xc ../../lib/libusb.a(usbtick.o)
+                0x200100a0                g_pfTickHandlers
+ .bss.g_ulUSBSOFCount
+                0x200100ac        0x4 ../../lib/libusb.a(usbtick.o)
+                0x200100ac                g_ulUSBSOFCount
+ .bss.g_pvTickInstance
+                0x200100b0        0xc ../../lib/libusb.a(usbtick.o)
+                0x200100b0                g_pvTickInstance
+ *(COMMON)
+                0x200100bc                _ebss = (_bss + SIZEOF (.bss))
+
+.heap           0x200100bc       0x80
+                0x200100bc                _heap = .
+ *(.heap*)
+                0x2001013c                . = ALIGN (MAX ((_heap + __HEAPSIZE__), .), 0x4)
+ *fill*         0x200100bc       0x80 00
+                0x2001013c                _eheap = (_heap + SIZEOF (.heap))
+
+.stack          0x20017800      0x800
+                0x20017800                _stack = .
+ *(.stack*)
+                0x20018000                . = ALIGN (MAX ((_stack + __STACKSIZE__), .), 0x4)
+ *fill*         0x20017800      0x800 00
+                0x20018000                _estack = (_stack + SIZEOF (.stack))
+                0x200100bc                PROVIDE (__HEAP_START, _heap)
+OUTPUT(gcc/main.axf elf32-littlearm)
+
+.comment        0x00000000       0x25
+ .comment       0x00000000       0x25 gcc/main.o
+                                 0x26 (size before relaxing)
+ .comment       0x00000000       0x26 gcc/startup.o
+ .comment       0x00000000       0x26 gcc/mydelay.o
+ .comment       0x00000000       0x26 gcc/ustdlib.o
+ .comment       0x00000000       0x26 gcc/uartstdio.o
+ .comment       0x00000000       0x26 gcc/usb_mouse_structs.o
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(gpio.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(interrupt.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(sysctl.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(uart.o)
+ .comment       0x00000000       0x26 ../../lib/libdriver.a(cpu.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbdhandler.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbdenum.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbmode.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbtick.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbdcdesc.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbdconfig.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbdesc.o)
+ .comment       0x00000000       0x26 ../../lib/libusb.a(usbhostenum.o)
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x31 gcc/main.o
+ .ARM.attributes
+                0x00000031       0x31 gcc/startup.o
+ .ARM.attributes
+                0x00000062       0x31 gcc/mydelay.o
+ .ARM.attributes
+                0x00000093       0x31 gcc/ustdlib.o
+ .ARM.attributes
+                0x000000c4       0x31 gcc/uartstdio.o
+ .ARM.attributes
+                0x000000f5       0x31 gcc/usb_mouse_structs.o
+ .ARM.attributes
+                0x00000126       0x31 ../../lib/libdriver.a(gpio.o)
+ .ARM.attributes
+                0x00000157       0x31 ../../lib/libdriver.a(interrupt.o)
+ .ARM.attributes
+                0x00000188       0x31 ../../lib/libdriver.a(sysctl.o)
+ .ARM.attributes
+                0x000001b9       0x31 ../../lib/libdriver.a(uart.o)
+ .ARM.attributes
+                0x000001ea       0x31 ../../lib/libdriver.a(cpu.o)
+ .ARM.attributes
+                0x0000021b       0x31 ../../lib/libusb.a(usbdhandler.o)
+ .ARM.attributes
+                0x0000024c       0x31 ../../lib/libusb.a(usbdenum.o)
+ .ARM.attributes
+                0x0000027d       0x31 ../../lib/libusb.a(usbmode.o)
+ .ARM.attributes
+                0x000002ae       0x31 ../../lib/libusb.a(usbtick.o)
+ .ARM.attributes
+                0x000002df       0x31 ../../lib/libusb.a(usbdcdesc.o)
+ .ARM.attributes
+                0x00000310       0x31 ../../lib/libusb.a(usbdconfig.o)
+ .ARM.attributes
+                0x00000341       0x31 ../../lib/libusb.a(usbdesc.o)
+ .ARM.attributes
+                0x00000372       0x31 ../../lib/libusb.a(usbhostenum.o)
+ .ARM.attributes
+                0x000003a3       0x21 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+ .ARM.attributes
+                0x000003c4       0x31 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x000003f5       0x31 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .ARM.attributes
+                0x00000426       0x31 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+
+.debug_frame    0x00000000       0x78
+ .debug_frame   0x00000000       0x20 /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+ .debug_frame   0x00000020       0x2c /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+ .debug_frame   0x0000004c       0x2c /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+
+Cross Reference Table
+
+Symbol                                            File
+CPUbasepriGet                                     ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUbasepriSet                                     ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUcpsid                                          ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUcpsie                                          ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(interrupt.o)
+CPUprimask                                        ../../lib/libdriver.a(cpu.o)
+CPUwfi                                            ../../lib/libdriver.a(cpu.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+GPIODirModeGet                                    ../../lib/libdriver.a(gpio.o)
+GPIODirModeSet                                    ../../lib/libdriver.a(gpio.o)
+GPIOIntTypeGet                                    ../../lib/libdriver.a(gpio.o)
+GPIOIntTypeSet                                    ../../lib/libdriver.a(gpio.o)
+GPIOPadConfigGet                                  ../../lib/libdriver.a(gpio.o)
+GPIOPadConfigSet                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinConfigure                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinIntClear                                   ../../lib/libdriver.a(gpio.o)
+GPIOPinIntDisable                                 ../../lib/libdriver.a(gpio.o)
+GPIOPinIntEnable                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinIntStatus                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinRead                                       ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeADC                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeCAN                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeComparator                             ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeEPI                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeEthernetLED                            ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeGPIOInput                              ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeGPIOOutput                             ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeGPIOOutputOD                           ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeI2C                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeI2S                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypePWM                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeQEI                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeSSI                                    ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeTimer                                  ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeUART                                   ../../lib/libdriver.a(gpio.o)
+                                                  gcc/main.o
+GPIOPinTypeUSBAnalog                              ../../lib/libdriver.a(gpio.o)
+GPIOPinTypeUSBDigital                             ../../lib/libdriver.a(gpio.o)
+GPIOPinWrite                                      ../../lib/libdriver.a(gpio.o)
+GPIOPortIntRegister                               ../../lib/libdriver.a(gpio.o)
+GPIOPortIntUnregister                             ../../lib/libdriver.a(gpio.o)
+IntDisable                                        ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+IntEnable                                         ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+IntMasterDisable                                  ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+IntMasterEnable                                   ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+IntPendClear                                      ../../lib/libdriver.a(interrupt.o)
+IntPendSet                                        ../../lib/libdriver.a(interrupt.o)
+IntPriorityGet                                    ../../lib/libdriver.a(interrupt.o)
+IntPriorityGroupingGet                            ../../lib/libdriver.a(interrupt.o)
+IntPriorityGroupingSet                            ../../lib/libdriver.a(interrupt.o)
+IntPriorityMaskGet                                ../../lib/libdriver.a(interrupt.o)
+IntPriorityMaskSet                                ../../lib/libdriver.a(interrupt.o)
+IntPrioritySet                                    ../../lib/libdriver.a(interrupt.o)
+IntRegister                                       ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+IntUnregister                                     ../../lib/libdriver.a(interrupt.o)
+                                                  ../../lib/libdriver.a(uart.o)
+                                                  ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libdriver.a(gpio.o)
+InternalUSBHCDSendEvent                           ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+InternalUSBRegisterTickHandler                    ../../lib/libusb.a(usbtick.o)
+InternalUSBStartOfFrameTick                       ../../lib/libusb.a(usbtick.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+InternalUSBTickInit                               ../../lib/libusb.a(usbtick.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+MouseHandler                                      gcc/usb_mouse_structs.o
+OTGDeviceDisconnect                               ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+ResetHandler                                      gcc/startup.o
+SysCtlADCSpeedGet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlADCSpeedSet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlBrownOutConfigSet                           ../../lib/libdriver.a(sysctl.o)
+SysCtlClkVerificationClear                        ../../lib/libdriver.a(sysctl.o)
+SysCtlClockGet                                    ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+                                                  gcc/uartstdio.o
+                                                  gcc/mydelay.o
+                                                  gcc/main.o
+SysCtlClockSet                                    ../../lib/libdriver.a(sysctl.o)
+                                                  gcc/main.o
+SysCtlDeepSleep                                   ../../lib/libdriver.a(sysctl.o)
+SysCtlDelay                                       ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+                                                  gcc/mydelay.o
+SysCtlFlashSizeGet                                ../../lib/libdriver.a(sysctl.o)
+SysCtlGPIOAHBDisable                              ../../lib/libdriver.a(sysctl.o)
+SysCtlGPIOAHBEnable                               ../../lib/libdriver.a(sysctl.o)
+SysCtlI2SMClkSet                                  ../../lib/libdriver.a(sysctl.o)
+SysCtlIOSCVerificationSet                         ../../lib/libdriver.a(sysctl.o)
+SysCtlIntClear                                    ../../lib/libdriver.a(sysctl.o)
+SysCtlIntDisable                                  ../../lib/libdriver.a(sysctl.o)
+SysCtlIntEnable                                   ../../lib/libdriver.a(sysctl.o)
+SysCtlIntRegister                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlIntStatus                                   ../../lib/libdriver.a(sysctl.o)
+SysCtlIntUnregister                               ../../lib/libdriver.a(sysctl.o)
+SysCtlLDOConfigSet                                ../../lib/libdriver.a(sysctl.o)
+SysCtlLDOGet                                      ../../lib/libdriver.a(sysctl.o)
+SysCtlLDOSet                                      ../../lib/libdriver.a(sysctl.o)
+SysCtlMOSCVerificationSet                         ../../lib/libdriver.a(sysctl.o)
+SysCtlPLLVerificationSet                          ../../lib/libdriver.a(sysctl.o)
+SysCtlPWMClockGet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlPWMClockSet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralClockGating                       ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralDeepSleepDisable                  ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralDeepSleepEnable                   ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralDisable                           ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+SysCtlPeripheralEnable                            ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+                                                  gcc/uartstdio.o
+                                                  gcc/main.o
+SysCtlPeripheralPresent                           ../../lib/libdriver.a(sysctl.o)
+                                                  gcc/uartstdio.o
+SysCtlPeripheralReset                             ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+SysCtlPeripheralSleepDisable                      ../../lib/libdriver.a(sysctl.o)
+SysCtlPeripheralSleepEnable                       ../../lib/libdriver.a(sysctl.o)
+SysCtlPinPresent                                  ../../lib/libdriver.a(sysctl.o)
+SysCtlReset                                       ../../lib/libdriver.a(sysctl.o)
+SysCtlResetCauseClear                             ../../lib/libdriver.a(sysctl.o)
+SysCtlResetCauseGet                               ../../lib/libdriver.a(sysctl.o)
+SysCtlSRAMSizeGet                                 ../../lib/libdriver.a(sysctl.o)
+SysCtlSleep                                       ../../lib/libdriver.a(sysctl.o)
+SysCtlUSBPLLDisable                               ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+SysCtlUSBPLLEnable                                ../../lib/libdriver.a(sysctl.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+UARTBreakCtl                                      ../../lib/libdriver.a(uart.o)
+UARTBusy                                          ../../lib/libdriver.a(uart.o)
+UARTCharGet                                       ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+UARTCharGetNonBlocking                            ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTCharPut                                       ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+UARTCharPutNonBlocking                            ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTCharsAvail                                    ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTConfigGetExpClk                               ../../lib/libdriver.a(uart.o)
+UARTConfigSetExpClk                               ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+                                                  gcc/main.o
+UARTDMADisable                                    ../../lib/libdriver.a(uart.o)
+UARTDMAEnable                                     ../../lib/libdriver.a(uart.o)
+UARTDisable                                       ../../lib/libdriver.a(uart.o)
+UARTDisableSIR                                    ../../lib/libdriver.a(uart.o)
+UARTEnable                                        ../../lib/libdriver.a(uart.o)
+                                                  gcc/uartstdio.o
+UARTEnableSIR                                     ../../lib/libdriver.a(uart.o)
+UARTFIFODisable                                   ../../lib/libdriver.a(uart.o)
+UARTFIFOEnable                                    ../../lib/libdriver.a(uart.o)
+UARTFIFOLevelGet                                  ../../lib/libdriver.a(uart.o)
+UARTFIFOLevelSet                                  ../../lib/libdriver.a(uart.o)
+UARTFlowControlGet                                ../../lib/libdriver.a(uart.o)
+UARTFlowControlSet                                ../../lib/libdriver.a(uart.o)
+UARTIntClear                                      ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTIntDisable                                    ../../lib/libdriver.a(uart.o)
+UARTIntEnable                                     ../../lib/libdriver.a(uart.o)
+UARTIntHandler                                    gcc/main.o
+UARTIntRegister                                   ../../lib/libdriver.a(uart.o)
+UARTIntStatus                                     ../../lib/libdriver.a(uart.o)
+                                                  gcc/main.o
+UARTIntUnregister                                 ../../lib/libdriver.a(uart.o)
+UARTModemControlClear                             ../../lib/libdriver.a(uart.o)
+UARTModemControlGet                               ../../lib/libdriver.a(uart.o)
+UARTModemControlSet                               ../../lib/libdriver.a(uart.o)
+UARTModemStatusGet                                ../../lib/libdriver.a(uart.o)
+UARTParityModeGet                                 ../../lib/libdriver.a(uart.o)
+UARTParityModeSet                                 ../../lib/libdriver.a(uart.o)
+UARTRxErrorClear                                  ../../lib/libdriver.a(uart.o)
+UARTRxErrorGet                                    ../../lib/libdriver.a(uart.o)
+UARTSend                                          gcc/main.o
+UARTSmartCardDisable                              ../../lib/libdriver.a(uart.o)
+UARTSmartCardEnable                               ../../lib/libdriver.a(uart.o)
+UARTSpaceAvail                                    ../../lib/libdriver.a(uart.o)
+UARTStdioInit                                     gcc/uartstdio.o
+                                                  gcc/main.o
+UARTStdioInitExpClk                               gcc/uartstdio.o
+UARTTxIntModeGet                                  ../../lib/libdriver.a(uart.o)
+UARTTxIntModeSet                                  ../../lib/libdriver.a(uart.o)
+UARTgetc                                          gcc/uartstdio.o
+UARTgets                                          gcc/uartstdio.o
+UARTprintf                                        gcc/uartstdio.o
+                                                  gcc/main.o
+UARTwrite                                         gcc/uartstdio.o
+USB0DeviceIntHandler                              ../../lib/libusb.a(usbdhandler.o)
+                                                  gcc/startup.o
+USB0DualModeIntHandler                            ../../lib/libusb.a(usbmode.o)
+USB0HostIntHandler                                ../../lib/libusb.a(usbhostenum.o)
+USB0OTGModeIntHandler                             ../../lib/libusb.a(usbmode.o)
+USBDCDConfigDescGet                               ../../lib/libusb.a(usbdcdesc.o)
+                                                  ../../lib/libusb.a(usbdconfig.o)
+USBDCDConfigDescGetNum                            ../../lib/libusb.a(usbdcdesc.o)
+                                                  ../../lib/libusb.a(usbdconfig.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBDCDConfigDescGetSize                           ../../lib/libusb.a(usbdcdesc.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBDCDConfigGetInterface                          ../../lib/libusb.a(usbdcdesc.o)
+                                                  ../../lib/libusb.a(usbdconfig.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBDCDConfigGetInterfaceEndpoint                  ../../lib/libusb.a(usbdcdesc.o)
+                                                  ../../lib/libusb.a(usbdconfig.o)
+USBDCDConfigGetNumAlternateInterfaces             ../../lib/libusb.a(usbdcdesc.o)
+USBDCDInit                                        ../../lib/libusb.a(usbdenum.o)
+USBDCDPowerStatusSet                              ../../lib/libusb.a(usbdenum.o)
+USBDCDRemoteWakeupRequest                         ../../lib/libusb.a(usbdenum.o)
+USBDCDRequestDataEP0                              ../../lib/libusb.a(usbdenum.o)
+USBDCDSendDataEP0                                 ../../lib/libusb.a(usbdenum.o)
+USBDCDSetDefaultConfiguration                     ../../lib/libusb.a(usbdenum.o)
+USBDCDStallEP0                                    ../../lib/libusb.a(usbdenum.o)
+USBDCDTerm                                        ../../lib/libusb.a(usbdenum.o)
+USBDescGet                                        ../../lib/libusb.a(usbdesc.o)
+                                                  ../../lib/libusb.a(usbdcdesc.o)
+USBDescGetInterface                               ../../lib/libusb.a(usbdesc.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+USBDescGetInterfaceEndpoint                       ../../lib/libusb.a(usbdesc.o)
+USBDescGetNum                                     ../../lib/libusb.a(usbdesc.o)
+                                                  ../../lib/libusb.a(usbdcdesc.o)
+USBDescGetNumAlternateInterfaces                  ../../lib/libusb.a(usbdesc.o)
+USBDevAddrSet                                     ../../lib/libusb.a(usbdenum.o)
+USBDevConnect                                     ../../lib/libusb.a(usbdenum.o)
+USBDevDisconnect                                  ../../lib/libusb.a(usbdenum.o)
+USBDevEndpointConfigGet                           ../../lib/libusb.a(usbdconfig.o)
+USBDevEndpointConfigSet                           ../../lib/libusb.a(usbdconfig.o)
+USBDevEndpointDataAck                             ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBDevEndpointStall                               ../../lib/libusb.a(usbdenum.o)
+USBDevEndpointStallClear                          ../../lib/libusb.a(usbdenum.o)
+USBDevEndpointStatusClear                         ../../lib/libusb.a(usbdenum.o)
+USBDevMode                                        ../../lib/libusb.a(usbdenum.o)
+USBDeviceConfig                                   ../../lib/libusb.a(usbdconfig.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBDeviceConfigAlternate                          ../../lib/libusb.a(usbdconfig.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBDeviceEnumHandler                              ../../lib/libusb.a(usbdenum.o)
+USBDeviceEnumResetHandler                         ../../lib/libusb.a(usbdenum.o)
+USBDeviceIntHandlerInternal                       ../../lib/libusb.a(usbdenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdhandler.o)
+USBDeviceResumeTickHandler                        ../../lib/libusb.a(usbdenum.o)
+USBDualModeInit                                   ../../lib/libusb.a(usbmode.o)
+USBDualModeTerm                                   ../../lib/libusb.a(usbmode.o)
+USBEndpointDMAChannel                             ../../lib/libusb.a(usbhostenum.o)
+USBEndpointDMADisable                             ../../lib/libusb.a(usbhostenum.o)
+USBEndpointDMAEnable                              ../../lib/libusb.a(usbhostenum.o)
+USBEndpointDataGet                                ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBEndpointDataPut                                ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBEndpointDataSend                               ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBEndpointDataToggleClear                        ../../lib/libusb.a(usbhostenum.o)
+USBEndpointStatus                                 ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBFIFOAddrGet                                    ../../lib/libusb.a(usbhostenum.o)
+USBFIFOConfigSet                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdconfig.o)
+USBFIFOFlush                                      ../../lib/libusb.a(usbhostenum.o)
+USBHCDControlTransfer                             ../../lib/libusb.a(usbhostenum.o)
+USBHCDInit                                        ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHCDMain                                        ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHCDPipeAlloc                                   ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeAllocSize                               ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeConfig                                  ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeFree                                    ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeRead                                    ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeReadNonBlocking                         ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeSchedule                                ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeStatus                                  ../../lib/libusb.a(usbhostenum.o)
+USBHCDPipeWrite                                   ../../lib/libusb.a(usbhostenum.o)
+USBHCDPowerAutomatic                              ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHCDPowerConfigGet                              ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHCDPowerConfigInit                             ../../lib/libusb.a(usbhostenum.o)
+USBHCDPowerConfigSet                              ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHCDRegisterDrivers                             ../../lib/libusb.a(usbhostenum.o)
+USBHCDReset                                       ../../lib/libusb.a(usbhostenum.o)
+USBHCDResume                                      ../../lib/libusb.a(usbhostenum.o)
+USBHCDSetAddress                                  ../../lib/libusb.a(usbhostenum.o)
+USBHCDSetConfig                                   ../../lib/libusb.a(usbhostenum.o)
+USBHCDSetInterface                                ../../lib/libusb.a(usbhostenum.o)
+USBHCDSuspend                                     ../../lib/libusb.a(usbhostenum.o)
+USBHCDTerm                                        ../../lib/libusb.a(usbhostenum.o)
+USBHostAddrSet                                    ../../lib/libusb.a(usbhostenum.o)
+USBHostCheckPipes                                 ../../lib/libusb.a(usbhostenum.o)
+USBHostEndpointConfig                             ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHostEndpointDataAck                            ../../lib/libusb.a(usbhostenum.o)
+USBHostEndpointStatusClear                        ../../lib/libusb.a(usbhostenum.o)
+USBHostIntHandlerInternal                         ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHostMode                                       ../../lib/libusb.a(usbhostenum.o)
+USBHostPwrConfig                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHostPwrDisable                                 ../../lib/libusb.a(usbhostenum.o)
+USBHostPwrEnable                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBHostRequestIN                                  ../../lib/libusb.a(usbhostenum.o)
+USBHostRequestStatus                              ../../lib/libusb.a(usbhostenum.o)
+USBHostReset                                      ../../lib/libusb.a(usbhostenum.o)
+USBHostResume                                     ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBHostSuspend                                    ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBIntDisableControl                              ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBIntDisableEndpoint                             ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBIntEnableControl                               ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBIntEnableEndpoint                              ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBIntStatusControl                               ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+                                                  ../../lib/libusb.a(usbdhandler.o)
+USBIntStatusEndpoint                              ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+USBModeGet                                        ../../lib/libusb.a(usbmode.o)
+USBOTGMain                                        ../../lib/libusb.a(usbmode.o)
+USBOTGModeInit                                    ../../lib/libusb.a(usbmode.o)
+USBOTGModeTerm                                    ../../lib/libusb.a(usbmode.o)
+USBOTGPollRate                                    ../../lib/libusb.a(usbmode.o)
+USBOTGSessionRequest                              ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbmode.o)
+USBStackModeSet                                   ../../lib/libusb.a(usbmode.o)
+_bss                                              gcc/startup.o
+_data                                             gcc/startup.o
+_delay_ms                                         gcc/mydelay.o
+_delay_us                                         gcc/mydelay.o
+_ebss                                             gcc/startup.o
+_edata                                            gcc/startup.o
+_estack                                           gcc/startup.o
+_etext                                            gcc/startup.o
+_text                                             gcc/startup.o
+_vectorstable                                     gcc/startup.o
+g_bUSBTimerInitialized                            ../../lib/libusb.a(usbtick.o)
+g_eOTGModeState                                   ../../lib/libusb.a(usbmode.o)
+g_eUSBMode                                        ../../lib/libusb.a(usbmode.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+g_pConfigString                                   gcc/usb_mouse_structs.o
+g_pHIDInterfaceString                             gcc/usb_mouse_structs.o
+g_pLangDescriptor                                 gcc/usb_mouse_structs.o
+g_pManufacturerString                             gcc/usb_mouse_structs.o
+g_pProductString                                  gcc/usb_mouse_structs.o
+g_pSerialNumberString                             gcc/usb_mouse_structs.o
+g_pStringDescriptors                              gcc/usb_mouse_structs.o
+g_pfTickHandlers                                  ../../lib/libusb.a(usbtick.o)
+g_psUSBDevice                                     ../../lib/libusb.a(usbdenum.o)
+g_pvTickInstance                                  ../../lib/libusb.a(usbtick.o)
+g_sMouseDevice                                    gcc/usb_mouse_structs.o
+g_sMouseInstance                                  gcc/usb_mouse_structs.o
+g_sUSBDefaultFIFOConfig                           ../../lib/libusb.a(usbdenum.o)
+g_ulCurrentUSBTick                                ../../lib/libusb.a(usbtick.o)
+g_ulDMAPending                                    ../../lib/libusb.a(usbhostenum.o)
+g_ulPollRate                                      ../../lib/libusb.a(usbmode.o)
+g_ulUSBHIntEvents                                 ../../lib/libusb.a(usbhostenum.o)
+g_ulUSBSOFCount                                   ../../lib/libusb.a(usbtick.o)
+                                                  ../../lib/libusb.a(usbhostenum.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+g_ulWaitTicks                                     ../../lib/libusb.a(usbmode.o)
+main                                              gcc/main.o
+                                                  gcc/startup.o
+memcpy                                            /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-asm-memcpy.o)
+                                                  ../../lib/libusb.a(usbdenum.o)
+                                                  gcc/ustdlib.o
+strlen                                            /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strlen.o)
+                                                  gcc/ustdlib.o
+strncmp                                           /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncmp.o)
+                                                  gcc/ustdlib.o
+strncpy                                           /home/mybays/CodeSourcery/Sourcery_G++/bin/../lib/gcc/arm-stellaris-eabi/4.5.1/../../../../arm-stellaris-eabi/lib/libc.a(lib_a-strncpy.o)
+                                                  gcc/ustdlib.o
+uDMAChannelAttributeDisable                       ../../lib/libusb.a(usbhostenum.o)
+uDMAChannelControlSet                             ../../lib/libusb.a(usbhostenum.o)
+uDMAChannelDisable                                ../../lib/libusb.a(usbhostenum.o)
+uDMAChannelEnable                                 ../../lib/libusb.a(usbhostenum.o)
+uDMAChannelModeGet                                ../../lib/libusb.a(usbhostenum.o)
+uDMAChannelTransferSet                            ../../lib/libusb.a(usbhostenum.o)
+ulocaltime                                        gcc/ustdlib.o
+usnprintf                                         gcc/ustdlib.o
+usprintf                                          gcc/ustdlib.o
+ustrcasecmp                                       gcc/ustdlib.o
+ustrnicmp                                         gcc/ustdlib.o
+ustrstr                                           gcc/ustdlib.o
+ustrtoul                                          gcc/ustdlib.o
+uvsnprintf                                        gcc/ustdlib.o
