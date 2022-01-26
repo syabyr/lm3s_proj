@@ -1,0 +1,63 @@
+//总线上一个传感器就够了
+#define MAXSENSORS 1
+//保存传感器的ID,共8字节
+uint8_t SensorID[OW_ROMCODE_SIZE];
+
+//若为1,说明有传感器,否则的话没有
+uint8_t nSensors;
+
+uint16_t meas;
+
+/***********************
+保存临时的scratchpad,共9字节
+字节0为温度的LSB
+字节1为温度的MSB
+字节2,3为用户空间
+字节4为配置字
+**************************/
+uint8_t sp[DS18X20_SP_SIZE];
+
+//获取一个传感器的温度,参数1为指定的id,参数2存放是否零下标志,参数3为整数部分,参数4为小数部分
+uint8_t DS18X20_get_temp(uint8_t id[],uint8_t *subzero,uint8_t *cel,uint8_t *cel_frac_bits)
+{
+	ow_reset();
+	if(ow_get_in())
+	{
+		uint8_t i;
+		ow_command(DS18X20_CONVERT_T,id);
+		_delay_ms(DS18B20_TCONV_12BIT);
+		ow_reset();
+		ow_command(DS18X20_READ,id)
+		for(i=0;i<DS18X20_SP_SIZE;i++)
+			sp[i]=ow_byte_rd();
+		if(crc8(&sp[0],DS18X20_SP_SIZE))
+			return -1;
+		meas=sp[0];
+		meas|=((uint16_t)sp[1])<<8;
+		if(meas&0x8000)
+		{
+			*subzero=1;
+			meas^=0xffff;
+			meas++;
+		}
+		else *subzero=0;
+
+		i=sp[DS18B20_CONF_REG];
+		if((i&DS18B20_12_BIT)==DS18B20_12_BIT)
+			;
+		else if((i&DS18B20_11_BIT)==DS18B20_11_BIT)
+			meas&=~(DS18B20_11_BIT_UNDF);
+		else if((i&DS18B20_10_BIT)==DS18B20_10_BIT)
+			meas&=~(DS18B20_10_BIT_UNDF);
+		else
+			meas&=~(DS18B20_9_BIT_UNDF);
+		*cel=(uint8_t)(meas>>4);
+		*cel_frac_bits=(uint8_t)(meas&0x000F);
+
+		return 0;
+	}
+	else
+	{
+		return -1;
+	}
+}

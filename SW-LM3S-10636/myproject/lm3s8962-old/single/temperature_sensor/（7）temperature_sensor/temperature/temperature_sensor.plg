@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\LM3S_TS\£¨7£©temperature_sensor\code\temperature_sensor.uvproj
+Project File Date:  05/28/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling ADC0_TEMP1.C...
+linking...
+Program Size: Code=3092 RO-data=188 RW-data=8 ZI-data=352  
+FromELF: creating hex file...
+"temperature_sensor.axf" - 0 Error(s), 0 Warning(s).

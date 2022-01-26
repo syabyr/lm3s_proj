@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1454618822</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\common_doc\grlib.a</file>
+      <file>$TOOLKIT_DIR$\inc\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\container.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\all_demo.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\320x240_lcd_ssd1963.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dl7M_tl_in.a</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\timer.h</file>
+      <file>$PROJ_DIR$\320x240_lcd_ssd1963.c</file>
+      <file>$PROJ_DIR$\appfunc.c</file>
+      <file>$PROJ_DIR$\..\common_doc\driverlib.a</file>
+      <file>$PROJ_DIR$\images.c</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\pca9534.c</file>
+      <file>$PROJ_DIR$\sound.c</file>
+      <file>$PROJ_DIR$\touch.c</file>
+      <file>$PROJ_DIR$\ustdlib.c</file>
+      <file>$PROJ_DIR$\startup_ewarm.c</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Config_Normal.h</file>
+      <file>$TOOLKIT_DIR$\inc\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdlib.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\debug.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\gpio.h</file>
+      <file>$PROJ_DIR$\appfunc.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\320x240_lcd_ssd1963.o</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\inc\hw_timer.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\grlib.h</file>
+      <file>$PROJ_DIR$\images.h</file>
+      <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\checkbox.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\inc\hw_types.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\sound.pbi</file>
+      <file>$PROJ_DIR$\touch.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\pwm.h</file>
+      <file>$PROJ_DIR$\320x240_lcd_ssd1963.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\sound.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\sound.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\touch.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\images.pbi</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\widget.c</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\sysctl.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Product_string.h</file>
+      <file>$TOOLKIT_DIR$\inc\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\startup_ewarm.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ustdlib.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ustdlib.pbi</file>
+      <file>$PROJ_DIR$\ustdlib.h</file>
+      <file>$PROJ_DIR$\uartstdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdarg.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\inc\hw_memmap.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\radiobutton.h</file>
+      <file>$PROJ_DIR$\uartstdio.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\pca9534.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\pca9534.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\uartstdio.pbi</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\pushbutton.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\images.o</file>
+      <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\imgbutton.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\widget.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\appfunc.pbi</file>
+      <file>$PROJ_DIR$\..\common_doc\LM3S2110.icf</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\interrupt.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\touch.pbi</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\canvas.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\appfunc.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\startup_ewarm.o</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\inc\hw_ints.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\ssi.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\slider.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\all_demo.out</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\listbox.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\driver lib\driverlib\I2C.h</file>
+      <file>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\widget.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\all_demo.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 7 67 44 35 59 36 50 70 52</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\320x240_lcd_ssd1963.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39 34 56 46 26 30</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 39 34 56 46 26 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\appfunc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 67</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 72</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 56 46 26 38 79 74 69 39 30 37 80 71 33 2 65 78 62 57 76 31 27 42 53 55 4 22 24 20 1 6</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34 56 46 26 38 79 74 69 39 30 37 80 71 33 2 65 78 62 57 76 31 27 42 53 55 4 22 24 21 20 1 6</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\images.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 56 46 39 26 30 37 80 71 33 2 65 78 62 57 76 31 27 42 23 4 22 24 20 1 6 5 47</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34 56 46 39 26 30 37 80 71 33 2 65 78 62 57 76 31 27 42 23 4 22 24 21 20 1 6 5 47</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\pca9534.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 56 46 26 79</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34 56 46 26 79</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sound.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74 56 29 34 25 26 69 46 9 42</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 74 56 29 34 25 26 69 46 9 42</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\touch.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 56 46 69 74 26 75 37 30 80</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34 56 46 69 74 26 75 37 30 80</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\ustdlib.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49 4 22 24 20 1 6 5 48 25 53 55</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 49 4 22 24 21 20 1 6 5 48 25 53 55</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\startup_ewarm.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 77</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\common_doc\StellarisWare\graph lib\grlib\widget.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 25</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\uartstdio.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55 4 22 24 20 1 6 54</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 55 4 22 24 21 20 1 6 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\all_demo.out</name>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 68 28 72 63 41 60 40 73 43 51 12 0 64 32 8</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

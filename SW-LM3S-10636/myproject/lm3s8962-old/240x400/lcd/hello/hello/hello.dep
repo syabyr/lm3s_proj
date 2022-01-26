@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3498025743</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\..\utils\locator.c</file>
+      <file>$PROJ_DIR$\..\..\..\utils\lwiplib.c</file>
+      <file>$PROJ_DIR$\startup_ewarm.c</file>
+      <file>$PROJ_DIR$\..\..\..\utils\swupdate.c</file>
+      <file>$PROJ_DIR$\..\..\..\utils\ustdlib.c</file>
+      <file>$PROJ_DIR$\..\drivers\formike240x320x16_ili9320.c</file>
+      <file>$PROJ_DIR$\hello.c</file>
+    </outputs>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

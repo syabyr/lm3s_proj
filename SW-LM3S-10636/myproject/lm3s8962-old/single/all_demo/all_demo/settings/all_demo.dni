@@ -1,0 +1,58 @@
+[Interrupts]
+Enabled=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[TraceHelper]
+Enabled=0
+ShowSource=1
+[DebugChecksum]
+Checksum=-944620628
+[DisAssemblyWindow]
+NumStates=_ 0
+[InstructionProfiling]
+Enabled=_ 0
+[CodeCoverage]
+Enabled=_ 0
+[Profiling]
+Enabled=0
+[StackPlugin]
+Enabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnHow=0
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[RecentFlashDownload]
+Path=C:\StellarisWare\LDM_L35\boards\rdk-idm-l35\qs-keypad\ewarm\Exe\qs-keypad.out
+[Disassemble mode]
+mode=0
+[Breakpoints]
+Count=0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Aliases]
+A0=_ "C:\cygwin\sandbox\DriverLib\build\DriverLib.test\driverlib\gpio.c" ""
+A1=_ "C:\cygwin\sandbox\DriverLib\build\DriverLib.test\driverlib\interrupt.c" ""
+A2=_ "C:\cygwin\sandbox\DriverLib\build\DriverLib.test\driverlib\sysctl.c" ""
+A3=_ "F:\StellarisWare\grlib\context.c" ""
+A4=_ "F:\StellarisWare\grlib\pushbutton.c" ""
+A5=_ "F:\StellarisWare\grlib\widget.c" ""
+Count=6
+SuppressDialog=1
+[DriverProfiling]
+Enabled=0
+Source=2
+Graph=0

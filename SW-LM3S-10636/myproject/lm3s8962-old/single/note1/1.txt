@@ -1,0 +1,170 @@
+UIP学习笔记1
+
+8962的开发板用FlashUserGet()函数并不能从内部得到MAC地址,所以在uip的例程里要直接赋值给ulUser0和ulUser1.
+为了方便和明显,我这里在FlashUserGet(&ulUser0, &ulUser1);这一语句之后直接设置MAC地址:
+    ulUser0=0xaaaaaa;
+    ulUser1=0xaaaaaa;
+这样的话就能够用DHCP的方法分配到IP地址了.
+通过访问分配的ip地址,能够显示uIP的简单服务器:
+/home/mybays/luminary/workspace/boards/myproject/enet_uip/1.png
+
+uip的中断处理函数void *_appcall(void)是一个很有用的函数,当网卡中断处理时,会调用这一个函数.
+来看看一下这个函数进行了哪些操作:
+void tcp_appcall(void)
+{
+	char *hello="Hi,This is a TCP test!\n";
+	if(uip_connected())
+	{
+		uip_send(hello,strlen(hello)+1);
+	}
+	if(uip_newdata())
+	{
+		uip_send(uip_appdata,uip_len);
+	}
+}
+作为一个服务端(server),如果开发板接到了请求并且和客户端(client)建立了连接,那么开发板将返回给客户端一个字符串,并把客户端发来的数据echo back.
+
+以上函数添加到main.c文件里.同时修改uip-conf.h里的UIP_APPCALL定义为:
+#ifndef UIP_APPCALL
+#define UIP_APPCALL     tcp_appcall
+#endif
+在main.c文件里添加要监听的端口,这里我们使用以前的端口80.
+
+在linux下写了一个程序来测试tcp的连接,当建立连接后,程序向服务器发送一个字符串,这里是在终端输入的,开发板收到后,返回一个字符串"Hi,This is a TCP test!",或者是把收到的字符串回传.
+截图如下:
+/home/mybays/luminary/workspace/boards/myproject/enet_uip/2.png
+通过这样的方法,我们就能通过appcall这个函数来写自己的应用函数.
+源代码如下:
+
+
+
+# include <stdlib.h>
+# include <string.h>
+# include <stdio.h>
+# include <errno.h>
+#include<netdb.h>
+
+int client(const char *host,const char *port);
+int connectsock(const char *host,const char *port,const char *transport);
+int connecttcp(const char *host,const char *port);
+
+//#include"errexit.h"
+
+extern int errno;
+
+# ifndef     INADDR_NONE
+# define     INADDR_NONE     0xffffffff
+# endif
+# define LINELEN 128
+
+/*---------------------------------------------------------------
+ * main - TCP client for ECHO port
+ *---------------------------------------------------------------
+ */
+int main(int argc,char *argv[])
+{
+	char *host="192.168.1.106"; /* host to use if none supplied*/
+//	char *host="127.0.0.1"; /* host to use if none supplied*/
+//	char *host="192.168.56.103"; /* host to use if none supplied*/
+	char *port="80";     /* default port name */
+//	char *port="10001";     /* default port name */
+	client(host,port);
+	exit(0);
+}
+
+/*-----------------------------------------------------------------
+ * client - send input to ECHO port on specified host and print reply
+ *-----------------------------------------------------------------
+ */
+int client(const char *host,const char *port)
+{
+	char buf[LINELEN+1];   /* buffer for one line of text*/
+	int s,n;             /* socket descriptor, read count*/
+	int outchars,inchars;  /* characters sent and received*/
+
+	s=connecttcp(host,port);
+
+	while(fgets(buf,sizeof(buf),stdin))
+	{
+		buf[LINELEN]='\0';     /* insure line null-terminated */
+		outchars=strlen(buf);
+		(void)write(s,buf,outchars);
+
+        /* read it back */
+		for(inchars=0;inchars<outchars;inchars+=n)
+		 {
+			n=read(s,&buf[inchars] ,outchars-inchars);
+			if(n<0)
+				errexit("socket read failed: %s\n",strerror(errno));
+		}
+		printf("echo back ok.\n");
+		fputs(buf,stdout);
+	}
+}
+
+
+
+//connectsock - allocate & connect a socket using TCP or UDP
+int connectsock(const char *host,const char *port,const char *transport)
+/*
+ * Arguments:
+ * host - name of host to which connection is desired
+ * port - port associated with the desired port
+ * transport - name of transport protocol to use ("tcp" or "udp")
+ */
+{
+	struct hostent *phe;   /* pointer to host information entry*/
+	struct servent *pse; /* pointer to port information entry*/
+	struct protoent *ppe;  /* pointer to protocol information entry*/
+	struct sockaddr_in sin ;  /* an Internet endpoint address    */
+	int s,type;     /* socket descriptor and socket type    */
+
+
+	memset(&sin,0,sizeof(sin));
+	sin.sin_family=AF_INET;
+
+	/* Map port name to port number */
+	if(pse=getservbyname(port,transport))
+		sin.sin_port=pse->s_port;
+	else if((sin.sin_port=htons((unsigned short)atoi(port)))==0)
+       		errexit("can't get \"%s\" port entry\n",port);
+
+	/* Map host name to IP address, allowing for dotted decimal */
+	if(phe=gethostbyname(host))
+		memcpy(&sin.sin_addr,phe->h_addr,phe->h_length);
+	else if((sin.sin_addr.s_addr=inet_addr(host))==INADDR_NONE)
+		errexit("can't get \"%s\" host entry\n",host);
+
+	/* Map transport protocol name to protocol number */
+	if((ppe=getprotobyname(transport))==0)
+		errexit( "can't get \"%s\" protocol entry\n" , transport) ;
+
+	/* Use protocol to choose a socket type */
+	if ( strcmp(transport,"udp")==0)
+		type=SOCK_DGRAM;
+	else
+		type=SOCK_STREAM;
+
+    /* Allocate a socket */
+	s=socket(PF_INET,type,ppe->p_proto);
+	if(s<0)
+		errexit("can't create socket: %s\n",strerror(errno));
+
+    /* Connect the socket */
+	if(connect(s,(struct sockaddr *)&sin,sizeof(sin))<0)
+       	 errexit("can't connect to %s.%s: %s\n",host,port,strerror(errno));
+	return s;
+}
+
+int connecttcp(const char *host,const char *port)
+/*
+ * Arguments:
+ * host - name of host to which connection is desired
+ * port - port associated with the desired port
+ */
+{
+	 return connectsock(host,port,"tcp") ;
+} 
+
+
+

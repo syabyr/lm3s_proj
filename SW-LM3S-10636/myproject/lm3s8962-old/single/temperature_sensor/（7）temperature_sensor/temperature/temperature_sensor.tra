@@ -1,0 +1,21 @@
+*** Creating Trace Output File 'temperature_sensor.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"D:\Keil\ARM\RV31\LIB\Luminary\DriverLib.lib"'
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"adc0_temp1.o"'
+### ADS-LD Command completed:
+--device DLM "D:\Keil\ARM\RV31\LIB\Luminary\DriverLib.lib" "startup.o" "adc0_temp1.o" --strict --scatter "temperature_sensor.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\temperature_sensor.map" -o "temperature_sensor.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'temperature_sensor.axf'
+### ADS-LD Command File: 'temperature_sensor.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'temperature_sensor.lnp', Handle=0x00000384
+### Writing '.lnp' file
+### ADS-LD Command file 'temperature_sensor.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

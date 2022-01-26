@@ -1,0 +1,1 @@
+--device DLM -g --apcs=interwork -I "d:\Keil\ARM\INC\Luminary" --list "Startup.lst" --xref -o "Startup.o" "Startup.s"

@@ -1,0 +1,92 @@
+void lcd_int(void)
+{
+    //CMO3.5+ILI9481
+  wr_comm(0x0011);
+  Delay(100);
+  wr_comm(0x0013);
+  
+  wr_comm(0x00D0);
+  wr_dat(0x0007);
+  wr_dat(0x0040); //41   
+  wr_dat(0x001c);//1e
+
+    
+  wr_comm(0x00D1);
+  wr_dat(0x0000);
+  wr_dat(0x0018);
+  wr_dat(0x001d);
+  
+  wr_comm(0x00D2);
+  wr_dat(0x0001);
+  wr_dat(0x0011);//11
+
+  wr_comm(0x00C0);
+  wr_dat(0x0000);
+  wr_dat(0x003B);
+  wr_dat(0x0000);
+  wr_dat(0x0002);
+  wr_dat(0x0011);
+
+  wr_comm(0x00C1);
+  wr_dat(0x0010);
+  wr_dat(0x000B);
+  wr_dat(0x0088);
+  
+  wr_comm(0x00C5);
+  wr_dat(0x0001);
+   
+  wr_comm(0x00C8);
+  wr_dat(0x0000);
+  wr_dat(0x0030); //30
+  wr_dat(0x0036);
+  wr_dat(0x0045);
+  wr_dat(0x0004);
+  wr_dat(0x0016);
+  wr_dat(0x0037);
+  wr_dat(0x0075);
+  wr_dat(0x0077);
+  wr_dat(0x0054);
+  wr_dat(0x000f);
+  wr_dat(0x0000);
+  
+  wr_comm(0x00E4);
+  wr_dat(0x00A0);
+  
+    wr_comm(0x00F0);
+  wr_dat(0x0001);
+  
+  wr_comm(0x00F3);
+  wr_dat(0x0040);
+  wr_dat(0x000A);
+  
+  wr_comm(0x00F7);
+  wr_dat(0x0080);
+  
+  wr_comm(0x0036);
+  wr_dat(0x000a);
+  
+  wr_comm(0x003A);
+  wr_dat(0x0055);
+  
+/*wr_comm(0x00B3);
+wr_dat(0x0000);
+wr_dat(0x0000);
+wr_dat(0x0000);
+wr_dat(0x0011);*/
+  
+  wr_comm(0x002A);
+wr_dat(0x0000);
+wr_dat(0x0000);
+wr_dat(0x0001);
+wr_dat(0x003F);
+
+wr_comm(0x002B);
+wr_dat(0x0000);
+wr_dat(0x0000);
+wr_dat(0x0001);
+wr_dat(0x00df);
+  
+  Delay(120);
+  wr_comm(0x0029);
+  wr_comm(0x002C);
+}

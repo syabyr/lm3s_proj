@@ -1,0 +1,21 @@
+*** Creating Trace Output File 'ADC0.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"C:\Keil\ARM\RV31\LIB\Luminary\DriverLib.lib"'
+### List of Objects: adding '"adc0.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "startup.o" "C:\Keil\ARM\RV31\LIB\Luminary\DriverLib.lib" "adc0.o" --strict --scatter "ADC0.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\ADC0.map" -o "ADC0.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'ADC0.axf'
+### ADS-LD Command File: 'ADC0.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'ADC0.lnp', Handle=0x000002C4
+### Writing '.lnp' file
+### ADS-LD Command file 'ADC0.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

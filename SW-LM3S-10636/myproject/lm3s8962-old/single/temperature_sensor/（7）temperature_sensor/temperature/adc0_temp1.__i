@@ -1,0 +1,1 @@
+-c --device DLM -g -O0 --apcs=interwork -I "d:\Keil\ARM\INC\Luminary" -o "adc0_temp1.o" --omf_browse "adc0_temp1.crf" --depend "adc0_temp1.d" "ADC0_TEMP1.C"
